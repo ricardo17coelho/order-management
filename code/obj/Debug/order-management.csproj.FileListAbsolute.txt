@@ -1,0 +1,10 @@
+C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\bin\Debug\order-management.exe.config
+C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\bin\Debug\order-management.exe
+C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\bin\Debug\order-management.pdb
+C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\obj\Debug\order-management.csprojAssemblyReference.cache
+C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\obj\Debug\order_management.Properties.Resources.resources
+C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\obj\Debug\order-management.csproj.GenerateResource.cache
+C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\obj\Debug\order-management.csproj.CoreCompileInputs.cache
+C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\obj\Debug\order-management.exe
+C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\obj\Debug\order-management.pdb
+C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\obj\Debug\order_management.Dashboard.resources
