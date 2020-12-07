@@ -10,8 +10,6 @@ namespace order_management
 {
     public class Customer
     {
-        [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int CustomerId { get; set; }
 
         public string FirstName { get; set; }
@@ -38,18 +36,5 @@ namespace order_management
             City = city;
             Country = country;
         }
-
-        public Customer(int customerId, string firstName, string lastName, string street, string streetNr, int zip, string city, string country)
-        {
-            CustomerId = customerId;
-            FirstName = firstName;
-            LastName = lastName;
-            Street = street;
-            StreetNr = streetNr;
-            Zip = zip;
-            City = city;
-            Country = country;
-        }
-
     }
 }

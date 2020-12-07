@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.CmdCustomers = new System.Windows.Forms.Button();
+            this.CmdGenerateSampleData = new System.Windows.Forms.Button();
+            this.CmdProducts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CmdCustomers
@@ -41,15 +43,36 @@
             this.CmdCustomers.UseVisualStyleBackColor = true;
             this.CmdCustomers.Click += new System.EventHandler(this.CmdCustomers_Click);
             // 
+            // CmdGenerateSampleData
+            // 
+            this.CmdGenerateSampleData.Location = new System.Drawing.Point(365, 45);
+            this.CmdGenerateSampleData.Name = "CmdGenerateSampleData";
+            this.CmdGenerateSampleData.Size = new System.Drawing.Size(274, 97);
+            this.CmdGenerateSampleData.TabIndex = 1;
+            this.CmdGenerateSampleData.Text = "Generate Sample Data";
+            this.CmdGenerateSampleData.UseVisualStyleBackColor = true;
+            this.CmdGenerateSampleData.Click += new System.EventHandler(this.CmdGenerateSampleData_Click);
+            // 
+            // CmdProducts
+            // 
+            this.CmdProducts.Location = new System.Drawing.Point(35, 168);
+            this.CmdProducts.Name = "CmdProducts";
+            this.CmdProducts.Size = new System.Drawing.Size(221, 89);
+            this.CmdProducts.TabIndex = 2;
+            this.CmdProducts.Text = "Products";
+            this.CmdProducts.UseVisualStyleBackColor = true;
+            this.CmdProducts.Click += new System.EventHandler(this.CmdProducts_Click);
+            // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 499);
+            this.ClientSize = new System.Drawing.Size(864, 646);
+            this.Controls.Add(this.CmdProducts);
+            this.Controls.Add(this.CmdGenerateSampleData);
             this.Controls.Add(this.CmdCustomers);
             this.Name = "DashBoard";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
@@ -57,6 +80,8 @@
         #endregion
 
         private System.Windows.Forms.Button CmdCustomers;
+        private System.Windows.Forms.Button CmdGenerateSampleData;
+        private System.Windows.Forms.Button CmdProducts;
     }
 }
 

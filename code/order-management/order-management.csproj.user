@@ -4,6 +4,9 @@
     <Compile Update="View\CrudCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\CrudProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\DashBoard.cs">
       <SubType>Form</SubType>
     </Compile>

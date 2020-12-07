@@ -14,25 +14,25 @@ using Microsoft.EntityFrameworkCore;
 
 namespace order_management
 {
-    public class CustomerRepository : Repository<Customer>
+    public class ProductRepository : Repository<Product>
     {
 
-        public override void Add(Customer entity)
+        public override void Add(Product entity)
         {
-            dbContext.Customers.Add(entity);
+            dbContext.Products.Add(entity);
             Save();
         }
 
-        public override void Remove(Customer entity)
+        public override void Remove(Product entity)
         {
-            dbContext.Customers.Remove(entity);
+            dbContext.Products.Remove(entity);
             Save();
         }
 
-        public override BindingList<Customer> GetBoundedList()
+        public override BindingList<Product> GetBoundedList()
         {
-            dbContext.Customers.Load();
-            return dbContext.Customers.Local.ToBindingList();
+            dbContext.Products.Load();
+            return dbContext.Products.Local.ToBindingList();
 
         }
 
