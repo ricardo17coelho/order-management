@@ -22,6 +22,8 @@ namespace order_management
         public abstract void Add(Entity entity);
 
         public abstract void Remove(Entity entity);
+        
+        public abstract Entity FindById(int id);
 
         public abstract BindingList<Entity> GetBoundedList();
 

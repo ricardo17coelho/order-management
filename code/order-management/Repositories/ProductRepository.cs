@@ -17,6 +17,11 @@ namespace order_management
     public class ProductRepository : Repository<Product>
     {
 
+        public override Product FindById(int id)
+        {
+            return dbContext.Products.Find(id);
+        }
+
         public override void Add(Product entity)
         {
             dbContext.Products.Add(entity);

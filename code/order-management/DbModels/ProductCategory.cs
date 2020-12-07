@@ -16,5 +16,10 @@ namespace order_management
         }
 
         public ProductCategory() { }
+
+        public override string ToString()
+        {
+            return ProductCategoryName;
+        }
     }
 }

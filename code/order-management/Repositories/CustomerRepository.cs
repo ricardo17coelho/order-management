@@ -17,6 +17,11 @@ namespace order_management
     public class CustomerRepository : Repository<Customer>
     {
 
+        public override Customer FindById(int id)
+        {
+            return dbContext.Customers.Find(id);
+        }
+
         public override void Add(Customer entity)
         {
             dbContext.Customers.Add(entity);

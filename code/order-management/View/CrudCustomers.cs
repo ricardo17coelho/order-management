@@ -41,8 +41,8 @@ namespace order_management
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
-            //get selected customer
-            //customerRepository.Remove(selected customer);
+            Customer selectedCustomer = (Customer)DataGridViewCustomers.CurrentRow.DataBoundItem;
+            repositoryManager.CustomerRepository.Remove(selectedCustomer);
         }
 
         private void CmdSave_Click(object sender, EventArgs e)

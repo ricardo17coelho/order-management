@@ -17,6 +17,11 @@ namespace order_management
     public class ProductCategoryRepository : Repository<ProductCategory>
     {
 
+        public override ProductCategory FindById(int id)
+        {
+            return dbContext.ProductCategories.Find(id);
+        }
+
         public override void Add(ProductCategory entity)
         {
             dbContext.ProductCategories.Add(entity);
