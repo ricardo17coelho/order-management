@@ -11,6 +11,8 @@ namespace order_management
         public double Price { get; set; }
         public string Unit { get; set; }
         public ProductCategory ProductCategory { get; set; }
+        public int ProductCategoryId { get; set; }
+
 
         public Product(string productName, double price, string unit, ProductCategory productCategory)
         {
@@ -18,6 +20,7 @@ namespace order_management
             Price = price;
             Unit = unit;
             ProductCategory = productCategory;
+            ProductCategoryId = productCategory.ProductCategoryId;
         }
 
         public Product() { }

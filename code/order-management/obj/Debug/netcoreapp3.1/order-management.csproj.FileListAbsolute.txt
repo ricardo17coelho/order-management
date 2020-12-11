@@ -167,3 +167,5 @@ C:\Users\Raphi\Desktop\order-management\code\order-management\obj\Debug\netcorea
 C:\Users\Raphi\Desktop\order-management\code\order-management\obj\Debug\netcoreapp3.1\order-management.pdb
 C:\Users\Raphi\Desktop\order-management\code\order-management\obj\Debug\netcoreapp3.1\order-management.genruntimeconfig.cache
 C:\Users\Raphi\Desktop\order-management\code\order-management\obj\Debug\netcoreapp3.1\order_management.CrudProducts.resources
+C:\Users\Raphi\Desktop\order-management\code\order-management\obj\Debug\netcoreapp3.1\order_management.Properties.Resources.resources
+C:\Users\Raphi\Desktop\order-management\code\order-management\obj\Debug\netcoreapp3.1\order_management.View.CrudProductCategory.resources

@@ -36,5 +36,17 @@ namespace order_management
             City = city;
             Country = country;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Customer customer &&
+                   FirstName == customer.FirstName &&
+                   LastName == customer.LastName &&
+                   Street == customer.Street &&
+                   StreetNr == customer.StreetNr &&
+                   Zip == customer.Zip &&
+                   City == customer.City &&
+                   Country == customer.Country;
+        }
     }
 }

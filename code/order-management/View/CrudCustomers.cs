@@ -12,17 +12,18 @@ namespace order_management
 {
     public partial class CrudCustomers : Form
     {
-        private RepositoryManager repositoryManager;
+        private Context context;
 
-        public CrudCustomers(RepositoryManager repositoryManager)
+        public CrudCustomers(Context context)
         {
             InitializeComponent();
-            this.repositoryManager = repositoryManager;
+            this.context = context;
         }
 
         private void CrudCustomers_Load(object sender, EventArgs e)
         {
-            DataGridViewCustomers.DataSource = repositoryManager.CustomerRepository.GetBoundedList();
+            context.Customers.Load();
+            DataGridViewCustomers.DataSource = context.Customers.Local.ToBindingList();
         }
 
         private void CmdAdd_Click(object sender, EventArgs e)
@@ -36,18 +37,21 @@ namespace order_management
             string country = TxtCountry.Text;
 
             Customer newCustomer = new Customer(firstName, lastName, street, streetNr, zip, city, country);
-            repositoryManager.CustomerRepository.Add(newCustomer);
+            context.Customers.Add(newCustomer);
+            context.SaveChanges();
         }
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
             Customer selectedCustomer = (Customer)DataGridViewCustomers.CurrentRow.DataBoundItem;
-            repositoryManager.CustomerRepository.Remove(selectedCustomer);
+            context.Remove(selectedCustomer);
+            context.SaveChanges();
+
         }
 
         private void CmdSave_Click(object sender, EventArgs e)
         {
-            repositoryManager.CustomerRepository.Save();
+            context.SaveChanges();
         }
     }
 }
