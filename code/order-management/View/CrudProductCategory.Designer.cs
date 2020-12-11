@@ -32,6 +32,8 @@
             this.TxtProductCategoryName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.CmdAddNew = new System.Windows.Forms.Button();
+            this.CBParentCategory = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProductCategories)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +65,7 @@
             // 
             // CmdAddNew
             // 
-            this.CmdAddNew.Location = new System.Drawing.Point(87, 246);
+            this.CmdAddNew.Location = new System.Drawing.Point(87, 332);
             this.CmdAddNew.Name = "CmdAddNew";
             this.CmdAddNew.Size = new System.Drawing.Size(250, 55);
             this.CmdAddNew.TabIndex = 3;
@@ -71,11 +73,31 @@
             this.CmdAddNew.UseVisualStyleBackColor = true;
             this.CmdAddNew.Click += new System.EventHandler(this.CmdAddNew_Click);
             // 
+            // CBParentCategory
+            // 
+            this.CBParentCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBParentCategory.FormattingEnabled = true;
+            this.CBParentCategory.Location = new System.Drawing.Point(87, 229);
+            this.CBParentCategory.Name = "CBParentCategory";
+            this.CBParentCategory.Size = new System.Drawing.Size(350, 49);
+            this.CBParentCategory.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(87, 185);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(231, 41);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Parent Category";
+            // 
             // CrudProductCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1260, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.CBParentCategory);
             this.Controls.Add(this.CmdAddNew);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtProductCategoryName);
@@ -95,5 +117,7 @@
         private System.Windows.Forms.TextBox TxtProductCategoryName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button CmdAddNew;
+        private System.Windows.Forms.ComboBox CBParentCategory;
+        private System.Windows.Forms.Label label2;
     }
 }

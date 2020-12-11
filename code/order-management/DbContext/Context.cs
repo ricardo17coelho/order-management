@@ -19,7 +19,7 @@ namespace order_management
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.; Database=dbName7; Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Data Source=.; Database=dbName10; Trusted_Connection=True");
 
             //For Debugging
             //optionsBuilder.LogTo(Console.WriteLine); 

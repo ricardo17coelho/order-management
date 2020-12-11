@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -24,13 +25,21 @@ namespace order_management.View
         {
             context.ProductCategories.Load();
             DataGridViewProductCategories.DataSource = context.ProductCategories.Local.ToBindingList();
-
+            CBParentCategory.DataSource = context.ProductCategories.Local.ToBindingList();
         }
 
         private void CmdAddNew_Click(object sender, EventArgs e)
         {
             string productCategoryName = TxtProductCategoryName.Text;
-            ProductCategory newProductCategory = new ProductCategory(productCategoryName);
+            var selectedItemFromComboBox = (ProductCategory)CBParentCategory.SelectedItem;
+
+
+            ProductCategory parentCategory = context.ProductCategories
+            .Where(pc => pc.ProductCategoryName == selectedItemFromComboBox.ProductCategoryName)
+            .FirstOrDefault<ProductCategory>();
+
+            ProductCategory newProductCategory = new ProductCategory(productCategoryName, parentCategory);
+
             context.ProductCategories.Add(newProductCategory);
             context.SaveChanges();
         }

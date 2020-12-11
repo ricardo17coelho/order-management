@@ -2,7 +2,7 @@
 
 namespace order_management.Migrations
 {
-    public partial class migration : Migration
+    public partial class mymigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,11 +31,18 @@ namespace order_management.Migrations
                 {
                     ProductCategoryId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductCategoryName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ProductCategoryName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ParentId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ProductCategories", x => x.ProductCategoryId);
+                    table.ForeignKey(
+                        name: "FK_ProductCategories_ProductCategories_ParentId",
+                        column: x => x.ParentId,
+                        principalTable: "ProductCategories",
+                        principalColumn: "ProductCategoryId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -59,6 +66,11 @@ namespace order_management.Migrations
                         principalColumn: "ProductCategoryId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductCategories_ParentId",
+                table: "ProductCategories",
+                column: "ParentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_ProductCategoryId",

@@ -107,9 +107,31 @@ namespace order_management
 
         private void GenerateProductCategories()
         {
+            List<ProductCategory> parentCategories = new List<ProductCategory>();
+            parentCategories.Add(new ProductCategory("Computer Equipment"));
+
+            foreach (ProductCategory parentCategory in parentCategories)
+            {
+                if (context.ProductCategories.Any(pc => pc.ProductCategoryName == parentCategory.ProductCategoryName))
+                {
+                    MessageBox.Show("Product Category " + parentCategory.ProductCategoryName + " already exists!");
+                }
+                else
+                {
+                    context.ProductCategories.Add(parentCategory);
+                }
+            }
+            context.SaveChanges();
+
             List<ProductCategory> productCategories = new List<ProductCategory>();
-            productCategories.Add(new ProductCategory("Monitors"));
-            productCategories.Add(new ProductCategory("Printers"));
+
+
+            ProductCategory computerEquipment = context.ProductCategories
+            .Where(pc => pc.ProductCategoryName == "Computer Equipment")
+            .FirstOrDefault<ProductCategory>();
+
+            productCategories.Add(new ProductCategory("Monitors", computerEquipment));
+            productCategories.Add(new ProductCategory("Printers", computerEquipment));
             productCategories.Add(new ProductCategory("Tablets"));
 
             foreach (ProductCategory productCategory in productCategories)
