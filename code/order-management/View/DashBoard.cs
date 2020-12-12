@@ -20,6 +20,7 @@ namespace order_management
         {
             InitializeComponent();
             this.context = context;
+            UpdateCountLabels();
         }
 
         private void CmdCustomers_Click(object sender, EventArgs e)
@@ -40,137 +41,6 @@ namespace order_management
             crudProductCategory.ShowDialog();
         }
 
-        private void CmdGenerateSampleData_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Generate sample Data for your Database?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                GenerateSampleData();
-                UpdateCountLabels();
-            }
-        }
-
-        private void CmdClearData_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Delete all Data in your Database?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                context.Customers.RemoveRange(context.Customers);
-                context.ProductCategories.RemoveRange(context.ProductCategories);
-                context.Products.RemoveRange(context.Products);
-                
-                context.SaveChanges();
-                UpdateCountLabels();
-            }
-        }
-
-        private void GenerateSampleData()
-        {
-            GenerateCustomers();
-            GenerateProductCategories();
-            GenerateProducts();
-        }
-
-        private void GenerateProducts()
-        {
-            
-            List<Product> products = new List<Product>();
-
-            ProductCategory monitors = context.ProductCategories
-            .Where(pc => pc.ProductCategoryName == "Monitors")
-            .FirstOrDefault<ProductCategory>();
-
-            ProductCategory tablets = context.ProductCategories
-            .Where(pc => pc.ProductCategoryName == "Tablets")
-            .FirstOrDefault<ProductCategory>();
-
-            products.Add(new Product("HP Compaq 24 Inch", 300, "Fr.", monitors));
-            products.Add(new Product("Samsung Tab S7+", 800.95, "Fr.", tablets));
-            products.Add(new Product("Ipad 8", 1200.55, "Fr.", tablets));
-            products.Add(new Product("Huawai p5", 120.35, "Fr.", tablets));
-
-            foreach (Product product in products)
-            {
-                if (context.Products.Any(p => p.ProductName == product.ProductName))
-                {
-                    MessageBox.Show("Product " + product.ProductName + " already exists!");
-                } 
-                else
-                {
-                    context.Products.Add(product);
-                }
-            }
-            context.SaveChanges();
-        }
-
-        private void GenerateProductCategories()
-        {
-            List<ProductCategory> parentCategories = new List<ProductCategory>();
-            parentCategories.Add(new ProductCategory("Computer Equipment"));
-
-            foreach (ProductCategory parentCategory in parentCategories)
-            {
-                if (context.ProductCategories.Any(pc => pc.ProductCategoryName == parentCategory.ProductCategoryName))
-                {
-                    MessageBox.Show("Product Category " + parentCategory.ProductCategoryName + " already exists!");
-                }
-                else
-                {
-                    context.ProductCategories.Add(parentCategory);
-                }
-            }
-            context.SaveChanges();
-
-            List<ProductCategory> productCategories = new List<ProductCategory>();
-
-
-            ProductCategory computerEquipment = context.ProductCategories
-            .Where(pc => pc.ProductCategoryName == "Computer Equipment")
-            .FirstOrDefault<ProductCategory>();
-
-            productCategories.Add(new ProductCategory("Monitors", computerEquipment));
-            productCategories.Add(new ProductCategory("Printers", computerEquipment));
-            productCategories.Add(new ProductCategory("Tablets"));
-
-            foreach (ProductCategory productCategory in productCategories)
-            {
-                if (context.ProductCategories.Any(pc => pc.ProductCategoryName == productCategory.ProductCategoryName))
-                {
-                    MessageBox.Show("Product Category " + productCategory.ProductCategoryName + " already exists!");
-                } 
-                else
-                {
-                    context.ProductCategories.Add(productCategory);
-                }
-            }
-            context.SaveChanges();
-
-        }
-
-        private void GenerateCustomers()
-        {
-            List<Customer> customers = new List<Customer>();
-            customers.Add(new Customer("Hans", "Müller", "Bahnhofstrasse", "12a", 9400, "Wil", "Schweiz"));
-            customers.Add(new Customer("Peter", "Haller", "Dorfstrasse", "5", 8452, "Uznach", "Schweiz"));
-
-            foreach (Customer customer in customers)
-            {
-                if (context.Customers.Any(c => (c.FirstName == customer.FirstName) && (c.LastName == customer.LastName)))
-                {
-                    MessageBox.Show("Customer " + customer.FirstName + " " + customer.LastName + " already exists!");
-                } 
-                else
-                {
-                    context.Customers.Add(customer);
-                }
-            }
-            context.SaveChanges();
-
-
-        }
-
         private void DashBoard_Load(object sender, EventArgs e)
         {
             UpdateCountLabels();
@@ -186,6 +56,78 @@ namespace order_management
             lblCustomersCount.Text = context.Customers.Local.ToBindingList().Count + "";
             lblCategoryCount.Text = context.ProductCategories.Local.ToBindingList().Count + "";
             lblProductsCount.Text = context.Products.Local.ToBindingList().Count + "";
+        }
+
+        private void pnlNavCustomers_MouseHover(object sender, EventArgs e)
+        {
+            pnlNavCustomers.BackColor = Color.White;
+            lblNavCustomers.ForeColor = Color.Black;
+        }
+
+        private void pnlNavCustomers_Click(object sender, EventArgs e)
+        {
+            CrudCustomers crudCustomers = new CrudCustomers(context);
+            crudCustomers.ShowDialog();
+        }
+
+        private void pnlNavCustomers_MouseLeave(object sender, EventArgs e)
+        {
+            pnlNavCustomers.BackColor = Color.Black;
+            lblNavCustomers.ForeColor = Color.White;
+        }
+
+        private void pnlNavSettings_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings(context);
+            settings.ShowDialog();
+        }
+
+        private void pnlNavCategories_Click(object sender, EventArgs e)
+        {
+            CrudProductCategory crudProductCategory = new CrudProductCategory(context);
+            crudProductCategory.ShowDialog();
+        }
+
+        private void pnlNavProducts_Click(object sender, EventArgs e)
+        {
+            CrudProducts crudProducts = new CrudProducts(context);
+            crudProducts.ShowDialog();
+        }
+
+        private void pnlNavProducts_MouseHover(object sender, EventArgs e)
+        {
+            pnlNavProducts.BackColor = Color.White;
+            lblNavProducts.ForeColor = Color.Black;
+        }
+
+        private void pnlNavProducts_MouseLeave(object sender, EventArgs e)
+        {
+            pnlNavProducts.BackColor = Color.Black;
+            lblNavProducts.ForeColor = Color.White;
+        }
+
+        private void pnlNavCategories_MouseHover(object sender, EventArgs e)
+        {
+            pnlNavCategories.BackColor = Color.White;
+            lblNavCategories.ForeColor = Color.Black;
+        }
+
+        private void pnlNavCategories_MouseLeave(object sender, EventArgs e)
+        {
+            pnlNavCategories.BackColor = Color.Black;
+            lblNavCategories.ForeColor = Color.White;
+        }
+
+        private void pnlNavSettings_MouseHover(object sender, EventArgs e)
+        {
+            pnlNavSettings.BackColor = Color.White;
+            lblNavSettings.ForeColor = Color.Black;
+        }
+
+        private void pnlNavSettings_MouseLeave(object sender, EventArgs e)
+        {
+            pnlNavSettings.BackColor = Color.Black;
+            lblNavSettings.ForeColor = Color.White;
         }
     }
 }
