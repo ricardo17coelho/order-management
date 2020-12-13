@@ -24,38 +24,49 @@ namespace order_management.View
         private void CrudProductCategory_Load(object sender, EventArgs e)
         {
             context.ProductCategories.Load();
-            DataGridViewProductCategories.DataSource = context.ProductCategories.Local.ToBindingList();
-            CBParentCategory.DataSource = context.ProductCategories.Local.ToBindingList();
             var categories = context.ProductCategories.Local.ToBindingList();
-            //loop all categories
-            foreach (var category in categories) 
+            DataGridViewProductCategories.DataSource = categories;
+            CBParentCategory.DataSource = categories;
+            TreeNode root = null;
+            PopulateTree(ref root, categories.ToList());
+            treeViewCategories.Nodes.Add(root);
+            treeViewCategories.ExpandAll();
+        }
+
+        public void PopulateTree(ref TreeNode root, List<ProductCategory> categoriesList)
+        {
+            if (root == null)
             {
-                treeViewCategories.Nodes.Add(category.ProductCategoryName);
-                //check if category has parentID
-                //if (category.ParentId != null)
-                //{
-                    ////get parentCategory by parentID
-                    //var parentCategory = categories.FirstOrDefault(cat => category.ParentId == cat.ProductCategoryId);
-                    ////get the parentCategory note into treeView 
-                    //var node = treeViewCategories.Nodes.OfType<TreeNode>()
-                    //        .FirstOrDefault(node => node.Tag.Equals(parentCategory.ProductCategoryName));
-                    //if (node.Index != -1)
-                    //{
-                    //    //add category to the parentCategory node
-                    //    treeViewCategories.Nodes[node.Index].Nodes.Add(category.ProductCategoryName);
-                    //}
-                    //else {
-                    //    //if parentCategory is not in treeView, add it first here and than the category
-                    //    treeViewCategories.Nodes.Add(parentCategory.ProductCategoryName);
-                    //    var newNode = treeViewCategories.Nodes.OfType<TreeNode>()
-                    //           .FirstOrDefault(node => node.Tag.Equals(parentCategory.ProductCategoryName));
-                    //    treeViewCategories.Nodes[newNode.Index].Nodes.Add(category.ProductCategoryName);
-                    //}
-                //} else
-                //{
-                //    //add new withoud parentId category
-                //    treeViewCategories.Nodes.Add(category.ProductCategoryName);
-                //}
+                root = new TreeNode();
+                root.Text = "Categories";
+                root.Tag = null;
+                // get all departments in the list with parent is null
+                var sortedCategories = categoriesList.Where(t => t.ParentId == null);
+                foreach (var category in sortedCategories)
+                {
+                    var child = new TreeNode()
+                    {
+                        Text = category.ProductCategoryName,
+                        Tag = category.ProductCategoryId,
+                    };
+                    PopulateTree(ref child, categoriesList);
+                    root.Nodes.Add(child);
+                }
+            }
+            else
+            {
+                var id = (int)root.Tag;
+                var sortedCategories = categoriesList.Where(t => t.ParentId == id);
+                foreach (var category in sortedCategories)
+                {
+                    var child = new TreeNode()
+                    {
+                        Text = category.ProductCategoryName,
+                        Tag = category.ProductCategoryId,
+                    };
+                    PopulateTree(ref child, categoriesList);
+                    root.Nodes.Add(child);
+                }
             }
         }
 
@@ -73,6 +84,26 @@ namespace order_management.View
 
             context.ProductCategories.Add(newProductCategory);
             context.SaveChanges();
+            //check if newProductCategory has not parentId
+            if (newProductCategory.ParentId == null)
+            {
+                //add newProductCategory to treeview
+                treeViewCategories.Nodes.Add(productCategoryName);
+            }
+            else
+            {
+                //get parentNode by parentId
+                var insertedNode = treeViewCategories.Nodes.Find(selectedItemFromComboBox.ProductCategoryName, true);
+                Console.WriteLine(insertedNode);
+                //create a treeNode child
+                var child = new TreeNode()
+                {
+                    Text = newProductCategory.ProductCategoryName,
+                    Tag = newProductCategory.ProductCategoryId,
+                };
+                //insert the childNote into the treeView
+                //insertedNode[0].Nodes.Add(child);
+            }
         }
     }
 }
