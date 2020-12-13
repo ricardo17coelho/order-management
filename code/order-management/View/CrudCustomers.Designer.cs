@@ -49,6 +49,8 @@
             this.NumZip = new System.Windows.Forms.NumericUpDown();
             this.TxtStreetNr = new System.Windows.Forms.TextBox();
             this.CmdDelete = new System.Windows.Forms.Button();
+            this.TxtSearch = new System.Windows.Forms.TextBox();
+            this.CmdSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumZip)).BeginInit();
             this.SuspendLayout();
@@ -58,20 +60,18 @@
             this.DataGridViewCustomers.AllowDrop = true;
             this.DataGridViewCustomers.AllowUserToOrderColumns = true;
             this.DataGridViewCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewCustomers.Location = new System.Drawing.Point(509, 91);
-            this.DataGridViewCustomers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DataGridViewCustomers.Location = new System.Drawing.Point(666, 117);
             this.DataGridViewCustomers.Name = "DataGridViewCustomers";
             this.DataGridViewCustomers.RowHeadersWidth = 102;
-            this.DataGridViewCustomers.Size = new System.Drawing.Size(629, 295);
+            this.DataGridViewCustomers.Size = new System.Drawing.Size(823, 378);
             this.DataGridViewCustomers.TabIndex = 0;
             this.DataGridViewCustomers.Text = "dataGridView1";
             // 
             // CmdSave
             // 
-            this.CmdSave.Location = new System.Drawing.Point(984, 403);
-            this.CmdSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CmdSave.Location = new System.Drawing.Point(1287, 516);
             this.CmdSave.Name = "CmdSave";
-            this.CmdSave.Size = new System.Drawing.Size(154, 40);
+            this.CmdSave.Size = new System.Drawing.Size(201, 51);
             this.CmdSave.TabIndex = 1;
             this.CmdSave.Text = "Save";
             this.CmdSave.UseVisualStyleBackColor = true;
@@ -79,20 +79,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1973, 1502);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(2580, 1924);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 27);
+            this.button1.Size = new System.Drawing.Size(201, 35);
             this.button1.TabIndex = 1;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // CmdAdd
             // 
-            this.CmdAdd.Location = new System.Drawing.Point(18, 657);
-            this.CmdAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CmdAdd.Location = new System.Drawing.Point(24, 842);
             this.CmdAdd.Name = "CmdAdd";
-            this.CmdAdd.Size = new System.Drawing.Size(220, 45);
+            this.CmdAdd.Size = new System.Drawing.Size(288, 58);
             this.CmdAdd.TabIndex = 2;
             this.CmdAdd.Text = "Add New";
             this.CmdAdd.UseVisualStyleBackColor = true;
@@ -100,162 +98,164 @@
             // 
             // TxtFirstName
             // 
-            this.TxtFirstName.Location = new System.Drawing.Point(18, 63);
-            this.TxtFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtFirstName.Location = new System.Drawing.Point(24, 81);
             this.TxtFirstName.Name = "TxtFirstName";
-            this.TxtFirstName.Size = new System.Drawing.Size(210, 39);
+            this.TxtFirstName.Size = new System.Drawing.Size(273, 47);
             this.TxtFirstName.TabIndex = 3;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(-7433, -1120);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Location = new System.Drawing.Point(-9720, -1435);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(1976, 39);
+            this.textBox2.Size = new System.Drawing.Size(2583, 47);
             this.textBox2.TabIndex = 4;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(15, -767);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox4.Location = new System.Drawing.Point(20, -983);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(8164, 39);
+            this.textBox4.Size = new System.Drawing.Size(10675, 47);
             this.textBox4.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 29);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(12, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 32);
+            this.label1.Size = new System.Drawing.Size(147, 41);
             this.label1.TabIndex = 7;
             this.label1.Text = "Firstname";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 115);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(12, 147);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 32);
+            this.label2.Size = new System.Drawing.Size(144, 41);
             this.label2.TabIndex = 7;
             this.label2.Text = "Lastname";
             // 
             // TxtLastName
             // 
-            this.TxtLastName.Location = new System.Drawing.Point(18, 149);
-            this.TxtLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtLastName.Location = new System.Drawing.Point(24, 191);
             this.TxtLastName.Name = "TxtLastName";
-            this.TxtLastName.Size = new System.Drawing.Size(210, 39);
+            this.TxtLastName.Size = new System.Drawing.Size(273, 47);
             this.TxtLastName.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 203);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(12, 260);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 32);
+            this.label3.Size = new System.Drawing.Size(95, 41);
             this.label3.TabIndex = 7;
             this.label3.Text = "Street";
             // 
             // TxtStreet
             // 
-            this.TxtStreet.Location = new System.Drawing.Point(18, 237);
-            this.TxtStreet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtStreet.Location = new System.Drawing.Point(24, 304);
             this.TxtStreet.Name = "TxtStreet";
-            this.TxtStreet.Size = new System.Drawing.Size(210, 39);
+            this.TxtStreet.Size = new System.Drawing.Size(273, 47);
             this.TxtStreet.TabIndex = 3;
             // 
             // TxtCity
             // 
-            this.TxtCity.Location = new System.Drawing.Point(18, 500);
-            this.TxtCity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtCity.Location = new System.Drawing.Point(24, 641);
             this.TxtCity.Name = "TxtCity";
-            this.TxtCity.Size = new System.Drawing.Size(210, 39);
+            this.TxtCity.Size = new System.Drawing.Size(273, 47);
             this.TxtCity.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 465);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(12, 596);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 32);
+            this.label4.Size = new System.Drawing.Size(69, 41);
             this.label4.TabIndex = 7;
             this.label4.Text = "City";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 389);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(12, 498);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 32);
+            this.label5.Size = new System.Drawing.Size(60, 41);
             this.label5.TabIndex = 7;
             this.label5.Text = "Zip";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 298);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(12, 382);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 32);
+            this.label6.Size = new System.Drawing.Size(127, 41);
             this.label6.TabIndex = 7;
             this.label6.Text = "StreetNr";
             // 
             // TxtCountry
             // 
-            this.TxtCountry.Location = new System.Drawing.Point(18, 576);
-            this.TxtCountry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtCountry.Location = new System.Drawing.Point(24, 738);
             this.TxtCountry.Name = "TxtCountry";
-            this.TxtCountry.Size = new System.Drawing.Size(210, 39);
+            this.TxtCountry.Size = new System.Drawing.Size(273, 47);
             this.TxtCountry.TabIndex = 3;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 542);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(12, 694);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 32);
+            this.label7.Size = new System.Drawing.Size(124, 41);
             this.label7.TabIndex = 7;
             this.label7.Text = "Country";
             // 
             // NumZip
             // 
-            this.NumZip.Location = new System.Drawing.Point(18, 426);
-            this.NumZip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NumZip.Location = new System.Drawing.Point(24, 546);
             this.NumZip.Name = "NumZip";
-            this.NumZip.Size = new System.Drawing.Size(209, 39);
+            this.NumZip.Size = new System.Drawing.Size(273, 47);
             this.NumZip.TabIndex = 8;
             // 
             // TxtStreetNr
             // 
-            this.TxtStreetNr.Location = new System.Drawing.Point(18, 332);
-            this.TxtStreetNr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtStreetNr.Location = new System.Drawing.Point(24, 425);
             this.TxtStreetNr.Name = "TxtStreetNr";
-            this.TxtStreetNr.Size = new System.Drawing.Size(210, 39);
+            this.TxtStreetNr.Size = new System.Drawing.Size(273, 47);
             this.TxtStreetNr.TabIndex = 3;
             // 
             // CmdDelete
             // 
-            this.CmdDelete.Location = new System.Drawing.Point(808, 403);
-            this.CmdDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CmdDelete.Location = new System.Drawing.Point(1057, 516);
             this.CmdDelete.Name = "CmdDelete";
-            this.CmdDelete.Size = new System.Drawing.Size(154, 40);
+            this.CmdDelete.Size = new System.Drawing.Size(201, 51);
             this.CmdDelete.TabIndex = 1;
             this.CmdDelete.Text = "Delete";
             this.CmdDelete.UseVisualStyleBackColor = true;
             this.CmdDelete.Click += new System.EventHandler(this.CmdDelete_Click);
             // 
+            // TxtSearch
+            // 
+            this.TxtSearch.Location = new System.Drawing.Point(666, 37);
+            this.TxtSearch.Name = "TxtSearch";
+            this.TxtSearch.Size = new System.Drawing.Size(585, 47);
+            this.TxtSearch.TabIndex = 9;
+            // 
+            // CmdSearch
+            // 
+            this.CmdSearch.Location = new System.Drawing.Point(1283, 38);
+            this.CmdSearch.Name = "CmdSearch";
+            this.CmdSearch.Size = new System.Drawing.Size(193, 43);
+            this.CmdSearch.TabIndex = 10;
+            this.CmdSearch.Text = "Search";
+            this.CmdSearch.UseVisualStyleBackColor = true;
+            this.CmdSearch.Click += new System.EventHandler(this.CmdSearch_Click);
+            // 
             // CrudCustomers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1174, 742);
+            this.ClientSize = new System.Drawing.Size(1535, 951);
+            this.Controls.Add(this.CmdSearch);
+            this.Controls.Add(this.TxtSearch);
             this.Controls.Add(this.CmdDelete);
             this.Controls.Add(this.NumZip);
             this.Controls.Add(this.label7);
@@ -277,7 +277,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.CmdSave);
             this.Controls.Add(this.DataGridViewCustomers);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CrudCustomers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrudCustomer";
@@ -312,5 +311,7 @@
         private System.Windows.Forms.NumericUpDown NumZip;
         private System.Windows.Forms.TextBox TxtStreetNr;
         private System.Windows.Forms.Button CmdDelete;
+        private System.Windows.Forms.TextBox TxtSearch;
+        private System.Windows.Forms.Button CmdSearch;
     }
 }

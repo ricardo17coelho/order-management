@@ -229,3 +229,4 @@ C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-m
 C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\order-management\obj\Debug\netcoreapp3.1\order-management.pdb
 C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\order-management\obj\Debug\netcoreapp3.1\order-management.genruntimeconfig.cache
 C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\order-management\obj\Debug\netcoreapp3.1\order_management.View.Settings.resources
+C:\Users\Raphi\Desktop\order-management\code\order-management\obj\Debug\netcoreapp3.1\order_management.View.Settings.resources

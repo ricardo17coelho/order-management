@@ -5797,19 +5797,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rmorgado\\.nuget\\packages\\": {}
+    "C:\\Users\\Raphi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rmorgado\\DSDrive\\ZBW\\modules\\open\\Datenbanken_Advanced\\projects\\order-management.git\\code\\order-management\\order-management.csproj",
+      "projectUniqueName": "C:\\Users\\Raphi\\Desktop\\order-management\\code\\order-management\\order-management.csproj",
       "projectName": "order-management",
-      "projectPath": "C:\\Users\\rmorgado\\DSDrive\\ZBW\\modules\\open\\Datenbanken_Advanced\\projects\\order-management.git\\code\\order-management\\order-management.csproj",
-      "packagesPath": "C:\\Users\\rmorgado\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rmorgado\\DSDrive\\ZBW\\modules\\open\\Datenbanken_Advanced\\projects\\order-management.git\\code\\order-management\\obj\\",
+      "projectPath": "C:\\Users\\Raphi\\Desktop\\order-management\\code\\order-management\\order-management.csproj",
+      "packagesPath": "C:\\Users\\Raphi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Raphi\\Desktop\\order-management\\code\\order-management\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\rmorgado\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Raphi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5821,7 +5821,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -5833,7 +5832,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
@@ -5864,7 +5862,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

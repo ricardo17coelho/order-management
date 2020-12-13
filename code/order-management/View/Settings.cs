@@ -130,6 +130,10 @@ namespace order_management.View
             List<Customer> customers = new List<Customer>();
             customers.Add(new Customer("Hans", "Müller", "Bahnhofstrasse", "12a", 9400, "Wil", "Schweiz"));
             customers.Add(new Customer("Peter", "Haller", "Dorfstrasse", "5", 8452, "Uznach", "Schweiz"));
+            customers.Add(new Customer("Ueli", "Moser", "Lindenstrasse", "27", 4524, "Zuckenriet", "Schweiz"));
+            customers.Add(new Customer("Max", "Mustermann", "Bachweg", "1a", 4582, "Schlieren", "Schweiz"));
+            customers.Add(new Customer("Vreni", "Kuster", "Hinter dem Baum", "12", 4521, "Walden", "Schweiz"));
+            customers.Add(new Customer("Petra", "Schwarz", "Blumenstrasse", "45b", 1234, "Ederswiler", "Schweiz"));
 
             foreach (Customer customer in customers)
             {

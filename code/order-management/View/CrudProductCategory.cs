@@ -84,6 +84,13 @@ namespace order_management.View
 
             context.ProductCategories.Add(newProductCategory);
             context.SaveChanges();
+
+            treeViewCategories.Nodes.Clear();
+            TreeNode root = null;
+            PopulateTree(ref root, context.ProductCategories.Local.ToBindingList().ToList());
+            treeViewCategories.Nodes.Add(root);
+            treeViewCategories.ExpandAll();
+
             //check if newProductCategory has not parentId
             if (newProductCategory.ParentId == null)
             {

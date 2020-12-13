@@ -6,8 +6,8 @@
       "version": "3.1.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\rmorgado\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\rmorgado\\.nuget\\packages"
+      "C:\\Users\\Raphi\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Raphi\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
