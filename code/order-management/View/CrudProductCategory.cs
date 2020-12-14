@@ -23,10 +23,15 @@ namespace order_management.View
 
         private void CrudProductCategory_Load(object sender, EventArgs e)
         {
-            context.ProductCategories.Load();
-            var categories = context.ProductCategories.Local.ToBindingList();
+            var categories = ProductCategoryService.GetBoundedList(context);
             DataGridViewProductCategories.DataSource = categories;
             CBParentCategory.DataSource = categories;
+            LoadTreeView(categories);
+        }
+
+        private void LoadTreeView(BindingList<ProductCategory> categories)
+        {
+            treeViewCategories.Nodes.Clear();
             TreeNode root = null;
             PopulateTree(ref root, categories.ToList());
             treeViewCategories.Nodes.Add(root);
@@ -72,44 +77,44 @@ namespace order_management.View
 
         private void CmdAddNew_Click(object sender, EventArgs e)
         {
-            string productCategoryName = TxtProductCategoryName.Text;
-            var selectedItemFromComboBox = (ProductCategory)CBParentCategory.SelectedItem;
+            ProductCategory parentCategory;
+            ProductCategory newProductCategory;
 
-
-            ProductCategory parentCategory = context.ProductCategories
-            .Where(pc => pc.ProductCategoryName == selectedItemFromComboBox.ProductCategoryName)
-            .FirstOrDefault<ProductCategory>();
-
-            ProductCategory newProductCategory = new ProductCategory(productCategoryName, parentCategory);
-
-            context.ProductCategories.Add(newProductCategory);
-            context.SaveChanges();
-
-            treeViewCategories.Nodes.Clear();
-            TreeNode root = null;
-            PopulateTree(ref root, context.ProductCategories.Local.ToBindingList().ToList());
-            treeViewCategories.Nodes.Add(root);
-            treeViewCategories.ExpandAll();
-
-            //check if newProductCategory has not parentId
-            if (newProductCategory.ParentId == null)
+            if (CHBRootCategory.Checked)
             {
-                //add newProductCategory to treeview
-                treeViewCategories.Nodes.Add(productCategoryName);
+                newProductCategory = new ProductCategory(TxtProductCategoryName.Text);
             }
             else
             {
-                //get parentNode by parentId
-                var insertedNode = treeViewCategories.Nodes.Find(selectedItemFromComboBox.ProductCategoryName, true);
-                Console.WriteLine(insertedNode);
-                //create a treeNode child
-                var child = new TreeNode()
-                {
-                    Text = newProductCategory.ProductCategoryName,
-                    Tag = newProductCategory.ProductCategoryId,
-                };
-                //insert the childNote into the treeView
-                //insertedNode[0].Nodes.Add(child);
+                parentCategory = ProductCategoryService.GetEntityByName(context, CBParentCategory.Text);
+                newProductCategory = new ProductCategory(TxtProductCategoryName.Text, parentCategory);
+            }
+
+
+            if (!ProductCategoryService.IsValid(context, newProductCategory))
+            {
+                MessageBox.Show("Category name is required!");
+            }
+            else if (!ProductCategoryService.IsUnique(context, newProductCategory))
+            {
+                MessageBox.Show("Product Category" + newProductCategory.ProductCategoryName + " already exists!");
+            }
+            else
+            {
+                ProductCategoryService.Add(context, newProductCategory);
+                LoadTreeView(ProductCategoryService.GetBoundedList(context));
+            }
+        }
+
+        private void CHBRootCategory_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHBRootCategory.Checked)
+            {
+                CBParentCategory.Visible = false;
+            }
+            else
+            {
+                CBParentCategory.Visible = true;
             }
         }
     }

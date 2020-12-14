@@ -34,7 +34,7 @@ namespace order_management.View
 
             if (result == DialogResult.Yes)
             {
-                context.Customers.RemoveRange(context.Customers);
+                CustomerService.RemoveAll(context);
                 context.ProductCategories.RemoveRange(context.ProductCategories);
                 context.Products.RemoveRange(context.Products);
 
@@ -69,16 +69,19 @@ namespace order_management.View
 
             foreach (Product product in products)
             {
-                if (context.Products.Any(p => p.ProductName == product.ProductName))
+                if (!ProductService.IsValid(context, product))
+                {
+                    MessageBox.Show("Productname is required!");
+                }
+                else if (!ProductService.IsUnique(context, product))
                 {
                     MessageBox.Show("Product " + product.ProductName + " already exists!");
                 }
                 else
                 {
-                    context.Products.Add(product);
+                    ProductService.Add(context, product);
                 }
             }
-            context.SaveChanges();
         }
 
         private void GenerateProductCategories()
@@ -88,23 +91,24 @@ namespace order_management.View
 
             foreach (ProductCategory parentCategory in parentCategories)
             {
-                if (context.ProductCategories.Any(pc => pc.ProductCategoryName == parentCategory.ProductCategoryName))
+                if (!ProductCategoryService.IsValid(context, parentCategory))
+                {
+                    MessageBox.Show("Category name is required!");
+                }
+                else if (!ProductCategoryService.IsUnique(context, parentCategory))
                 {
                     MessageBox.Show("Product Category " + parentCategory.ProductCategoryName + " already exists!");
                 }
                 else
                 {
-                    context.ProductCategories.Add(parentCategory);
+                    ProductCategoryService.Add(context, parentCategory);
                 }
             }
-            context.SaveChanges();
 
             List<ProductCategory> productCategories = new List<ProductCategory>();
 
 
-            ProductCategory computerEquipment = context.ProductCategories
-            .Where(pc => pc.ProductCategoryName == "Computer Equipment")
-            .FirstOrDefault<ProductCategory>();
+            ProductCategory computerEquipment = ProductCategoryService.GetEntityByName(context, "Computer Equipment");
 
             productCategories.Add(new ProductCategory("Monitors", computerEquipment));
             productCategories.Add(new ProductCategory("Printers", computerEquipment));
@@ -112,17 +116,19 @@ namespace order_management.View
 
             foreach (ProductCategory productCategory in productCategories)
             {
-                if (context.ProductCategories.Any(pc => pc.ProductCategoryName == productCategory.ProductCategoryName))
+                if (!ProductCategoryService.IsValid(context, productCategory))
+                {
+                    MessageBox.Show("Category name is required!");
+                }
+                else if (!ProductCategoryService.IsUnique(context, productCategory))
                 {
                     MessageBox.Show("Product Category " + productCategory.ProductCategoryName + " already exists!");
                 }
                 else
                 {
-                    context.ProductCategories.Add(productCategory);
+                    ProductCategoryService.Add(context, productCategory);
                 }
             }
-            context.SaveChanges();
-
         }
 
         private void GenerateCustomers()
@@ -137,18 +143,19 @@ namespace order_management.View
 
             foreach (Customer customer in customers)
             {
-                if (context.Customers.Any(c => (c.FirstName == customer.FirstName) && (c.LastName == customer.LastName)))
+                if (!CustomerService.IsValid(context, customer))
+                {
+                    MessageBox.Show("First and Lastname is required!");
+                }
+                else if (!CustomerService.IsUnique(context, customer))
                 {
                     MessageBox.Show("Customer " + customer.FirstName + " " + customer.LastName + " already exists!");
                 }
                 else
                 {
-                    context.Customers.Add(customer);
+                    CustomerService.Add(context, customer);
                 }
             }
-            context.SaveChanges();
-
-
         }
     }
 }

@@ -22,8 +22,7 @@ namespace order_management
 
         private void CrudProducts_Load(object sender, EventArgs e)
         {
-            context.Products.Load();
-            DataGridViewProducts.DataSource = context.Products.Local.ToBindingList();
+            DataGridViewProducts.DataSource = ProductService.GetBoundedList(context);
 
             context.ProductCategories.Load();
             CBProductCategory.DataSource = context.ProductCategories.Local.ToBindingList();
@@ -43,8 +42,20 @@ namespace order_management
             .FirstOrDefault<ProductCategory>();
 
             Product newProduct = new Product(productName, price, unit, selectedProductCategory);
-            context.Products.Add(newProduct);
-            context.SaveChanges();
+
+
+            if (!ProductService.IsValid(context, newProduct))
+            {
+                MessageBox.Show("Productname is required!");
+            }
+            else if (!ProductService.IsUnique(context, newProduct))
+            {
+                MessageBox.Show("Product " + newProduct.ProductName + " already exists!");
+            }
+            else
+            {
+                ProductService.Add(context, newProduct);
+            }
         }
     }
 }

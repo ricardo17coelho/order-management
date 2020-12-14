@@ -22,8 +22,7 @@ namespace order_management
 
         private void CrudCustomers_Load(object sender, EventArgs e)
         {
-            context.Customers.Load();
-            DataGridViewCustomers.DataSource = context.Customers.Local.ToBindingList();
+            DataGridViewCustomers.DataSource = CustomerService.GetBoundedList(context);
             DataGridViewCustomers.ClearSelection();
         }
 
@@ -38,21 +37,30 @@ namespace order_management
             string country = TxtCountry.Text;
 
             Customer newCustomer = new Customer(firstName, lastName, street, streetNr, zip, city, country);
-            context.Customers.Add(newCustomer);
-            context.SaveChanges();
+
+            if (!CustomerService.IsValid(context, newCustomer))
+            {
+                MessageBox.Show("First and Lastname is required!");
+            }
+            else if (!CustomerService.IsUnique(context, newCustomer))
+            {
+                MessageBox.Show("Customer " + newCustomer.FirstName + " " + newCustomer.LastName + " already exists!");
+            }
+            else
+            {
+                CustomerService.Add(context, newCustomer);
+            }
         }
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
             Customer selectedCustomer = (Customer)DataGridViewCustomers.CurrentRow.DataBoundItem;
-            context.Remove(selectedCustomer);
-            context.SaveChanges();
-
+            CustomerService.Remove(context, selectedCustomer);
         }
 
         private void CmdSave_Click(object sender, EventArgs e)
         {
-            context.SaveChanges();
+            CustomerService.SaveChanges(context);
         }
 
         private void CmdSearch_Click(object sender, EventArgs e)
@@ -68,13 +76,13 @@ namespace order_management
                 foreach (DataGridViewRow row in DataGridViewCustomers.Rows)
                 {
                     //Cells[1] is Firstname and Cells[2] is Lastname
-                    if (row.Cells[1].Value.ToString().ToLower().StartsWith(searchValue.ToLower()) || row.Cells[2].Value.ToString().ToLower().StartsWith(searchValue.ToLower()))
+                    if (row.Cells[1].Value.ToString().ToLower().StartsWith(searchValue.ToLower()) || 
+                        row.Cells[2].Value.ToString().ToLower().StartsWith(searchValue.ToLower()))
                     {
                         row.Selected = true;
                     }
                 }
             }
-
         }
     }
 }
