@@ -42,8 +42,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.CmdSearch = new System.Windows.Forms.Button();
+            this.TxtSearch = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBoxPnlProducts = new System.Windows.Forms.PictureBox();
+            this.CmdSave = new System.Windows.Forms.Button();
+            this.CmdDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumPrice)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -54,6 +58,8 @@
             // 
             // DataGridViewProducts
             // 
+            this.DataGridViewProducts.AllowUserToAddRows = false;
+            this.DataGridViewProducts.AllowUserToDeleteRows = false;
             this.DataGridViewProducts.AllowUserToOrderColumns = true;
             this.DataGridViewProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -207,6 +213,8 @@
             this.pnlTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTop.BackColor = System.Drawing.Color.Transparent;
+            this.pnlTop.Controls.Add(this.CmdSearch);
+            this.pnlTop.Controls.Add(this.TxtSearch);
             this.pnlTop.Controls.Add(this.lblTitle);
             this.pnlTop.Controls.Add(this.pictureBoxPnlProducts);
             this.pnlTop.Location = new System.Drawing.Point(8, 15);
@@ -214,6 +222,23 @@
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(2244, 144);
             this.pnlTop.TabIndex = 9;
+            // 
+            // CmdSearch
+            // 
+            this.CmdSearch.Location = new System.Drawing.Point(1830, 80);
+            this.CmdSearch.Name = "CmdSearch";
+            this.CmdSearch.Size = new System.Drawing.Size(376, 52);
+            this.CmdSearch.TabIndex = 6;
+            this.CmdSearch.Text = "Search";
+            this.CmdSearch.UseVisualStyleBackColor = true;
+            this.CmdSearch.Click += new System.EventHandler(this.CmdSearch_Click);
+            // 
+            // TxtSearch
+            // 
+            this.TxtSearch.Location = new System.Drawing.Point(1172, 86);
+            this.TxtSearch.Name = "TxtSearch";
+            this.TxtSearch.Size = new System.Drawing.Size(544, 47);
+            this.TxtSearch.TabIndex = 5;
             // 
             // lblTitle
             // 
@@ -239,12 +264,34 @@
             this.pictureBoxPnlProducts.TabIndex = 4;
             this.pictureBoxPnlProducts.TabStop = false;
             // 
+            // CmdSave
+            // 
+            this.CmdSave.Location = new System.Drawing.Point(1200, 1083);
+            this.CmdSave.Name = "CmdSave";
+            this.CmdSave.Size = new System.Drawing.Size(417, 45);
+            this.CmdSave.TabIndex = 10;
+            this.CmdSave.Text = "Save";
+            this.CmdSave.UseVisualStyleBackColor = true;
+            this.CmdSave.Click += new System.EventHandler(this.CmdSave_Click);
+            // 
+            // CmdDelete
+            // 
+            this.CmdDelete.Location = new System.Drawing.Point(1711, 1083);
+            this.CmdDelete.Name = "CmdDelete";
+            this.CmdDelete.Size = new System.Drawing.Size(188, 58);
+            this.CmdDelete.TabIndex = 11;
+            this.CmdDelete.Text = "Delete";
+            this.CmdDelete.UseVisualStyleBackColor = true;
+            this.CmdDelete.Click += new System.EventHandler(this.CmdDelete_Click);
+            // 
             // CrudProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(2268, 1541);
+            this.Controls.Add(this.CmdDelete);
+            this.Controls.Add(this.CmdSave);
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "CrudProducts";
@@ -280,5 +327,9 @@
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox pictureBoxPnlProducts;
+        private System.Windows.Forms.Button CmdSearch;
+        private System.Windows.Forms.TextBox TxtSearch;
+        private System.Windows.Forms.Button CmdSave;
+        private System.Windows.Forms.Button CmdDelete;
     }
 }

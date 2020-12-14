@@ -58,6 +58,8 @@
             // DataGridViewCustomers
             // 
             this.DataGridViewCustomers.AllowDrop = true;
+            this.DataGridViewCustomers.AllowUserToAddRows = false;
+            this.DataGridViewCustomers.AllowUserToDeleteRows = false;
             this.DataGridViewCustomers.AllowUserToOrderColumns = true;
             this.DataGridViewCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewCustomers.Location = new System.Drawing.Point(666, 117);

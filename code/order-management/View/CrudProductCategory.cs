@@ -25,6 +25,7 @@ namespace order_management.View
         {
             var categories = ProductCategoryService.GetBoundedList(context);
             DataGridViewProductCategories.DataSource = categories;
+            DataGridViewProductCategories.ClearSelection();
             CBParentCategory.DataSource = categories;
             LoadTreeView(categories);
         }
@@ -116,6 +117,40 @@ namespace order_management.View
             {
                 CBParentCategory.Visible = true;
             }
+        }
+
+        private void CmdSearch_Click(object sender, EventArgs e)
+        {
+            string searchValue = TxtSearch.Text;
+            if (searchValue == "")
+            {
+                MessageBox.Show("Enter a Value!");
+            }
+            else
+            {
+                DataGridViewProductCategories.ClearSelection();
+                foreach (DataGridViewRow row in DataGridViewProductCategories.Rows)
+                {
+                    //Cells[1] is ProductCategoryName
+                    if (row.Cells[1].Value.ToString().ToLower().StartsWith(searchValue.ToLower()))
+                    {
+                        row.Selected = true;
+                    }
+                }
+            }
+        }
+
+        private void CmdSave_Click(object sender, EventArgs e)
+        {
+            ProductCategoryService.SaveChanges(context);
+            LoadTreeView(ProductCategoryService.GetBoundedList(context));
+        }
+
+        private void CmdDelete_Click(object sender, EventArgs e)
+        {
+            ProductCategory selectedProductCategory = (ProductCategory)DataGridViewProductCategories.CurrentRow.DataBoundItem;
+            ProductCategoryService.Remove(context, selectedProductCategory);
+            LoadTreeView(ProductCategoryService.GetBoundedList(context));
         }
     }
 }

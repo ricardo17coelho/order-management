@@ -23,9 +23,9 @@ namespace order_management
         private void CrudProducts_Load(object sender, EventArgs e)
         {
             DataGridViewProducts.DataSource = ProductService.GetBoundedList(context);
+            DataGridViewProducts.ClearSelection();
 
-            context.ProductCategories.Load();
-            CBProductCategory.DataSource = context.ProductCategories.Local.ToBindingList();
+            CBProductCategory.DataSource = ProductCategoryService.GetBoundedList(context);
 
         }
 
@@ -56,6 +56,38 @@ namespace order_management
             {
                 ProductService.Add(context, newProduct);
             }
+        }
+
+        private void CmdSearch_Click(object sender, EventArgs e)
+        {
+            string searchValue = TxtSearch.Text;
+            if (searchValue == "")
+            {
+                MessageBox.Show("Enter a Value!");
+            }
+            else
+            {
+                DataGridViewProducts.ClearSelection();
+                foreach (DataGridViewRow row in DataGridViewProducts.Rows)
+                {
+                   //Cells[1] is ProductName
+                   if (row.Cells[1].Value.ToString().ToLower().StartsWith(searchValue.ToLower()))
+                    {
+                        row.Selected = true;
+                    }
+                }
+            }
+        }
+
+        private void CmdSave_Click(object sender, EventArgs e)
+        {
+            ProductService.SaveChanges(context);
+        }
+
+        private void CmdDelete_Click(object sender, EventArgs e)
+        {
+            Product selectedProduct = (Product)DataGridViewProducts.CurrentRow.DataBoundItem;
+            ProductService.Remove(context, selectedProduct);
         }
     }
 }
