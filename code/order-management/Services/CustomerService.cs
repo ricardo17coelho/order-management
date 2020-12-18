@@ -47,5 +47,17 @@ namespace order_management
             return customer.FirstName != "" &&
               customer.LastName != "";
         }
+
+        public static Customer GetEntityByName(Context context, string firstName, string lastName)
+        {
+            return context.Customers
+            .Where(c => (c.FirstName == firstName && c.LastName == c.LastName))
+            .FirstOrDefault<Customer>();
+        }
+
+        public static Customer GetEntityById(Context context, int id)
+        {
+            return context.Customers.Find(id);
+        }
     }
 }

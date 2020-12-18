@@ -35,10 +35,11 @@ namespace order_management.View
             if (result == DialogResult.Yes)
             {
                 CustomerService.RemoveAll(context);
-                context.ProductCategories.RemoveRange(context.ProductCategories);
-                context.Products.RemoveRange(context.Products);
-
-                context.SaveChanges();
+                ProductService.RemoveAll(context);
+                ProductCategoryService.RemoveAll(context);
+                OrderService.RemoveAll(context);
+                OrderDetailService.RemoveAll(context);
+                DbService.SaveChanges(context);
             }
         }
 
@@ -47,6 +48,8 @@ namespace order_management.View
             GenerateCustomers();
             GenerateProductCategories();
             GenerateProducts();
+            GenerateOrders();
+            GenerateOrderDetails();
         }
 
         private void GenerateProducts()
@@ -156,6 +159,69 @@ namespace order_management.View
                     CustomerService.Add(context, customer);
                 }
             }
+        }
+
+        private void GenerateOrders()
+        {
+
+            Customer hansMueller = CustomerService.GetEntityByName(context, "Hans", "Müller");
+            Customer peterHaller = CustomerService.GetEntityByName(context, "Peter", "Haller");
+
+            List<Order> orders = new List<Order>();
+            orders.Add(new Order(hansMueller));
+            orders.Add(new Order(peterHaller));
+            orders.Add(new Order(peterHaller));
+
+            foreach (Order order in orders)
+            {
+                if (!OrderService.IsValid(context, order))
+                {
+                    MessageBox.Show("Order is not valid");
+                }
+                else if (!OrderService.IsUnique(context, order))
+                {
+                    MessageBox.Show("Order " + order.OrderDate + " " + order.Customer.FirstName + " already exists!");
+                }
+                else
+                {
+                    OrderService.Add(context, order);
+                }
+            }
+
+        }
+
+        private void GenerateOrderDetails()
+        {
+
+            Customer hansMueller = CustomerService.GetEntityByName(context, "Hans", "Müller");
+            Customer peterHaller = CustomerService.GetEntityByName(context, "Peter", "Haller");
+
+            Order firstOrderFromHansMueller = OrderService.GetOrderByCustomer(context, hansMueller);
+            Order firstOrderFromPeterHaller = OrderService.GetOrderByCustomer(context, peterHaller);
+
+            Product ipad8 = ProductService.GetEntityByName(context, "Ipad 8"); 
+            Product huawaiP5 = ProductService.GetEntityByName(context, "Huawai p5");
+
+            List<OrderDetail> orderDetails = new List<OrderDetail>();
+            orderDetails.Add(new OrderDetail(5, firstOrderFromHansMueller, ipad8));
+            orderDetails.Add(new OrderDetail(10, firstOrderFromPeterHaller, huawaiP5));
+
+            foreach (OrderDetail orderDetail in orderDetails)
+            {
+                if (!OrderDetailService.IsValid(context, orderDetail))
+                {
+                    MessageBox.Show("OrderDetail is not valid");
+                }
+                else if (!OrderDetailService.IsUnique(context, orderDetail))
+                {
+                    MessageBox.Show("Order Detail " + orderDetail.OrderDetailId + " already exists!");
+                }
+                else
+                {
+                    OrderDetailService.Add(context, orderDetail);
+                }
+            }
+
         }
     }
 }

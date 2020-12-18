@@ -43,5 +43,24 @@ namespace order_management
         {
             return product.ProductName != "";
         }
+
+        public static Product GetEntityById(Context context, int id)
+        {
+            return context.Products.Find(id);
+        }
+
+        public static Product GetEntityByName(Context context, string name)
+        {
+            return context.Products
+            .Where(p => p.ProductName == name)
+            .FirstOrDefault<Product>();
+        }
+
+        public static List<Product> GetProductsForCategory(Context context, ProductCategory category)
+        {
+            //TODO: This must be Recursive! (Maybe with CTE Magic?)
+            return context.Products
+            .Where(p => p.ProductCategoryId == category.ProductCategoryId).ToList();
+        }
     }
 }

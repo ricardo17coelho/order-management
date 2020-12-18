@@ -16,10 +16,12 @@ namespace order_management
         public DbSet<Customer> Customers { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.; Database=dbName10; Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Data Source=.; Database=dbName12; Trusted_Connection=True");
 
             //For Debugging
             //optionsBuilder.LogTo(Console.WriteLine); 
@@ -27,9 +29,7 @@ namespace order_management
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Product>().HasOne(p => p.ProductCategory)
-              .WithMany(pc => pc.Products)
-              .HasForeignKey(p => p.ProductCategoryId);
+            
         }
     }
 }

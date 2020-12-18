@@ -41,6 +41,12 @@ namespace order_management
             crudProductCategory.ShowDialog();
         }
 
+        private void CmdOrders_Click(object sender, EventArgs e)
+        {
+            CrudOrders crudOrders = new CrudOrders(context);
+            crudOrders.ShowDialog();
+        }
+
         private void DashBoard_Load(object sender, EventArgs e)
         {
             UpdateCountLabels();

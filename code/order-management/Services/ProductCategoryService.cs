@@ -44,11 +44,17 @@ namespace order_management
             return productCategory.ProductCategoryName != "";
         }
 
+        public static ProductCategory GetEntityById(Context context, int id)
+        {
+            return context.ProductCategories.Find(id);
+        }
+
         public static ProductCategory GetEntityByName(Context context, string name)
         {
             return context.ProductCategories
             .Where(pc => pc.ProductCategoryName == name)
             .FirstOrDefault<ProductCategory>();
         }
+
     }
 }
