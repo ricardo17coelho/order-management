@@ -73,5 +73,10 @@ namespace order_management.View
             Order selectedOrder = (Order)DataGridViewOrders.CurrentRow.DataBoundItem;
             OrderService.Remove(context, selectedOrder);
         }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

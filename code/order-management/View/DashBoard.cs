@@ -135,5 +135,41 @@ namespace order_management
             pnlNavSettings.BackColor = Color.Black;
             lblNavSettings.ForeColor = Color.White;
         }
+
+        private void pnlNavOrders_Click(object sender, EventArgs e)
+        {
+            CrudOrders crudOrders = new CrudOrders(context);
+            crudOrders.ShowDialog();
+        }
+
+        private void pnlNavOrders_MouseHover(object sender, EventArgs e)
+        {
+            pnlNavOrders.BackColor = Color.White;
+            lblNavOrders.ForeColor = Color.Black;
+        }
+
+        private void pnlNavOrders_MouseLeave(object sender, EventArgs e)
+        {
+            pnlNavOrders.BackColor = Color.Black;
+            lblNavOrders.ForeColor = Color.White;
+        }
+
+        private void pnlNavCatalog_Click(object sender, EventArgs e)
+        {
+            Catalog catalog = new Catalog(context);
+            catalog.ShowDialog();
+        }
+
+        private void pnlNavCatalog_MouseHover(object sender, EventArgs e)
+        {
+            pnlNavCatalog.BackColor = Color.White;
+            pnlNavCatalog.ForeColor = Color.Black;
+        }
+
+        private void pnlNavCatalog_MouseLeave(object sender, EventArgs e)
+        {
+            pnlNavCatalog.BackColor = Color.Black;
+            pnlNavCatalog.ForeColor = Color.White;
+        }
     }
 }

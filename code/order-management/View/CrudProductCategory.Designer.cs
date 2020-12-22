@@ -44,14 +44,15 @@
             this.pnlTop = new System.Windows.Forms.Panel();
             this.CmdSearch = new System.Windows.Forms.Button();
             this.TxtSearch = new System.Windows.Forms.TextBox();
-            this.treeViewCategories = new System.Windows.Forms.TreeView();
             this.CmdSave = new System.Windows.Forms.Button();
             this.CmdDelete = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProductCategories)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPnlProducts)).BeginInit();
             this.pnlTop.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // DataGridViewProductCategories
@@ -61,18 +62,20 @@
             this.DataGridViewProductCategories.AllowUserToOrderColumns = true;
             this.DataGridViewProductCategories.BackgroundColor = System.Drawing.SystemColors.Highlight;
             this.DataGridViewProductCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewProductCategories.Location = new System.Drawing.Point(1083, 3);
+            this.DataGridViewProductCategories.Location = new System.Drawing.Point(828, 2);
+            this.DataGridViewProductCategories.Margin = new System.Windows.Forms.Padding(2);
             this.DataGridViewProductCategories.Name = "DataGridViewProductCategories";
             this.DataGridViewProductCategories.RowHeadersWidth = 102;
-            this.DataGridViewProductCategories.Size = new System.Drawing.Size(1074, 500);
+            this.DataGridViewProductCategories.Size = new System.Drawing.Size(821, 390);
             this.DataGridViewProductCategories.TabIndex = 0;
             this.DataGridViewProductCategories.Text = "dataGridView1";
             // 
             // TxtProductCategoryName
             // 
-            this.TxtProductCategoryName.Location = new System.Drawing.Point(539, 3);
+            this.TxtProductCategoryName.Location = new System.Drawing.Point(412, 2);
+            this.TxtProductCategoryName.Margin = new System.Windows.Forms.Padding(2);
             this.TxtProductCategoryName.Name = "TxtProductCategoryName";
-            this.TxtProductCategoryName.Size = new System.Drawing.Size(324, 47);
+            this.TxtProductCategoryName.Size = new System.Drawing.Size(249, 39);
             this.TxtProductCategoryName.TabIndex = 1;
             // 
             // label1
@@ -80,20 +83,24 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(2, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(448, 54);
+            this.label1.Size = new System.Drawing.Size(362, 45);
             this.label1.TabIndex = 2;
             this.label1.Text = "Product Category Name";
             // 
             // CmdAddNew
             // 
-            this.CmdAddNew.Location = new System.Drawing.Point(14, 671);
+            this.CmdAddNew.BackColor = System.Drawing.Color.DodgerBlue;
+            this.CmdAddNew.ForeColor = System.Drawing.Color.Black;
+            this.CmdAddNew.Location = new System.Drawing.Point(2, 2);
+            this.CmdAddNew.Margin = new System.Windows.Forms.Padding(2);
             this.CmdAddNew.Name = "CmdAddNew";
-            this.CmdAddNew.Size = new System.Drawing.Size(250, 55);
+            this.CmdAddNew.Size = new System.Drawing.Size(189, 64);
             this.CmdAddNew.TabIndex = 3;
             this.CmdAddNew.Text = "Add New";
-            this.CmdAddNew.UseVisualStyleBackColor = true;
+            this.CmdAddNew.UseVisualStyleBackColor = false;
             this.CmdAddNew.Click += new System.EventHandler(this.CmdAddNew_Click);
             // 
             // label2
@@ -101,9 +108,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 156);
+            this.label2.Location = new System.Drawing.Point(2, 122);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(277, 54);
+            this.label2.Size = new System.Drawing.Size(224, 45);
             this.label2.TabIndex = 2;
             this.label2.Text = "Root Category";
             // 
@@ -114,14 +122,13 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.DataGridViewProductCategories, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 159);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Controls.Add(this.DataGridViewProductCategories, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 124);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(2160, 506);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1652, 395);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // tableLayoutPanel2
@@ -137,14 +144,13 @@
             this.tableLayoutPanel2.Controls.Add(this.TxtProductCategoryName, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.CBParentCategory, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.CHBRootCategory, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 185F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1072, 498);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(820, 389);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // label3
@@ -152,9 +158,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 312);
+            this.label3.Location = new System.Drawing.Point(2, 244);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(307, 54);
+            this.label3.Size = new System.Drawing.Size(247, 45);
             this.label3.TabIndex = 2;
             this.label3.Text = "Parent Category";
             // 
@@ -162,17 +169,19 @@
             // 
             this.CBParentCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBParentCategory.FormattingEnabled = true;
-            this.CBParentCategory.Location = new System.Drawing.Point(539, 315);
+            this.CBParentCategory.Location = new System.Drawing.Point(412, 246);
+            this.CBParentCategory.Margin = new System.Windows.Forms.Padding(2);
             this.CBParentCategory.Name = "CBParentCategory";
-            this.CBParentCategory.Size = new System.Drawing.Size(351, 49);
+            this.CBParentCategory.Size = new System.Drawing.Size(269, 40);
             this.CBParentCategory.TabIndex = 4;
             // 
             // CHBRootCategory
             // 
             this.CHBRootCategory.AutoSize = true;
-            this.CHBRootCategory.Location = new System.Drawing.Point(539, 159);
+            this.CHBRootCategory.Location = new System.Drawing.Point(412, 124);
+            this.CHBRootCategory.Margin = new System.Windows.Forms.Padding(2);
             this.CHBRootCategory.Name = "CHBRootCategory";
-            this.CHBRootCategory.Size = new System.Drawing.Size(34, 33);
+            this.CHBRootCategory.Size = new System.Drawing.Size(28, 27);
             this.CHBRootCategory.TabIndex = 5;
             this.CHBRootCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.CHBRootCategory.UseVisualStyleBackColor = true;
@@ -184,10 +193,9 @@
             this.lblTitleSettings.AutoSize = true;
             this.lblTitleSettings.Font = new System.Drawing.Font("Segoe UI Black", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitleSettings.ForeColor = System.Drawing.Color.White;
-            this.lblTitleSettings.Location = new System.Drawing.Point(183, -3);
-            this.lblTitleSettings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitleSettings.Location = new System.Drawing.Point(140, -2);
             this.lblTitleSettings.Name = "lblTitleSettings";
-            this.lblTitleSettings.Size = new System.Drawing.Size(505, 116);
+            this.lblTitleSettings.Size = new System.Drawing.Size(406, 93);
             this.lblTitleSettings.TabIndex = 3;
             this.lblTitleSettings.Text = "Categories";
             // 
@@ -195,9 +203,8 @@
             // 
             this.pictureBoxPnlProducts.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPnlProducts.Image")));
             this.pictureBoxPnlProducts.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxPnlProducts.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxPnlProducts.Name = "pictureBoxPnlProducts";
-            this.pictureBoxPnlProducts.Size = new System.Drawing.Size(153, 123);
+            this.pictureBoxPnlProducts.Size = new System.Drawing.Size(117, 96);
             this.pictureBoxPnlProducts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPnlProducts.TabIndex = 4;
             this.pictureBoxPnlProducts.TabStop = false;
@@ -211,17 +218,17 @@
             this.pnlTop.Controls.Add(this.TxtSearch);
             this.pnlTop.Controls.Add(this.lblTitleSettings);
             this.pnlTop.Controls.Add(this.pictureBoxPnlProducts);
-            this.pnlTop.Location = new System.Drawing.Point(16, 15);
-            this.pnlTop.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlTop.Location = new System.Drawing.Point(12, 12);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(2141, 136);
+            this.pnlTop.Size = new System.Drawing.Size(1637, 106);
             this.pnlTop.TabIndex = 11;
             // 
             // CmdSearch
             // 
-            this.CmdSearch.Location = new System.Drawing.Point(1714, 63);
+            this.CmdSearch.Location = new System.Drawing.Point(1311, 49);
+            this.CmdSearch.Margin = new System.Windows.Forms.Padding(2);
             this.CmdSearch.Name = "CmdSearch";
-            this.CmdSearch.Size = new System.Drawing.Size(354, 44);
+            this.CmdSearch.Size = new System.Drawing.Size(271, 34);
             this.CmdSearch.TabIndex = 6;
             this.CmdSearch.Text = "Search";
             this.CmdSearch.UseVisualStyleBackColor = true;
@@ -229,51 +236,63 @@
             // 
             // TxtSearch
             // 
-            this.TxtSearch.Location = new System.Drawing.Point(1089, 61);
+            this.TxtSearch.Location = new System.Drawing.Point(833, 48);
+            this.TxtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.TxtSearch.Name = "TxtSearch";
-            this.TxtSearch.Size = new System.Drawing.Size(565, 47);
+            this.TxtSearch.Size = new System.Drawing.Size(433, 39);
             this.TxtSearch.TabIndex = 5;
-            // 
-            // treeViewCategories
-            // 
-            this.treeViewCategories.Location = new System.Drawing.Point(97, 800);
-            this.treeViewCategories.Margin = new System.Windows.Forms.Padding(4);
-            this.treeViewCategories.Name = "treeViewCategories";
-            this.treeViewCategories.Size = new System.Drawing.Size(841, 461);
-            this.treeViewCategories.TabIndex = 12;
             // 
             // CmdSave
             // 
-            this.CmdSave.Location = new System.Drawing.Point(1858, 722);
+            this.CmdSave.BackColor = System.Drawing.Color.Yellow;
+            this.CmdSave.ForeColor = System.Drawing.Color.Black;
+            this.CmdSave.Location = new System.Drawing.Point(195, 2);
+            this.CmdSave.Margin = new System.Windows.Forms.Padding(2);
             this.CmdSave.Name = "CmdSave";
-            this.CmdSave.Size = new System.Drawing.Size(225, 61);
+            this.CmdSave.Size = new System.Drawing.Size(186, 64);
             this.CmdSave.TabIndex = 13;
             this.CmdSave.Text = "Save";
-            this.CmdSave.UseVisualStyleBackColor = true;
+            this.CmdSave.UseVisualStyleBackColor = false;
             this.CmdSave.Click += new System.EventHandler(this.CmdSave_Click);
             // 
             // CmdDelete
             // 
-            this.CmdDelete.Location = new System.Drawing.Point(1473, 722);
+            this.CmdDelete.BackColor = System.Drawing.Color.Red;
+            this.CmdDelete.Location = new System.Drawing.Point(388, 2);
+            this.CmdDelete.Margin = new System.Windows.Forms.Padding(2);
             this.CmdDelete.Name = "CmdDelete";
-            this.CmdDelete.Size = new System.Drawing.Size(225, 61);
+            this.CmdDelete.Size = new System.Drawing.Size(179, 64);
             this.CmdDelete.TabIndex = 13;
             this.CmdDelete.Text = "Delete";
-            this.CmdDelete.UseVisualStyleBackColor = true;
+            this.CmdDelete.UseVisualStyleBackColor = false;
             this.CmdDelete.Click += new System.EventHandler(this.CmdDelete_Click);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
+            this.tableLayoutPanel3.Controls.Add(this.CmdAddNew, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.CmdDelete, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.CmdSave, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(15, 525);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(574, 68);
+            this.tableLayoutPanel3.TabIndex = 14;
             // 
             // CrudProductCategory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(2163, 1345);
-            this.Controls.Add(this.CmdDelete);
-            this.Controls.Add(this.CmdSave);
-            this.Controls.Add(this.treeViewCategories);
-            this.Controls.Add(this.CmdAddNew);
+            this.ClientSize = new System.Drawing.Size(1654, 1050);
+            this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CrudProductCategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrudProductCategory";
@@ -285,6 +304,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPnlProducts)).EndInit();
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -301,7 +321,6 @@
         private System.Windows.Forms.Label lblTitleSettings;
         private System.Windows.Forms.PictureBox pictureBoxPnlProducts;
         private System.Windows.Forms.Panel pnlTop;
-        private System.Windows.Forms.TreeView treeViewCategories;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox CBParentCategory;
         private System.Windows.Forms.CheckBox CHBRootCategory;
@@ -309,5 +328,6 @@
         private System.Windows.Forms.TextBox TxtSearch;
         private System.Windows.Forms.Button CmdSave;
         private System.Windows.Forms.Button CmdDelete;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
     }
 }

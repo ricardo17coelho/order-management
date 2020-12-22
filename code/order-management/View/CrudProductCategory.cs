@@ -27,53 +27,6 @@ namespace order_management.View
             DataGridViewProductCategories.DataSource = categories;
             DataGridViewProductCategories.ClearSelection();
             CBParentCategory.DataSource = categories;
-            LoadTreeView(categories);
-        }
-
-        private void LoadTreeView(BindingList<ProductCategory> categories)
-        {
-            treeViewCategories.Nodes.Clear();
-            TreeNode root = null;
-            PopulateTree(ref root, categories.ToList());
-            treeViewCategories.Nodes.Add(root);
-            treeViewCategories.ExpandAll();
-        }
-
-        public void PopulateTree(ref TreeNode root, List<ProductCategory> categoriesList)
-        {
-            if (root == null)
-            {
-                root = new TreeNode();
-                root.Text = "Categories";
-                root.Tag = null;
-                // get all departments in the list with parent is null
-                var sortedCategories = categoriesList.Where(t => t.ParentId == null);
-                foreach (var category in sortedCategories)
-                {
-                    var child = new TreeNode()
-                    {
-                        Text = category.ProductCategoryName,
-                        Tag = category.ProductCategoryId,
-                    };
-                    PopulateTree(ref child, categoriesList);
-                    root.Nodes.Add(child);
-                }
-            }
-            else
-            {
-                var id = (int)root.Tag;
-                var sortedCategories = categoriesList.Where(t => t.ParentId == id);
-                foreach (var category in sortedCategories)
-                {
-                    var child = new TreeNode()
-                    {
-                        Text = category.ProductCategoryName,
-                        Tag = category.ProductCategoryId,
-                    };
-                    PopulateTree(ref child, categoriesList);
-                    root.Nodes.Add(child);
-                }
-            }
         }
 
         private void CmdAddNew_Click(object sender, EventArgs e)
@@ -103,7 +56,6 @@ namespace order_management.View
             else
             {
                 ProductCategoryService.Add(context, newProductCategory);
-                LoadTreeView(ProductCategoryService.GetBoundedList(context));
             }
         }
 
@@ -143,14 +95,12 @@ namespace order_management.View
         private void CmdSave_Click(object sender, EventArgs e)
         {
             ProductCategoryService.SaveChanges(context);
-            LoadTreeView(ProductCategoryService.GetBoundedList(context));
         }
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
             ProductCategory selectedProductCategory = (ProductCategory)DataGridViewProductCategories.CurrentRow.DataBoundItem;
             ProductCategoryService.Remove(context, selectedProductCategory);
-            LoadTreeView(ProductCategoryService.GetBoundedList(context));
         }
     }
 }

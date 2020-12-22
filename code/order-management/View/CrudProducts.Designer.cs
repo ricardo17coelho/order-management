@@ -48,12 +48,14 @@
             this.pictureBoxPnlProducts = new System.Windows.Forms.PictureBox();
             this.CmdSave = new System.Windows.Forms.Button();
             this.CmdDelete = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumPrice)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPnlProducts)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // DataGridViewProducts
@@ -64,11 +66,13 @@
             this.DataGridViewProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataGridViewProducts.BackgroundColor = System.Drawing.Color.Gray;
+            this.DataGridViewProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGridViewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewProducts.Location = new System.Drawing.Point(1116, 3);
+            this.DataGridViewProducts.Location = new System.Drawing.Point(853, 2);
+            this.DataGridViewProducts.Margin = new System.Windows.Forms.Padding(2);
             this.DataGridViewProducts.Name = "DataGridViewProducts";
             this.DataGridViewProducts.RowHeadersWidth = 102;
-            this.DataGridViewProducts.Size = new System.Drawing.Size(1107, 888);
+            this.DataGridViewProducts.Size = new System.Drawing.Size(847, 693);
             this.DataGridViewProducts.TabIndex = 0;
             this.DataGridViewProducts.Text = "dataGridView1";
             // 
@@ -76,9 +80,10 @@
             // 
             this.CBProductCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBProductCategory.FormattingEnabled = true;
-            this.CBProductCategory.Location = new System.Drawing.Point(555, 382);
+            this.CBProductCategory.Location = new System.Drawing.Point(424, 231);
+            this.CBProductCategory.Margin = new System.Windows.Forms.Padding(2);
             this.CBProductCategory.Name = "CBProductCategory";
-            this.CBProductCategory.Size = new System.Drawing.Size(547, 49);
+            this.CBProductCategory.Size = new System.Drawing.Size(419, 40);
             this.CBProductCategory.TabIndex = 1;
             // 
             // TxtProductName
@@ -86,9 +91,10 @@
             this.TxtProductName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtProductName.Location = new System.Drawing.Point(555, 3);
+            this.TxtProductName.Location = new System.Drawing.Point(424, 2);
+            this.TxtProductName.Margin = new System.Windows.Forms.Padding(2);
             this.TxtProductName.Name = "TxtProductName";
-            this.TxtProductName.Size = new System.Drawing.Size(547, 47);
+            this.TxtProductName.Size = new System.Drawing.Size(419, 39);
             this.TxtProductName.TabIndex = 2;
             // 
             // label1
@@ -96,9 +102,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(2, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(277, 54);
+            this.label1.Size = new System.Drawing.Size(225, 45);
             this.label1.TabIndex = 3;
             this.label1.Text = "Product Name";
             // 
@@ -107,9 +114,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 132);
+            this.label2.Location = new System.Drawing.Point(2, 79);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 54);
+            this.label2.Size = new System.Drawing.Size(89, 45);
             this.label2.TabIndex = 3;
             this.label2.Text = "Price";
             // 
@@ -118,9 +126,10 @@
             this.NumPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NumPrice.Location = new System.Drawing.Point(555, 135);
+            this.NumPrice.Location = new System.Drawing.Point(424, 81);
+            this.NumPrice.Margin = new System.Windows.Forms.Padding(2);
             this.NumPrice.Name = "NumPrice";
-            this.NumPrice.Size = new System.Drawing.Size(547, 47);
+            this.NumPrice.Size = new System.Drawing.Size(419, 39);
             this.NumPrice.TabIndex = 4;
             // 
             // TxtUnit
@@ -128,9 +137,10 @@
             this.TxtUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtUnit.Location = new System.Drawing.Point(555, 267);
+            this.TxtUnit.Location = new System.Drawing.Point(424, 156);
+            this.TxtUnit.Margin = new System.Windows.Forms.Padding(2);
             this.TxtUnit.Name = "TxtUnit";
-            this.TxtUnit.Size = new System.Drawing.Size(547, 47);
+            this.TxtUnit.Size = new System.Drawing.Size(419, 39);
             this.TxtUnit.TabIndex = 2;
             // 
             // labelUnit
@@ -138,9 +148,10 @@
             this.labelUnit.AutoSize = true;
             this.labelUnit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelUnit.ForeColor = System.Drawing.Color.White;
-            this.labelUnit.Location = new System.Drawing.Point(3, 264);
+            this.labelUnit.Location = new System.Drawing.Point(2, 154);
+            this.labelUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUnit.Name = "labelUnit";
-            this.labelUnit.Size = new System.Drawing.Size(97, 54);
+            this.labelUnit.Size = new System.Drawing.Size(79, 45);
             this.labelUnit.TabIndex = 3;
             this.labelUnit.Text = "Unit";
             // 
@@ -149,20 +160,26 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 379);
+            this.label3.Location = new System.Drawing.Point(2, 229);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(321, 54);
+            this.label3.Size = new System.Drawing.Size(259, 45);
             this.label3.TabIndex = 3;
             this.label3.Text = "ProductCategory";
             // 
             // CmdAddNew
             // 
-            this.CmdAddNew.Location = new System.Drawing.Point(3, 510);
+            this.CmdAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CmdAddNew.BackColor = System.Drawing.Color.DodgerBlue;
+            this.CmdAddNew.Location = new System.Drawing.Point(2, 2);
+            this.CmdAddNew.Margin = new System.Windows.Forms.Padding(2);
             this.CmdAddNew.Name = "CmdAddNew";
-            this.CmdAddNew.Size = new System.Drawing.Size(546, 92);
+            this.CmdAddNew.Size = new System.Drawing.Size(291, 87);
             this.CmdAddNew.TabIndex = 5;
             this.CmdAddNew.Text = "Add New";
-            this.CmdAddNew.UseVisualStyleBackColor = true;
+            this.CmdAddNew.UseVisualStyleBackColor = false;
             this.CmdAddNew.Click += new System.EventHandler(this.CmdAddNew_Click);
             // 
             // tableLayoutPanel1
@@ -174,12 +191,11 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.DataGridViewProducts, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 182);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 142);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(2226, 894);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1702, 709);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // tableLayoutPanel2
@@ -187,7 +203,7 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.CmdAddNew, 0, 4);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.TxtUnit, 1, 2);
@@ -196,16 +212,16 @@
             this.tableLayoutPanel2.Controls.Add(this.NumPrice, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.labelUnit, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.TxtProductName, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 115F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 128F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 97F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1105, 605);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.2987F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.7013F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 323F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(845, 621);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // pnlTop
@@ -217,17 +233,17 @@
             this.pnlTop.Controls.Add(this.TxtSearch);
             this.pnlTop.Controls.Add(this.lblTitle);
             this.pnlTop.Controls.Add(this.pictureBoxPnlProducts);
-            this.pnlTop.Location = new System.Drawing.Point(8, 15);
-            this.pnlTop.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlTop.Location = new System.Drawing.Point(6, 12);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(2244, 144);
+            this.pnlTop.Size = new System.Drawing.Size(1716, 112);
             this.pnlTop.TabIndex = 9;
             // 
             // CmdSearch
             // 
-            this.CmdSearch.Location = new System.Drawing.Point(1830, 80);
+            this.CmdSearch.Location = new System.Drawing.Point(1399, 62);
+            this.CmdSearch.Margin = new System.Windows.Forms.Padding(2);
             this.CmdSearch.Name = "CmdSearch";
-            this.CmdSearch.Size = new System.Drawing.Size(376, 52);
+            this.CmdSearch.Size = new System.Drawing.Size(288, 41);
             this.CmdSearch.TabIndex = 6;
             this.CmdSearch.Text = "Search";
             this.CmdSearch.UseVisualStyleBackColor = true;
@@ -235,9 +251,10 @@
             // 
             // TxtSearch
             // 
-            this.TxtSearch.Location = new System.Drawing.Point(1172, 86);
+            this.TxtSearch.Location = new System.Drawing.Point(896, 67);
+            this.TxtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.TxtSearch.Name = "TxtSearch";
-            this.TxtSearch.Size = new System.Drawing.Size(544, 47);
+            this.TxtSearch.Size = new System.Drawing.Size(417, 39);
             this.TxtSearch.TabIndex = 5;
             // 
             // lblTitle
@@ -246,54 +263,78 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI Black", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(169, 0);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Location = new System.Drawing.Point(129, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(430, 116);
+            this.lblTitle.Size = new System.Drawing.Size(348, 93);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "Products";
             // 
             // pictureBoxPnlProducts
             // 
             this.pictureBoxPnlProducts.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPnlProducts.Image")));
-            this.pictureBoxPnlProducts.Location = new System.Drawing.Point(8, -3);
-            this.pictureBoxPnlProducts.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxPnlProducts.Location = new System.Drawing.Point(6, -2);
             this.pictureBoxPnlProducts.Name = "pictureBoxPnlProducts";
-            this.pictureBoxPnlProducts.Size = new System.Drawing.Size(167, 146);
+            this.pictureBoxPnlProducts.Size = new System.Drawing.Size(128, 114);
             this.pictureBoxPnlProducts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPnlProducts.TabIndex = 4;
             this.pictureBoxPnlProducts.TabStop = false;
             // 
             // CmdSave
             // 
-            this.CmdSave.Location = new System.Drawing.Point(1200, 1083);
+            this.CmdSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CmdSave.BackColor = System.Drawing.Color.Yellow;
+            this.CmdSave.Location = new System.Drawing.Point(297, 2);
+            this.CmdSave.Margin = new System.Windows.Forms.Padding(2);
             this.CmdSave.Name = "CmdSave";
-            this.CmdSave.Size = new System.Drawing.Size(417, 45);
+            this.CmdSave.Size = new System.Drawing.Size(291, 87);
             this.CmdSave.TabIndex = 10;
             this.CmdSave.Text = "Save";
-            this.CmdSave.UseVisualStyleBackColor = true;
+            this.CmdSave.UseVisualStyleBackColor = false;
             this.CmdSave.Click += new System.EventHandler(this.CmdSave_Click);
             // 
             // CmdDelete
             // 
-            this.CmdDelete.Location = new System.Drawing.Point(1711, 1083);
+            this.CmdDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CmdDelete.BackColor = System.Drawing.Color.Red;
+            this.CmdDelete.Location = new System.Drawing.Point(592, 2);
+            this.CmdDelete.Margin = new System.Windows.Forms.Padding(2);
             this.CmdDelete.Name = "CmdDelete";
-            this.CmdDelete.Size = new System.Drawing.Size(188, 58);
+            this.CmdDelete.Size = new System.Drawing.Size(249, 87);
             this.CmdDelete.TabIndex = 11;
             this.CmdDelete.Text = "Delete";
-            this.CmdDelete.UseVisualStyleBackColor = true;
+            this.CmdDelete.UseVisualStyleBackColor = false;
             this.CmdDelete.Click += new System.EventHandler(this.CmdDelete_Click);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 253F));
+            this.tableLayoutPanel3.Controls.Add(this.CmdSave, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.CmdDelete, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.CmdAddNew, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(17, 867);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(843, 91);
+            this.tableLayoutPanel3.TabIndex = 12;
             // 
             // CrudProducts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(2268, 1541);
-            this.Controls.Add(this.CmdDelete);
-            this.Controls.Add(this.CmdSave);
+            this.ClientSize = new System.Drawing.Size(1734, 1203);
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanel3);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CrudProducts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrudProducts";
@@ -306,6 +347,7 @@
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPnlProducts)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -331,5 +373,6 @@
         private System.Windows.Forms.TextBox TxtSearch;
         private System.Windows.Forms.Button CmdSave;
         private System.Windows.Forms.Button CmdDelete;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
     }
 }
