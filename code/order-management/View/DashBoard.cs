@@ -160,6 +160,12 @@ namespace order_management
             catalog.ShowDialog();
         }
 
+        private void pnlYoy_Click(object sender, EventArgs e)
+        {
+            YOYComparison yoyComparison = new YOYComparison(context);
+            yoyComparison.ShowDialog();
+        }
+
         private void pnlNavCatalog_MouseHover(object sender, EventArgs e)
         {
             pnlNavCatalog.BackColor = Color.White;

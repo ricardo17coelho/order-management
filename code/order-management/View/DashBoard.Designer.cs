@@ -67,6 +67,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.LblYoy = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlCustomers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPnlCustomer)).BeginInit();
@@ -291,6 +292,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Controls.Add(this.LblYoy);
             this.panel1.Controls.Add(this.pnlNavCatalog);
             this.panel1.Controls.Add(this.pnlNavOrders);
             this.panel1.Controls.Add(this.pnlNavSettings);
@@ -594,6 +596,20 @@
             this.panel2.TabIndex = 4;
             this.panel2.Click += new System.EventHandler(this.CmdOrders_Click);
             // 
+            // LblYoy
+            // 
+            this.LblYoy.AutoSize = true;
+            this.LblYoy.Font = new System.Drawing.Font("Segoe UI", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblYoy.ForeColor = System.Drawing.Color.White;
+            this.LblYoy.Location = new System.Drawing.Point(23, 618);
+            this.LblYoy.Name = "LblYoy";
+            this.LblYoy.Size = new System.Drawing.Size(342, 59);
+            this.LblYoy.TabIndex = 10;
+            this.LblYoy.Text = "YOY Comparison";
+            this.LblYoy.Click += new System.EventHandler(this.pnlYoy_Click);
+            this.LblYoy.MouseLeave += new System.EventHandler(this.pnlNavCatalog_MouseLeave);
+            this.LblYoy.MouseHover += new System.EventHandler(this.pnlNavCatalog_MouseHover);
+            // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -624,6 +640,7 @@
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pnlNavCatalog.ResumeLayout(false);
             this.pnlNavCatalog.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconNavCatalog)).EndInit();
@@ -688,6 +705,7 @@
         private System.Windows.Forms.Panel pnlNavOrders;
         private System.Windows.Forms.PictureBox iconNavOrders;
         private System.Windows.Forms.Label lblNavOrders;
+        private System.Windows.Forms.Label LblYoy;
     }
 }
 

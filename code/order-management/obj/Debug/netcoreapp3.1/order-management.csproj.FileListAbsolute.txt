@@ -233,3 +233,5 @@ C:\Users\Raphi\Desktop\order-management\code\order-management\obj\Debug\netcorea
 C:\Users\Raphi\Desktop\order-management\code\order-management\obj\Debug\netcoreapp3.1\order_management.View.CrudOrders.resources
 C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\order-management\obj\Debug\netcoreapp3.1\order_management.View.CrudOrders.resources
 C:\Users\rmorgado\DSDrive\ZBW\modules\open\Datenbanken_Advanced\projects\order-management.git\code\order-management\obj\Debug\netcoreapp3.1\order_management.View.Catalog.resources
+C:\Users\Raphi\Desktop\order-management\code\order-management\obj\Debug\netcoreapp3.1\order_management.View.Catalog.resources
+C:\Users\Raphi\Desktop\order-management\code\order-management\obj\Debug\netcoreapp3.1\order_management.View.YOYComparison.resources
