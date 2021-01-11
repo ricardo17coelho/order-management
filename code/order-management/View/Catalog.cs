@@ -13,7 +13,7 @@ namespace order_management.View
     {
         private Context context;
 
-        public Catalog(Context context)
+        public Catalog(Context context, DashBoard dashBoard)
         {
             this.context = context;
             InitializeComponent();

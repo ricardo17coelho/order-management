@@ -11,7 +11,7 @@ namespace order_management.View
     public partial class YOYComparison : Form
     {
         Context context;
-        public YOYComparison(Context context)
+        public YOYComparison(Context context, DashBoard dashBoard)
         {
             InitializeComponent();
             this.context = context;

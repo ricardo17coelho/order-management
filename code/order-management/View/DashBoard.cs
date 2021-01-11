@@ -25,25 +25,25 @@ namespace order_management
 
         private void CmdCustomers_Click(object sender, EventArgs e)
         {
-            CrudCustomers crudCustomers = new CrudCustomers(context);
+            CrudCustomers crudCustomers = new CrudCustomers(context, this);
             crudCustomers.ShowDialog();
         }
 
         private void CmdProducts_Click(object sender, EventArgs e)
         {
-            CrudProducts crudProducts = new CrudProducts(context);
+            CrudProducts crudProducts = new CrudProducts(context, this);
             crudProducts.ShowDialog();
         }
 
         private void CmdProductCategory_Click(object sender, EventArgs e)
         {
-            CrudProductCategory crudProductCategory = new CrudProductCategory(context);
+            CrudProductCategory crudProductCategory = new CrudProductCategory(context, this);
             crudProductCategory.ShowDialog();
         }
 
         private void CmdOrders_Click(object sender, EventArgs e)
         {
-            CrudOrders crudOrders = new CrudOrders(context);
+            CrudOrders crudOrders = new CrudOrders(context, this);
             crudOrders.ShowDialog();
         }
 
@@ -52,16 +52,12 @@ namespace order_management
             UpdateCountLabels();
         }
 
-        private void UpdateCountLabels()
+        public void UpdateCountLabels()
         {
-            //Would be nicer with a Databinding...
-            context.Customers.Load();
-            context.ProductCategories.Load();
-            context.Products.Load();
-
-            lblCustomersCount.Text = context.Customers.Local.ToBindingList().Count + "";
-            lblCategoryCount.Text = context.ProductCategories.Local.ToBindingList().Count + "";
-            lblProductsCount.Text = context.Products.Local.ToBindingList().Count + "";
+            lblCustomersCount.Text = CustomerService.GetBoundedList(context).Count + "";
+            lblCategoryCount.Text = ProductCategoryService.GetBoundedList(context).Count + "";
+            lblProductsCount.Text = ProductService.GetBoundedList(context).Count + "";
+            lblOrdersCount.Text = OrderService.GetBoundedList(context).Count + "";
         }
 
         private void pnlNavCustomers_MouseHover(object sender, EventArgs e)
@@ -72,7 +68,7 @@ namespace order_management
 
         private void pnlNavCustomers_Click(object sender, EventArgs e)
         {
-            CrudCustomers crudCustomers = new CrudCustomers(context);
+            CrudCustomers crudCustomers = new CrudCustomers(context, this);
             crudCustomers.ShowDialog();
         }
 
@@ -84,19 +80,19 @@ namespace order_management
 
         private void pnlNavSettings_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings(context);
+            Settings settings = new Settings(context, this);
             settings.ShowDialog();
         }
 
         private void pnlNavCategories_Click(object sender, EventArgs e)
         {
-            CrudProductCategory crudProductCategory = new CrudProductCategory(context);
+            CrudProductCategory crudProductCategory = new CrudProductCategory(context, this);
             crudProductCategory.ShowDialog();
         }
 
         private void pnlNavProducts_Click(object sender, EventArgs e)
         {
-            CrudProducts crudProducts = new CrudProducts(context);
+            CrudProducts crudProducts = new CrudProducts(context, this);
             crudProducts.ShowDialog();
         }
 
@@ -138,7 +134,7 @@ namespace order_management
 
         private void pnlNavOrders_Click(object sender, EventArgs e)
         {
-            CrudOrders crudOrders = new CrudOrders(context);
+            CrudOrders crudOrders = new CrudOrders(context, this);
             crudOrders.ShowDialog();
         }
 
@@ -156,13 +152,13 @@ namespace order_management
 
         private void pnlNavCatalog_Click(object sender, EventArgs e)
         {
-            Catalog catalog = new Catalog(context);
+            Catalog catalog = new Catalog(context, this);
             catalog.ShowDialog();
         }
 
         private void pnlYoy_Click(object sender, EventArgs e)
         {
-            YOYComparison yoyComparison = new YOYComparison(context);
+            YOYComparison yoyComparison = new YOYComparison(context, this);
             yoyComparison.ShowDialog();
         }
 

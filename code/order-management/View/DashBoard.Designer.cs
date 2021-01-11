@@ -45,6 +45,7 @@
             this.pnlTop = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LblYoy = new System.Windows.Forms.Label();
             this.pnlNavCatalog = new System.Windows.Forms.Panel();
             this.iconNavCatalog = new System.Windows.Forms.PictureBox();
             this.lblNavCatalog = new System.Windows.Forms.Label();
@@ -65,9 +66,8 @@
             this.pnlNavProducts = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblOrdersCount = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.LblYoy = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlCustomers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPnlCustomer)).BeginInit();
@@ -105,11 +105,11 @@
             this.tableLayoutPanel1.Controls.Add(this.pnlCustomers, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pnlProducts, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(316, 162);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(365, 187);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1480, 341);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1708, 394);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // pnlCustomers
@@ -123,7 +123,7 @@
             this.pnlCustomers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlCustomers.Location = new System.Drawing.Point(3, 3);
             this.pnlCustomers.Name = "pnlCustomers";
-            this.pnlCustomers.Size = new System.Drawing.Size(487, 332);
+            this.pnlCustomers.Size = new System.Drawing.Size(563, 384);
             this.pnlCustomers.TabIndex = 5;
             this.pnlCustomers.Click += new System.EventHandler(this.CmdCustomers_Click);
             // 
@@ -131,9 +131,9 @@
             // 
             this.pictureBoxPnlCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxPnlCustomer.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPnlCustomer.Image")));
-            this.pictureBoxPnlCustomer.Location = new System.Drawing.Point(359, 218);
+            this.pictureBoxPnlCustomer.Location = new System.Drawing.Point(415, 252);
             this.pictureBoxPnlCustomer.Name = "pictureBoxPnlCustomer";
-            this.pictureBoxPnlCustomer.Size = new System.Drawing.Size(128, 114);
+            this.pictureBoxPnlCustomer.Size = new System.Drawing.Size(148, 132);
             this.pictureBoxPnlCustomer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPnlCustomer.TabIndex = 2;
             this.pictureBoxPnlCustomer.TabStop = false;
@@ -145,9 +145,9 @@
             this.lblCustomersCount.BackColor = System.Drawing.Color.Transparent;
             this.lblCustomersCount.Font = new System.Drawing.Font("Segoe UI Black", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCustomersCount.ForeColor = System.Drawing.Color.White;
-            this.lblCustomersCount.Location = new System.Drawing.Point(29, 38);
+            this.lblCustomersCount.Location = new System.Drawing.Point(33, 44);
             this.lblCustomersCount.Name = "lblCustomersCount";
-            this.lblCustomersCount.Size = new System.Drawing.Size(120, 71);
+            this.lblCustomersCount.Size = new System.Drawing.Size(136, 81);
             this.lblCustomersCount.TabIndex = 1;
             this.lblCustomersCount.Text = "100";
             // 
@@ -157,9 +157,9 @@
             this.lblCustomers.AutoSize = true;
             this.lblCustomers.Font = new System.Drawing.Font("Segoe UI Black", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCustomers.ForeColor = System.Drawing.Color.White;
-            this.lblCustomers.Location = new System.Drawing.Point(22, 172);
+            this.lblCustomers.Location = new System.Drawing.Point(25, 199);
             this.lblCustomers.Name = "lblCustomers";
-            this.lblCustomers.Size = new System.Drawing.Size(307, 71);
+            this.lblCustomers.Size = new System.Drawing.Size(349, 81);
             this.lblCustomers.TabIndex = 0;
             this.lblCustomers.Text = "Customers";
             // 
@@ -172,9 +172,9 @@
             this.pnlProducts.Controls.Add(this.lblProductsCount);
             this.pnlProducts.Controls.Add(this.lblProducts);
             this.pnlProducts.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnlProducts.Location = new System.Drawing.Point(496, 3);
+            this.pnlProducts.Location = new System.Drawing.Point(572, 3);
             this.pnlProducts.Name = "pnlProducts";
-            this.pnlProducts.Size = new System.Drawing.Size(487, 332);
+            this.pnlProducts.Size = new System.Drawing.Size(563, 384);
             this.pnlProducts.TabIndex = 5;
             this.pnlProducts.Click += new System.EventHandler(this.CmdProducts_Click);
             // 
@@ -182,9 +182,9 @@
             // 
             this.pictureBoxPnlProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxPnlProducts.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPnlProducts.Image")));
-            this.pictureBoxPnlProducts.Location = new System.Drawing.Point(359, 217);
+            this.pictureBoxPnlProducts.Location = new System.Drawing.Point(415, 251);
             this.pictureBoxPnlProducts.Name = "pictureBoxPnlProducts";
-            this.pictureBoxPnlProducts.Size = new System.Drawing.Size(128, 114);
+            this.pictureBoxPnlProducts.Size = new System.Drawing.Size(148, 132);
             this.pictureBoxPnlProducts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPnlProducts.TabIndex = 2;
             this.pictureBoxPnlProducts.TabStop = false;
@@ -196,9 +196,9 @@
             this.lblProductsCount.BackColor = System.Drawing.Color.Transparent;
             this.lblProductsCount.Font = new System.Drawing.Font("Segoe UI Black", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblProductsCount.ForeColor = System.Drawing.Color.White;
-            this.lblProductsCount.Location = new System.Drawing.Point(39, 38);
+            this.lblProductsCount.Location = new System.Drawing.Point(45, 44);
             this.lblProductsCount.Name = "lblProductsCount";
-            this.lblProductsCount.Size = new System.Drawing.Size(120, 71);
+            this.lblProductsCount.Size = new System.Drawing.Size(136, 81);
             this.lblProductsCount.TabIndex = 1;
             this.lblProductsCount.Text = "100";
             // 
@@ -208,9 +208,9 @@
             this.lblProducts.AutoSize = true;
             this.lblProducts.Font = new System.Drawing.Font("Segoe UI Black", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblProducts.ForeColor = System.Drawing.Color.White;
-            this.lblProducts.Location = new System.Drawing.Point(20, 163);
+            this.lblProducts.Location = new System.Drawing.Point(23, 188);
             this.lblProducts.Name = "lblProducts";
-            this.lblProducts.Size = new System.Drawing.Size(263, 71);
+            this.lblProducts.Size = new System.Drawing.Size(299, 81);
             this.lblProducts.TabIndex = 0;
             this.lblProducts.Text = "Products";
             // 
@@ -223,9 +223,9 @@
             this.panel3.Controls.Add(this.pictureBoxPnlOrders);
             this.panel3.Controls.Add(this.lblCategoryCount);
             this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel3.Location = new System.Drawing.Point(989, 3);
+            this.panel3.Location = new System.Drawing.Point(1141, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(488, 332);
+            this.panel3.Size = new System.Drawing.Size(564, 384);
             this.panel3.TabIndex = 4;
             this.panel3.Click += new System.EventHandler(this.CmdProductCategory_Click);
             // 
@@ -235,9 +235,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Black", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 163);
+            this.label1.Location = new System.Drawing.Point(15, 188);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(308, 71);
+            this.label1.Size = new System.Drawing.Size(350, 81);
             this.label1.TabIndex = 0;
             this.label1.Text = "Categories";
             // 
@@ -245,9 +245,9 @@
             // 
             this.pictureBoxPnlOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxPnlOrders.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPnlOrders.Image")));
-            this.pictureBoxPnlOrders.Location = new System.Drawing.Point(360, 218);
+            this.pictureBoxPnlOrders.Location = new System.Drawing.Point(416, 252);
             this.pictureBoxPnlOrders.Name = "pictureBoxPnlOrders";
-            this.pictureBoxPnlOrders.Size = new System.Drawing.Size(128, 114);
+            this.pictureBoxPnlOrders.Size = new System.Drawing.Size(148, 132);
             this.pictureBoxPnlOrders.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPnlOrders.TabIndex = 2;
             this.pictureBoxPnlOrders.TabStop = false;
@@ -259,9 +259,9 @@
             this.lblCategoryCount.BackColor = System.Drawing.Color.Transparent;
             this.lblCategoryCount.Font = new System.Drawing.Font("Segoe UI Black", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCategoryCount.ForeColor = System.Drawing.Color.White;
-            this.lblCategoryCount.Location = new System.Drawing.Point(35, 38);
+            this.lblCategoryCount.Location = new System.Drawing.Point(40, 44);
             this.lblCategoryCount.Name = "lblCategoryCount";
-            this.lblCategoryCount.Size = new System.Drawing.Size(120, 71);
+            this.lblCategoryCount.Size = new System.Drawing.Size(136, 81);
             this.lblCategoryCount.TabIndex = 1;
             this.lblCategoryCount.Text = "100";
             // 
@@ -271,9 +271,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTop.BackColor = System.Drawing.Color.Black;
             this.pnlTop.Controls.Add(this.lblTitle);
-            this.pnlTop.Location = new System.Drawing.Point(294, 0);
+            this.pnlTop.Location = new System.Drawing.Point(339, 0);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1561, 112);
+            this.pnlTop.Size = new System.Drawing.Size(1801, 130);
             this.pnlTop.TabIndex = 8;
             // 
             // lblTitle
@@ -282,9 +282,9 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI Black", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(22, 9);
+            this.lblTitle.Location = new System.Drawing.Point(25, 10);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(314, 71);
+            this.lblTitle.Size = new System.Drawing.Size(357, 81);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "Dashboard";
             // 
@@ -300,17 +300,31 @@
             this.panel1.Controls.Add(this.pnlNavCustomers);
             this.panel1.Location = new System.Drawing.Point(3, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(286, 1119);
+            this.panel1.Size = new System.Drawing.Size(330, 1294);
             this.panel1.TabIndex = 9;
+            // 
+            // LblYoy
+            // 
+            this.LblYoy.AutoSize = true;
+            this.LblYoy.Font = new System.Drawing.Font("Segoe UI", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblYoy.ForeColor = System.Drawing.Color.White;
+            this.LblYoy.Location = new System.Drawing.Point(27, 715);
+            this.LblYoy.Name = "LblYoy";
+            this.LblYoy.Size = new System.Drawing.Size(391, 66);
+            this.LblYoy.TabIndex = 10;
+            this.LblYoy.Text = "YOY Comparison";
+            this.LblYoy.Click += new System.EventHandler(this.pnlYoy_Click);
+            this.LblYoy.MouseLeave += new System.EventHandler(this.pnlNavCatalog_MouseLeave);
+            this.LblYoy.MouseHover += new System.EventHandler(this.pnlNavCatalog_MouseHover);
             // 
             // pnlNavCatalog
             // 
             this.pnlNavCatalog.Controls.Add(this.iconNavCatalog);
             this.pnlNavCatalog.Controls.Add(this.lblNavCatalog);
             this.pnlNavCatalog.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnlNavCatalog.Location = new System.Drawing.Point(0, 515);
+            this.pnlNavCatalog.Location = new System.Drawing.Point(0, 595);
             this.pnlNavCatalog.Name = "pnlNavCatalog";
-            this.pnlNavCatalog.Size = new System.Drawing.Size(286, 89);
+            this.pnlNavCatalog.Size = new System.Drawing.Size(330, 103);
             this.pnlNavCatalog.TabIndex = 13;
             this.pnlNavCatalog.Click += new System.EventHandler(this.pnlNavCatalog_Click);
             this.pnlNavCatalog.MouseLeave += new System.EventHandler(this.pnlNavCatalog_MouseLeave);
@@ -321,7 +335,7 @@
             this.iconNavCatalog.Image = ((System.Drawing.Image)(resources.GetObject("iconNavCatalog.Image")));
             this.iconNavCatalog.Location = new System.Drawing.Point(0, 0);
             this.iconNavCatalog.Name = "iconNavCatalog";
-            this.iconNavCatalog.Size = new System.Drawing.Size(66, 66);
+            this.iconNavCatalog.Size = new System.Drawing.Size(76, 76);
             this.iconNavCatalog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.iconNavCatalog.TabIndex = 3;
             this.iconNavCatalog.TabStop = false;
@@ -334,9 +348,9 @@
             this.lblNavCatalog.AutoSize = true;
             this.lblNavCatalog.Font = new System.Drawing.Font("Segoe UI", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNavCatalog.ForeColor = System.Drawing.Color.White;
-            this.lblNavCatalog.Location = new System.Drawing.Point(60, 0);
+            this.lblNavCatalog.Location = new System.Drawing.Point(69, 0);
             this.lblNavCatalog.Name = "lblNavCatalog";
-            this.lblNavCatalog.Size = new System.Drawing.Size(171, 59);
+            this.lblNavCatalog.Size = new System.Drawing.Size(195, 66);
             this.lblNavCatalog.TabIndex = 10;
             this.lblNavCatalog.Text = "Catalog";
             this.lblNavCatalog.Click += new System.EventHandler(this.pnlNavCatalog_Click);
@@ -348,9 +362,9 @@
             this.pnlNavOrders.Controls.Add(this.iconNavOrders);
             this.pnlNavOrders.Controls.Add(this.lblNavOrders);
             this.pnlNavOrders.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnlNavOrders.Location = new System.Drawing.Point(0, 431);
+            this.pnlNavOrders.Location = new System.Drawing.Point(0, 498);
             this.pnlNavOrders.Name = "pnlNavOrders";
-            this.pnlNavOrders.Size = new System.Drawing.Size(286, 89);
+            this.pnlNavOrders.Size = new System.Drawing.Size(330, 103);
             this.pnlNavOrders.TabIndex = 12;
             this.pnlNavOrders.Click += new System.EventHandler(this.pnlNavOrders_Click);
             this.pnlNavOrders.MouseLeave += new System.EventHandler(this.pnlNavOrders_MouseLeave);
@@ -361,7 +375,7 @@
             this.iconNavOrders.Image = ((System.Drawing.Image)(resources.GetObject("iconNavOrders.Image")));
             this.iconNavOrders.Location = new System.Drawing.Point(0, 0);
             this.iconNavOrders.Name = "iconNavOrders";
-            this.iconNavOrders.Size = new System.Drawing.Size(66, 66);
+            this.iconNavOrders.Size = new System.Drawing.Size(76, 76);
             this.iconNavOrders.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.iconNavOrders.TabIndex = 3;
             this.iconNavOrders.TabStop = false;
@@ -374,9 +388,9 @@
             this.lblNavOrders.AutoSize = true;
             this.lblNavOrders.Font = new System.Drawing.Font("Segoe UI", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNavOrders.ForeColor = System.Drawing.Color.White;
-            this.lblNavOrders.Location = new System.Drawing.Point(60, 0);
+            this.lblNavOrders.Location = new System.Drawing.Point(69, 0);
             this.lblNavOrders.Name = "lblNavOrders";
-            this.lblNavOrders.Size = new System.Drawing.Size(152, 59);
+            this.lblNavOrders.Size = new System.Drawing.Size(175, 66);
             this.lblNavOrders.TabIndex = 10;
             this.lblNavOrders.Text = "Orders";
             this.lblNavOrders.Click += new System.EventHandler(this.pnlNavOrders_Click);
@@ -390,9 +404,9 @@
             this.pnlNavSettings.Controls.Add(this.iconNavSettings);
             this.pnlNavSettings.Controls.Add(this.lblNavSettings);
             this.pnlNavSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnlNavSettings.Location = new System.Drawing.Point(0, 1030);
+            this.pnlNavSettings.Location = new System.Drawing.Point(0, 1191);
             this.pnlNavSettings.Name = "pnlNavSettings";
-            this.pnlNavSettings.Size = new System.Drawing.Size(286, 89);
+            this.pnlNavSettings.Size = new System.Drawing.Size(330, 103);
             this.pnlNavSettings.TabIndex = 11;
             this.pnlNavSettings.Click += new System.EventHandler(this.pnlNavSettings_Click);
             this.pnlNavSettings.MouseLeave += new System.EventHandler(this.pnlNavSettings_MouseLeave);
@@ -403,7 +417,7 @@
             this.iconNavSettings.Image = ((System.Drawing.Image)(resources.GetObject("iconNavSettings.Image")));
             this.iconNavSettings.Location = new System.Drawing.Point(0, 0);
             this.iconNavSettings.Name = "iconNavSettings";
-            this.iconNavSettings.Size = new System.Drawing.Size(66, 66);
+            this.iconNavSettings.Size = new System.Drawing.Size(76, 76);
             this.iconNavSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.iconNavSettings.TabIndex = 3;
             this.iconNavSettings.TabStop = false;
@@ -416,9 +430,9 @@
             this.lblNavSettings.AutoSize = true;
             this.lblNavSettings.Font = new System.Drawing.Font("Segoe UI", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNavSettings.ForeColor = System.Drawing.Color.White;
-            this.lblNavSettings.Location = new System.Drawing.Point(60, 0);
+            this.lblNavSettings.Location = new System.Drawing.Point(69, 0);
             this.lblNavSettings.Name = "lblNavSettings";
-            this.lblNavSettings.Size = new System.Drawing.Size(177, 59);
+            this.lblNavSettings.Size = new System.Drawing.Size(204, 66);
             this.lblNavSettings.TabIndex = 10;
             this.lblNavSettings.Text = "Settings";
             this.lblNavSettings.Click += new System.EventHandler(this.pnlNavSettings_Click);
@@ -430,9 +444,9 @@
             this.pnlNavCategories.Controls.Add(this.iconNavCategories);
             this.pnlNavCategories.Controls.Add(this.lblNavCategories);
             this.pnlNavCategories.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnlNavCategories.Location = new System.Drawing.Point(9, 336);
+            this.pnlNavCategories.Location = new System.Drawing.Point(10, 388);
             this.pnlNavCategories.Name = "pnlNavCategories";
-            this.pnlNavCategories.Size = new System.Drawing.Size(286, 89);
+            this.pnlNavCategories.Size = new System.Drawing.Size(330, 103);
             this.pnlNavCategories.TabIndex = 11;
             this.pnlNavCategories.Click += new System.EventHandler(this.pnlNavCategories_Click);
             this.pnlNavCategories.MouseLeave += new System.EventHandler(this.pnlNavCategories_MouseLeave);
@@ -441,9 +455,9 @@
             // iconNavCategories
             // 
             this.iconNavCategories.Image = ((System.Drawing.Image)(resources.GetObject("iconNavCategories.Image")));
-            this.iconNavCategories.Location = new System.Drawing.Point(-9, 5);
+            this.iconNavCategories.Location = new System.Drawing.Point(-10, 6);
             this.iconNavCategories.Name = "iconNavCategories";
-            this.iconNavCategories.Size = new System.Drawing.Size(66, 66);
+            this.iconNavCategories.Size = new System.Drawing.Size(76, 76);
             this.iconNavCategories.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.iconNavCategories.TabIndex = 3;
             this.iconNavCategories.TabStop = false;
@@ -456,9 +470,9 @@
             this.lblNavCategories.AutoSize = true;
             this.lblNavCategories.Font = new System.Drawing.Font("Segoe UI", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNavCategories.ForeColor = System.Drawing.Color.White;
-            this.lblNavCategories.Location = new System.Drawing.Point(51, 10);
+            this.lblNavCategories.Location = new System.Drawing.Point(59, 12);
             this.lblNavCategories.Name = "lblNavCategories";
-            this.lblNavCategories.Size = new System.Drawing.Size(226, 59);
+            this.lblNavCategories.Size = new System.Drawing.Size(260, 66);
             this.lblNavCategories.TabIndex = 10;
             this.lblNavCategories.Text = "Categories";
             this.lblNavCategories.Click += new System.EventHandler(this.pnlNavCategories_Click);
@@ -470,9 +484,9 @@
             this.pnlNavCustomers.Controls.Add(this.iconNavCustomers);
             this.pnlNavCustomers.Controls.Add(this.lblNavCustomers);
             this.pnlNavCustomers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnlNavCustomers.Location = new System.Drawing.Point(0, 151);
+            this.pnlNavCustomers.Location = new System.Drawing.Point(0, 175);
             this.pnlNavCustomers.Name = "pnlNavCustomers";
-            this.pnlNavCustomers.Size = new System.Drawing.Size(286, 89);
+            this.pnlNavCustomers.Size = new System.Drawing.Size(330, 103);
             this.pnlNavCustomers.TabIndex = 0;
             this.pnlNavCustomers.Click += new System.EventHandler(this.pnlNavCustomers_Click);
             this.pnlNavCustomers.MouseLeave += new System.EventHandler(this.pnlNavCustomers_MouseLeave);
@@ -483,7 +497,7 @@
             this.iconNavCustomers.Image = ((System.Drawing.Image)(resources.GetObject("iconNavCustomers.Image")));
             this.iconNavCustomers.Location = new System.Drawing.Point(0, 0);
             this.iconNavCustomers.Name = "iconNavCustomers";
-            this.iconNavCustomers.Size = new System.Drawing.Size(66, 66);
+            this.iconNavCustomers.Size = new System.Drawing.Size(76, 76);
             this.iconNavCustomers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.iconNavCustomers.TabIndex = 3;
             this.iconNavCustomers.TabStop = false;
@@ -496,9 +510,9 @@
             this.lblNavCustomers.AutoSize = true;
             this.lblNavCustomers.Font = new System.Drawing.Font("Segoe UI", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNavCustomers.ForeColor = System.Drawing.Color.White;
-            this.lblNavCustomers.Location = new System.Drawing.Point(60, 0);
+            this.lblNavCustomers.Location = new System.Drawing.Point(69, 0);
             this.lblNavCustomers.Name = "lblNavCustomers";
-            this.lblNavCustomers.Size = new System.Drawing.Size(226, 59);
+            this.lblNavCustomers.Size = new System.Drawing.Size(259, 66);
             this.lblNavCustomers.TabIndex = 10;
             this.lblNavCustomers.Text = "Customers";
             this.lblNavCustomers.Click += new System.EventHandler(this.pnlNavCustomers_Click);
@@ -510,7 +524,7 @@
             this.iconNavProducts.Image = ((System.Drawing.Image)(resources.GetObject("iconNavProducts.Image")));
             this.iconNavProducts.Location = new System.Drawing.Point(0, 0);
             this.iconNavProducts.Name = "iconNavProducts";
-            this.iconNavProducts.Size = new System.Drawing.Size(66, 66);
+            this.iconNavProducts.Size = new System.Drawing.Size(76, 76);
             this.iconNavProducts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.iconNavProducts.TabIndex = 3;
             this.iconNavProducts.TabStop = false;
@@ -523,9 +537,9 @@
             this.lblNavProducts.AutoSize = true;
             this.lblNavProducts.Font = new System.Drawing.Font("Segoe UI", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNavProducts.ForeColor = System.Drawing.Color.White;
-            this.lblNavProducts.Location = new System.Drawing.Point(60, 0);
+            this.lblNavProducts.Location = new System.Drawing.Point(69, 0);
             this.lblNavProducts.Name = "lblNavProducts";
-            this.lblNavProducts.Size = new System.Drawing.Size(191, 59);
+            this.lblNavProducts.Size = new System.Drawing.Size(219, 66);
             this.lblNavProducts.TabIndex = 10;
             this.lblNavProducts.Text = "Products";
             this.lblNavProducts.Click += new System.EventHandler(this.pnlNavProducts_Click);
@@ -537,9 +551,9 @@
             this.pnlNavProducts.Controls.Add(this.iconNavProducts);
             this.pnlNavProducts.Controls.Add(this.lblNavProducts);
             this.pnlNavProducts.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnlNavProducts.Location = new System.Drawing.Point(3, 247);
+            this.pnlNavProducts.Location = new System.Drawing.Point(3, 286);
             this.pnlNavProducts.Name = "pnlNavProducts";
-            this.pnlNavProducts.Size = new System.Drawing.Size(286, 89);
+            this.pnlNavProducts.Size = new System.Drawing.Size(330, 103);
             this.pnlNavProducts.TabIndex = 11;
             this.pnlNavProducts.Click += new System.EventHandler(this.pnlNavProducts_Click);
             this.pnlNavProducts.MouseLeave += new System.EventHandler(this.pnlNavProducts_MouseLeave);
@@ -551,9 +565,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Black", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(13, 163);
+            this.label2.Location = new System.Drawing.Point(15, 188);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(207, 71);
+            this.label2.Size = new System.Drawing.Size(235, 81);
             this.label2.TabIndex = 0;
             this.label2.Text = "Orders";
             // 
@@ -561,25 +575,25 @@
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(359, 218);
+            this.pictureBox1.Location = new System.Drawing.Point(414, 252);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 114);
+            this.pictureBox1.Size = new System.Drawing.Size(148, 132);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // label3
+            // lblOrdersCount
             // 
-            this.label3.AutoEllipsis = true;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(35, 38);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 71);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "100";
+            this.lblOrdersCount.AutoEllipsis = true;
+            this.lblOrdersCount.AutoSize = true;
+            this.lblOrdersCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblOrdersCount.Font = new System.Drawing.Font("Segoe UI Black", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblOrdersCount.ForeColor = System.Drawing.Color.White;
+            this.lblOrdersCount.Location = new System.Drawing.Point(40, 44);
+            this.lblOrdersCount.Name = "lblOrdersCount";
+            this.lblOrdersCount.Size = new System.Drawing.Size(136, 81);
+            this.lblOrdersCount.TabIndex = 1;
+            this.lblOrdersCount.Text = "100";
             // 
             // panel2
             // 
@@ -588,34 +602,20 @@
             this.panel2.BackColor = System.Drawing.Color.DarkRed;
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.lblOrdersCount);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel2.Location = new System.Drawing.Point(319, 510);
+            this.panel2.Location = new System.Drawing.Point(368, 590);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(487, 332);
+            this.panel2.Size = new System.Drawing.Size(562, 384);
             this.panel2.TabIndex = 4;
             this.panel2.Click += new System.EventHandler(this.CmdOrders_Click);
             // 
-            // LblYoy
-            // 
-            this.LblYoy.AutoSize = true;
-            this.LblYoy.Font = new System.Drawing.Font("Segoe UI", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblYoy.ForeColor = System.Drawing.Color.White;
-            this.LblYoy.Location = new System.Drawing.Point(23, 618);
-            this.LblYoy.Name = "LblYoy";
-            this.LblYoy.Size = new System.Drawing.Size(342, 59);
-            this.LblYoy.TabIndex = 10;
-            this.LblYoy.Text = "YOY Comparison";
-            this.LblYoy.Click += new System.EventHandler(this.pnlYoy_Click);
-            this.LblYoy.MouseLeave += new System.EventHandler(this.pnlNavCatalog_MouseLeave);
-            this.LblYoy.MouseHover += new System.EventHandler(this.pnlNavCatalog_MouseHover);
-            // 
             // DashBoard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1856, 1123);
+            this.ClientSize = new System.Drawing.Size(2142, 1298);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlNavProducts);
             this.Controls.Add(this.panel1);
@@ -697,7 +697,7 @@
         private System.Windows.Forms.Panel pnlNavProducts;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblOrdersCount;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnlNavCatalog;
         private System.Windows.Forms.PictureBox iconNavCatalog;

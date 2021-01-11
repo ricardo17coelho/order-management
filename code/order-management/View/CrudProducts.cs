@@ -13,10 +13,12 @@ namespace order_management
     public partial class CrudProducts : Form
     {
         private Context context;
+        private DashBoard dashBoard;
 
-        public CrudProducts(Context context)
+        public CrudProducts(Context context, DashBoard dashBoard)
         {
-            this.context= context;
+            this.context = context;
+            this.dashBoard = dashBoard;
             InitializeComponent();
         }
 
@@ -56,6 +58,7 @@ namespace order_management
             {
                 ProductService.Add(context, newProduct);
             }
+            dashBoard.UpdateCountLabels();
         }
 
         private void CmdSearch_Click(object sender, EventArgs e)
@@ -88,6 +91,7 @@ namespace order_management
         {
             Product selectedProduct = (Product)DataGridViewProducts.CurrentRow.DataBoundItem;
             ProductService.Remove(context, selectedProduct);
+            dashBoard.UpdateCountLabels();
         }
     }
 }

@@ -11,10 +11,12 @@ namespace order_management.View
     public partial class CrudOrders : Form
     {
         private Context context;
-        
-        public CrudOrders(Context context)
+        private DashBoard dashBoard;
+
+        public CrudOrders(Context context, DashBoard dashBoard)
         {
             this.context = context;
+            this.dashBoard = dashBoard;
             InitializeComponent();
         }
 
@@ -55,6 +57,8 @@ namespace order_management.View
 
             OrderDetail newOrderDetail = new OrderDetail(quantity, orderFromDb, productFromDb);
             OrderDetailService.Add(context, newOrderDetail);
+
+            dashBoard.UpdateCountLabels();
         }
 
         private void CmdSave_Click(object sender, EventArgs e)
@@ -66,12 +70,17 @@ namespace order_management.View
         {
             OrderDetail selectedOrderDetail = (OrderDetail)DataGridViewOrderDetails.CurrentRow.DataBoundItem;
             OrderDetailService.Remove(context, selectedOrderDetail);
+
+            dashBoard.UpdateCountLabels();
         }
 
         private void CmdDeleteOrders_Click(object sender, EventArgs e)
         {
             Order selectedOrder = (Order)DataGridViewOrders.CurrentRow.DataBoundItem;
             OrderService.Remove(context, selectedOrder);
+
+            dashBoard.UpdateCountLabels();
+
         }
 
         private void lblTitle_Click(object sender, EventArgs e)

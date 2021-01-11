@@ -14,10 +14,12 @@ namespace order_management.View
     {
 
         private Context context;
+        private DashBoard dashBoard;
 
-        public CrudProductCategory(Context context)
+        public CrudProductCategory(Context context, DashBoard dashBoard)
         {
             this.context = context;
+            this.dashBoard = dashBoard;
             InitializeComponent();
         }
 
@@ -57,6 +59,7 @@ namespace order_management.View
             {
                 ProductCategoryService.Add(context, newProductCategory);
             }
+            dashBoard.UpdateCountLabels();
         }
 
         private void CHBRootCategory_CheckedChanged(object sender, EventArgs e)
@@ -101,6 +104,7 @@ namespace order_management.View
         {
             ProductCategory selectedProductCategory = (ProductCategory)DataGridViewProductCategories.CurrentRow.DataBoundItem;
             ProductCategoryService.Remove(context, selectedProductCategory);
+            dashBoard.UpdateCountLabels();
         }
     }
 }

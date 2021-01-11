@@ -12,10 +12,13 @@ namespace order_management.View
     public partial class Settings : Form
     {
         private Context context;
-        public Settings(Context context)
+        private DashBoard dashBoard;
+
+        public Settings(Context context, DashBoard dashBoard)
         {
             InitializeComponent();
             this.context = context;
+            this.dashBoard = dashBoard;
         }
 
         private void CmdGenerateSampleData_Click(object sender, EventArgs e)
@@ -26,6 +29,7 @@ namespace order_management.View
             {
                 GenerateSampleData();
             }
+            dashBoard.UpdateCountLabels();
         }
 
         private void CmdClearData_Click(object sender, EventArgs e)
@@ -41,6 +45,7 @@ namespace order_management.View
                 OrderDetailService.RemoveAll(context);
                 DbService.SaveChanges(context);
             }
+            dashBoard.UpdateCountLabels();
         }
 
         private void GenerateSampleData()

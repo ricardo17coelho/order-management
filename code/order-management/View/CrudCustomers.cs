@@ -13,11 +13,13 @@ namespace order_management
     public partial class CrudCustomers : Form
     {
         private Context context;
+        private DashBoard dashBoard;
 
-        public CrudCustomers(Context context)
+        public CrudCustomers(Context context, DashBoard dashBoard)
         {
             InitializeComponent();
             this.context = context;
+            this.dashBoard = dashBoard;
         }
 
         private void CrudCustomers_Load(object sender, EventArgs e)
@@ -50,12 +52,14 @@ namespace order_management
             {
                 CustomerService.Add(context, newCustomer);
             }
+            dashBoard.UpdateCountLabels();
         }
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
             Customer selectedCustomer = (Customer)DataGridViewCustomers.CurrentRow.DataBoundItem;
             CustomerService.Remove(context, selectedCustomer);
+            dashBoard.UpdateCountLabels();
         }
 
         private void CmdSave_Click(object sender, EventArgs e)
