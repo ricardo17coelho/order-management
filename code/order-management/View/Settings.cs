@@ -65,10 +65,10 @@ namespace order_management.View
             .Where(pc => pc.ProductCategoryName == "Tablets")
             .FirstOrDefault<ProductCategory>();
 
-            products.Add(new Product("HP Compaq 24 Inch", 300, "Fr.", monitors));
-            products.Add(new Product("Samsung Tab S7+", 800.95, "Fr.", tablets));
-            products.Add(new Product("Ipad 8", 1200.55, "Fr.", tablets));
-            products.Add(new Product("Huawai p5", 120.35, "Fr.", tablets));
+            products.Add(new Product("HP Compaq 24 Inch", 300, "Fr.", new DateTime(2018, 11, 15), monitors));
+            products.Add(new Product("Samsung Tab S7+", 800.95, "Fr.", new DateTime(2018, 11, 15), tablets));
+            products.Add(new Product("Ipad 8", 1200.55, "Fr.", new DateTime(2019, 11, 15), tablets));
+            products.Add(new Product("Huawai p5", 120.35, "Fr.", new DateTime(2020, 11, 15), tablets));
 
             foreach (Product product in products)
             {

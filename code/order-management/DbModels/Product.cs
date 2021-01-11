@@ -13,7 +13,9 @@ namespace order_management
         public double Price { get; set; }
         
         public string Unit { get; set; }
-        
+
+        public DateTime Date { get; set; }
+
         // Navigation Property
         public virtual ProductCategory ProductCategory { get; set; }
 
@@ -25,6 +27,17 @@ namespace order_management
             ProductName = productName;
             Price = price;
             Unit = unit;
+            ProductCategory = productCategory;
+            ProductCategoryId = productCategory.ProductCategoryId;
+            this.Date = DateTime.Now;
+        }
+
+        public Product(string productName, double price, string unit, DateTime date, ProductCategory productCategory)
+        {
+            ProductName = productName;
+            Price = price;
+            Unit = unit;
+            this.Date = date;
             ProductCategory = productCategory;
             ProductCategoryId = productCategory.ProductCategoryId;
         }
