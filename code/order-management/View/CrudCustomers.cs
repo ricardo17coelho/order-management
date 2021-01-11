@@ -65,24 +65,93 @@ namespace order_management
 
         private void CmdSearch_Click(object sender, EventArgs e)
         {
-            string searchValue = TxtSearch.Text;
-            if (searchValue == "")
+            //string searchValue = TxtSearch.Text;
+            //if (searchValue == "")
+            //{
+            //    MessageBox.Show("Enter a Value!");
+            //}
+            //else
+            //{
+            //    DataGridViewCustomers.ClearSelection();
+            //    foreach (DataGridViewRow row in DataGridViewCustomers.Rows)
+            //    {
+            //        //Cells[1] is Firstname and Cells[2] is Lastname
+            //        if (row.Cells[1].Value.ToString().ToLower().StartsWith(searchValue.ToLower()) || 
+            //            row.Cells[2].Value.ToString().ToLower().StartsWith(searchValue.ToLower()))
+            //        {
+            //            row.Selected = true;
+            //        }
+            //    }
+            //}
+
+            //string searchValue = TxtSearch.Text.ToUpper();
+            //DataGridViewCustomers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //try
+            //{
+            //    bool valueResult = false;
+            //    foreach (DataGridViewRow row in DataGridViewCustomers.Rows)
+            //    {
+            //        for (int i = 0; i < row.Cells.Count; i++)
+            //        {
+            //            int rowIndex = row.Index;
+            //            if (row.Cells[i].Value != null && row.Cells[i].Value.ToString().ToUpper().Equals(searchValue))
+            //            {
+            //                DataGridViewCustomers.Rows[rowIndex].Selected = true;
+            //                valueResult = true;
+            //                break;
+            //            } else
+            //            {
+            //                DataGridViewCustomers.Rows[rowIndex].Selected = false;
+            //            }
+            //        }
+
+            //    }
+            //    if (!valueResult)
+            //    {
+            //        MessageBox.Show("Unable to find " + searchValue, "Not Found");
+            //        return;
+            //    }
+            //}
+            //catch (Exception exc)
+            //{
+            //    MessageBox.Show(exc.Message);
+            //}
+        }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            //TODO: remove this line
+            //------------------------------------------------------------------------
+            DataGridViewCustomers.DataSource = CustomerService.GetBoundedList(context);
+            //------------------------------------------------------------------------
+            DataTable datatable = GetGridViewDataAsDataTable();
+            DataView dv = new DataView(datatable);
+            dv.RowFilter = string.Format("Firstname LIKE '%{0}%'", TxtSearch.Text);
+            //dv.RowFilter = string.Format("Firstname like '%{0}%' or Lastname like '%{0}%'", textBox1.Text);
+            DataGridViewCustomers.DataSource = dv;
+        }
+
+        public DataTable GetGridViewDataAsDataTable()
+        {
+            //Creating DataTable.
+            DataTable dt = new DataTable();
+
+            //Adding the Columns.
+            foreach (DataGridViewColumn column in DataGridViewCustomers.Columns)
             {
-                MessageBox.Show("Enter a Value!");
+                dt.Columns.Add(column.HeaderText, column.ValueType);
             }
-            else
+
+            //Adding the Rows.
+            foreach (DataGridViewRow row in DataGridViewCustomers.Rows)
             {
-                DataGridViewCustomers.ClearSelection();
-                foreach (DataGridViewRow row in DataGridViewCustomers.Rows)
+                dt.Rows.Add();
+                foreach (DataGridViewCell cell in row.Cells)
                 {
-                    //Cells[1] is Firstname and Cells[2] is Lastname
-                    if (row.Cells[1].Value.ToString().ToLower().StartsWith(searchValue.ToLower()) || 
-                        row.Cells[2].Value.ToString().ToLower().StartsWith(searchValue.ToLower()))
-                    {
-                        row.Selected = true;
-                    }
+                    dt.Rows[dt.Rows.Count - 1][cell.ColumnIndex] = cell.Value.ToString();
                 }
             }
+            return dt;
         }
     }
 }

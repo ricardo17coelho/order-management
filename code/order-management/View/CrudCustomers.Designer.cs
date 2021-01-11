@@ -268,6 +268,7 @@
             this.TxtSearch.Name = "TxtSearch";
             this.TxtSearch.Size = new System.Drawing.Size(448, 39);
             this.TxtSearch.TabIndex = 9;
+            this.TxtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             // 
             // CmdSearch
             // 
