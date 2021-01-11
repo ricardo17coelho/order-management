@@ -143,6 +143,10 @@ namespace order_management.View
             customers.Add(new Customer("Max", "Mustermann", "Bachweg", "1a", 4582, "Schlieren", "Schweiz"));
             customers.Add(new Customer("Vreni", "Kuster", "Hinter dem Baum", "12", 4521, "Walden", "Schweiz"));
             customers.Add(new Customer("Petra", "Schwarz", "Blumenstrasse", "45b", 1234, "Ederswiler", "Schweiz"));
+            customers.Add(new Customer("Andreas", "Rot", "Bahnhofplatz", "13", 9452, "Spreitebach", "Schweiz"));
+            customers.Add(new Customer("Jürgen", "Blyatman", "Huebstrasse", "16", 9152, "Mörschwil", "Schweiz"));
+            customers.Add(new Customer("Oskar", "Kanban", "Rosenweg", "1b", 8523, "Interlaken", "Schweiz"));
+            customers.Add(new Customer("Karin", "Blattsalat", "Bachfeldstrasse", "5", 5423, "Flieren", "Schweiz"));
 
             foreach (Customer customer in customers)
             {
@@ -166,11 +170,31 @@ namespace order_management.View
 
             Customer hansMueller = CustomerService.GetEntityByName(context, "Hans", "Müller");
             Customer peterHaller = CustomerService.GetEntityByName(context, "Peter", "Haller");
+            Customer vreniKuster = CustomerService.GetEntityByName(context, "Vreni", "Kuster");
+            Customer petraSchwarz = CustomerService.GetEntityByName(context, "Petra", "Schwarz");
+            Customer maxMustermann = CustomerService.GetEntityByName(context, "Max", "Mustermann");
+            Customer andreasRot = CustomerService.GetEntityByName(context, "Andreas", "Rot");
+            Customer jürgenBlyatman = CustomerService.GetEntityByName(context, "Jürgen", "Blyatman");
+            Customer oskarKanban = CustomerService.GetEntityByName(context, "Oskar", "Kanban");
+            Customer karinBlattsalat = CustomerService.GetEntityByName(context, "Karin", "Blattsalat");
 
             List<Order> orders = new List<Order>();
+            orders.Add(new Order(vreniKuster, new DateTime(2018, 8, 15)));
+            orders.Add(new Order(maxMustermann, new DateTime(2018, 8, 15)));
+            orders.Add(new Order(andreasRot, new DateTime(2018, 8, 15)));
+            orders.Add(new Order(jürgenBlyatman, new DateTime(2019, 8, 15)));
+            orders.Add(new Order(oskarKanban, new DateTime(2019, 11, 15)));
+
+            orders.Add(new Order(karinBlattsalat, new DateTime(2020, 3, 15)));
+            orders.Add(new Order(karinBlattsalat, new DateTime(2020, 6, 15)));
+            orders.Add(new Order(hansMueller, new DateTime(2018, 1, 15)));
+            orders.Add(new Order(hansMueller, new DateTime(2020, 7, 15)));
             orders.Add(new Order(hansMueller));
+            orders.Add(new Order(petraSchwarz, new DateTime(2020, 11, 15)));
+            orders.Add(new Order(petraSchwarz, new DateTime(2018, 12, 15)));
             orders.Add(new Order(peterHaller));
-            orders.Add(new Order(peterHaller));
+            orders.Add(new Order(peterHaller, new DateTime(2018, 4, 15)));
+
 
             foreach (Order order in orders)
             {
@@ -195,16 +219,41 @@ namespace order_management.View
 
             Customer hansMueller = CustomerService.GetEntityByName(context, "Hans", "Müller");
             Customer peterHaller = CustomerService.GetEntityByName(context, "Peter", "Haller");
+            Customer vreniKuster = CustomerService.GetEntityByName(context, "Vreni", "Kuster");
+            Customer petraSchwarz = CustomerService.GetEntityByName(context, "Petra", "Schwarz");
+            Customer maxMustermann = CustomerService.GetEntityByName(context, "Max", "Mustermann");
+            Customer andreasRot = CustomerService.GetEntityByName(context, "Andreas", "Rot");
+            Customer jürgenBlyatman = CustomerService.GetEntityByName(context, "Jürgen", "Blyatman");
+            Customer oskarKanban = CustomerService.GetEntityByName(context, "Oskar", "Kanban");
+            Customer karinBlattsalat = CustomerService.GetEntityByName(context, "Karin", "Blattsalat");
 
-            Order firstOrderFromHansMueller = OrderService.GetOrderByCustomer(context, hansMueller);
-            Order firstOrderFromPeterHaller = OrderService.GetOrderByCustomer(context, peterHaller);
+            Order firstOrderFromHansMueller = OrderService.GetOrdersByCustomer(context, hansMueller)[0];
+            Order firstOrderFromPeterHaller = OrderService.GetOrdersByCustomer(context, peterHaller)[0];
+            Order firstOrderFromVreniKuster = OrderService.GetOrdersByCustomer(context, vreniKuster)[0];
+            Order firstOrderFromPetraSchwarz = OrderService.GetOrdersByCustomer(context, petraSchwarz)[0];
+            Order firstOrderFromMaxMustermann = OrderService.GetOrdersByCustomer(context, maxMustermann)[0];
+            Order firstOrderFromAndreasRot = OrderService.GetOrdersByCustomer(context, andreasRot)[0];
+            Order firstOrderFromJürgenBlyatman = OrderService.GetOrdersByCustomer(context, jürgenBlyatman)[0];
+            Order firstOrderFromOskarKanban = OrderService.GetOrdersByCustomer(context, oskarKanban)[0];
+            Order firstOrderFromKarinBlattsalat = OrderService.GetOrdersByCustomer(context, karinBlattsalat)[0];
+            Order secondOrderFromKarinBlattsalat = OrderService.GetOrdersByCustomer(context, karinBlattsalat)[1];
 
-            Product ipad8 = ProductService.GetEntityByName(context, "Ipad 8"); 
+            Product ipad8 = ProductService.GetEntityByName(context, "Ipad 8");
             Product huawaiP5 = ProductService.GetEntityByName(context, "Huawai p5");
+            Product samsungTabS7 = ProductService.GetEntityByName(context, "Samsung Tab S7+");
+            Product hPCompaq24Inch = ProductService.GetEntityByName(context, "HP Compaq 24 Inch");
 
             List<OrderDetail> orderDetails = new List<OrderDetail>();
             orderDetails.Add(new OrderDetail(5, firstOrderFromHansMueller, ipad8));
             orderDetails.Add(new OrderDetail(10, firstOrderFromPeterHaller, huawaiP5));
+            orderDetails.Add(new OrderDetail(10, firstOrderFromVreniKuster, samsungTabS7));
+            orderDetails.Add(new OrderDetail(1, firstOrderFromPetraSchwarz, ipad8));
+            orderDetails.Add(new OrderDetail(1, firstOrderFromMaxMustermann, hPCompaq24Inch));
+            orderDetails.Add(new OrderDetail(2, firstOrderFromAndreasRot, hPCompaq24Inch));
+            orderDetails.Add(new OrderDetail(2, firstOrderFromJürgenBlyatman, huawaiP5));
+            orderDetails.Add(new OrderDetail(2, firstOrderFromOskarKanban, ipad8));
+            orderDetails.Add(new OrderDetail(3, firstOrderFromKarinBlattsalat, samsungTabS7));
+            orderDetails.Add(new OrderDetail(3, secondOrderFromKarinBlattsalat, ipad8));
 
             foreach (OrderDetail orderDetail in orderDetails)
             {

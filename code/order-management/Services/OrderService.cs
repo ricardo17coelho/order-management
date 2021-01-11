@@ -50,11 +50,11 @@ namespace order_management
             return context.Orders.Find(id);
         }
 
-        public static Order GetOrderByCustomer(Context context, Customer customer)
+        public static List<Order> GetOrdersByCustomer(Context context, Customer customer)
         {
             return context.Orders
             .Where(o => o.CustomerId == customer.CustomerId)
-            .FirstOrDefault<Order>();
+            .ToList();
         }
     }
 }

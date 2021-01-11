@@ -26,6 +26,14 @@ namespace order_management
             CustomerId = customer.CustomerId;
         }
 
+        public Order(Customer customer, DateTime dateTime)
+        {
+            OrderDate = dateTime;
+            Tax = 7.7;
+            Customer = customer;
+            CustomerId = customer.CustomerId;
+        }
+
         public Order() { }
     }
 }
