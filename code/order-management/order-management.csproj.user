@@ -1,28 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="View\Catalog.cs">
+    <Compile Update="View\FormCategories.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\CrudCustomers.cs">
+    <Compile Update="View\FormCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\CrudOrders.cs">
+    <Compile Update="View\FormProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\CrudProductCategory.cs">
+    <Compile Update="View\ViewCategories.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\CrudProducts.cs">
+    <Compile Update="View\ViewCategoryTreeView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\DashBoard.cs">
+    <Compile Update="View\ViewCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Settings.cs">
+    <Compile Update="View\HomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\YOYComparison.cs">
+    <Compile Update="View\ViewOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\ViewProducts.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

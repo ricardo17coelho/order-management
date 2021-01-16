@@ -7,28 +7,38 @@ namespace order_management
     public class ProductCategory
     {
         public int ProductCategoryId { get; set; }
-        
         public string ProductCategoryName { get; set; }
-        
-        // Recursive Navigation Property
         public virtual ProductCategory Parent { get; set; }
-
-        // Recursive Navigation Property
         public virtual int? ParentId { get; set; }
 
-        public ProductCategory(string productCategoryName, ProductCategory parentCategory)
-        {
-            ProductCategoryName = productCategoryName;
-            Parent = parentCategory;
-            ParentId = parentCategory.ProductCategoryId;
-        }
-
+        // Constructor for creating a new Root Category
         public ProductCategory(string productCategoryName)
         {
             ProductCategoryName = productCategoryName;
         }
 
-        public ProductCategory() { }
+        // Constructor for creating a new Category with a Parent Category
+        public ProductCategory(string productCategoryName, ProductCategory parent)
+        {
+            ProductCategoryName = productCategoryName;
+            Parent = parent;
+            ParentId = parent.ProductCategoryId;
+        }
+
+        // This constructor ist just used in the OnModelCreating() in DBContext
+        public ProductCategory(int id, string productCategoryName)
+        {
+            ProductCategoryId = id;
+            ProductCategoryName = productCategoryName;
+        }
+
+        // This constructor ist just used in the OnModelCreating() in DBContext
+        public ProductCategory(int id, string productCategoryName, int parentId)
+        {
+            ProductCategoryId = id;
+            ProductCategoryName = productCategoryName;
+            ParentId = parentId;
+        }
 
         public override string ToString()
         {

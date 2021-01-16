@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using order_management;
 
 namespace order_management.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20210116131314_Catefjilsdfsdfjdfkdsfsdfdf")]
+    partial class Catefjilsdfsdfjdfkdsfsdfdf
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -225,7 +227,7 @@ namespace order_management.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<int>("ProductCategoryId")
+                    b.Property<int?>("ProductCategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("ProductName")
@@ -239,89 +241,6 @@ namespace order_management.Migrations
                     b.HasIndex("ProductCategoryId");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            ProductId = 1000,
-                            Date = new DateTime(2018, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 300.0,
-                            ProductCategoryId = 1000,
-                            ProductName = "HP Compaq 24 Inch",
-                            Unit = "Fr."
-                        },
-                        new
-                        {
-                            ProductId = 1001,
-                            Date = new DateTime(2019, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 899.0,
-                            ProductCategoryId = 1001,
-                            ProductName = "Samsung 49HG90 49 Inch",
-                            Unit = "Fr."
-                        },
-                        new
-                        {
-                            ProductId = 1002,
-                            Date = new DateTime(2020, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 60.0,
-                            ProductCategoryId = 1003,
-                            ProductName = "Logitech Ergonomic",
-                            Unit = "Fr."
-                        },
-                        new
-                        {
-                            ProductId = 1003,
-                            Date = new DateTime(2019, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 1200.0,
-                            ProductCategoryId = 1006,
-                            ProductName = "Super Chair 2000",
-                            Unit = "Fr."
-                        },
-                        new
-                        {
-                            ProductId = 1004,
-                            Date = new DateTime(2018, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 50.0,
-                            ProductCategoryId = 1006,
-                            ProductName = "Bad Chaur 100",
-                            Unit = "Fr."
-                        },
-                        new
-                        {
-                            ProductId = 1005,
-                            Date = new DateTime(2019, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 7000.0,
-                            ProductCategoryId = 1007,
-                            ProductName = "Nitro Concepts 300",
-                            Unit = "Fr."
-                        },
-                        new
-                        {
-                            ProductId = 1006,
-                            Date = new DateTime(2019, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 300.0,
-                            ProductCategoryId = 1002,
-                            ProductName = "Samsung super Curved Monitor 30 Inch",
-                            Unit = "Fr."
-                        },
-                        new
-                        {
-                            ProductId = 1007,
-                            Date = new DateTime(2018, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 2000.0,
-                            ProductCategoryId = 1005,
-                            ProductName = "Super Table",
-                            Unit = "Fr."
-                        },
-                        new
-                        {
-                            ProductId = 1008,
-                            Date = new DateTime(2018, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 250.0,
-                            ProductCategoryId = 1005,
-                            ProductName = "Bad Table",
-                            Unit = "Fr."
-                        });
                 });
 
             modelBuilder.Entity("order_management.ProductCategory", b =>
@@ -426,9 +345,7 @@ namespace order_management.Migrations
                 {
                     b.HasOne("order_management.ProductCategory", "ProductCategory")
                         .WithMany()
-                        .HasForeignKey("ProductCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductCategoryId");
 
                     b.Navigation("ProductCategory");
                 });
