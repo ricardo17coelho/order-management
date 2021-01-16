@@ -7,7 +7,7 @@ using System.Text;
 
 namespace order_management
 {
-    public class OrderService : DbService
+    public class OrderService
     {
         public static BindingList<Order> GetBoundedList(Context context)
         {

@@ -7,33 +7,35 @@ namespace order_management
     public class Order
     {
         public int OrderId { get; set; }
-
         public DateTime OrderDate { get; set; }
-        
         public double Tax { get; set; }
-        
-        // Navigation Property
         public virtual Customer Customer { get; set; }
-
-        // Navigation Property
         public virtual int CustomerId { get; set; }
 
-        public Order(Customer customer)
+        public Order(Customer customer, DateTime date)
         {
-            OrderDate = DateTime.Now;
+            OrderDate = date;
             Tax = 7.7;
             Customer = customer;
             CustomerId = customer.CustomerId;
         }
 
-        public Order(Customer customer, DateTime dateTime)
+        // This constructor ist just used in the OnModelCreating() in DBContext
+        public Order(int id, int customerId, DateTime date)
         {
-            OrderDate = dateTime;
+            OrderId = id;
+            OrderDate = date;
             Tax = 7.7;
-            Customer = customer;
-            CustomerId = customer.CustomerId;
+            CustomerId = customerId;
         }
 
+        //Add-Migration needs this constructor. No Idea Why :-)
         public Order() { }
+
+        public override string ToString()
+        {
+            return OrderDate.ToString();
+        }
+
     }
 }

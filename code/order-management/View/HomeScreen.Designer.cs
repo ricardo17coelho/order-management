@@ -30,11 +30,11 @@
         {
             this.CmdCustomers = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CmdCategoryTreeView = new System.Windows.Forms.Button();
+            this.CmdYoyComparison = new System.Windows.Forms.Button();
             this.CmdOrders = new System.Windows.Forms.Button();
             this.CmdProducts = new System.Windows.Forms.Button();
             this.CmdCategories = new System.Windows.Forms.Button();
-            this.CmdYoyComparison = new System.Windows.Forms.Button();
-            this.CmdCategoryTreeView = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.UseCompatibleTextRendering = true;
             // 
+            // CmdCategoryTreeView
+            // 
+            this.CmdCategoryTreeView.Location = new System.Drawing.Point(314, 212);
+            this.CmdCategoryTreeView.Name = "CmdCategoryTreeView";
+            this.CmdCategoryTreeView.Size = new System.Drawing.Size(204, 105);
+            this.CmdCategoryTreeView.TabIndex = 0;
+            this.CmdCategoryTreeView.Text = "Category Treeview";
+            this.CmdCategoryTreeView.UseVisualStyleBackColor = true;
+            this.CmdCategoryTreeView.Click += new System.EventHandler(this.CmdCategoryTreeView_Click);
+            // 
+            // CmdYoyComparison
+            // 
+            this.CmdYoyComparison.Location = new System.Drawing.Point(557, 212);
+            this.CmdYoyComparison.Name = "CmdYoyComparison";
+            this.CmdYoyComparison.Size = new System.Drawing.Size(204, 105);
+            this.CmdYoyComparison.TabIndex = 0;
+            this.CmdYoyComparison.Text = "YOY Comparison";
+            this.CmdYoyComparison.UseVisualStyleBackColor = true;
+            // 
             // CmdOrders
             // 
             this.CmdOrders.Location = new System.Drawing.Point(807, 74);
@@ -71,6 +90,7 @@
             this.CmdOrders.TabIndex = 0;
             this.CmdOrders.Text = "Orders";
             this.CmdOrders.UseVisualStyleBackColor = true;
+            this.CmdOrders.Click += new System.EventHandler(this.CmdOrders_Click);
             // 
             // CmdProducts
             // 
@@ -91,25 +111,6 @@
             this.CmdCategories.Text = "Categories";
             this.CmdCategories.UseVisualStyleBackColor = true;
             this.CmdCategories.Click += new System.EventHandler(this.CmdCategories_Click);
-            // 
-            // CmdYoyComparison
-            // 
-            this.CmdYoyComparison.Location = new System.Drawing.Point(557, 212);
-            this.CmdYoyComparison.Name = "CmdYoyComparison";
-            this.CmdYoyComparison.Size = new System.Drawing.Size(204, 105);
-            this.CmdYoyComparison.TabIndex = 0;
-            this.CmdYoyComparison.Text = "YOY Comparison";
-            this.CmdYoyComparison.UseVisualStyleBackColor = true;
-            // 
-            // CmdCategoryTreeView
-            // 
-            this.CmdCategoryTreeView.Location = new System.Drawing.Point(314, 212);
-            this.CmdCategoryTreeView.Name = "CmdCategoryTreeView";
-            this.CmdCategoryTreeView.Size = new System.Drawing.Size(204, 105);
-            this.CmdCategoryTreeView.TabIndex = 0;
-            this.CmdCategoryTreeView.Text = "Category Treeview";
-            this.CmdCategoryTreeView.UseVisualStyleBackColor = true;
-            this.CmdCategoryTreeView.Click += new System.EventHandler(this.CmdCategoryTreeView_Click);
             // 
             // HomeScreen
             // 

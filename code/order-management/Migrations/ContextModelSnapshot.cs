@@ -185,6 +185,85 @@ namespace order_management.Migrations
                     b.HasIndex("CustomerId");
 
                     b.ToTable("Orders");
+
+                    b.HasData(
+                        new
+                        {
+                            OrderId = 1000,
+                            CustomerId = 1000,
+                            OrderDate = new DateTime(2018, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Tax = 7.7000000000000002
+                        },
+                        new
+                        {
+                            OrderId = 1001,
+                            CustomerId = 1000,
+                            OrderDate = new DateTime(2019, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Tax = 7.7000000000000002
+                        },
+                        new
+                        {
+                            OrderId = 1002,
+                            CustomerId = 1001,
+                            OrderDate = new DateTime(2020, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Tax = 7.7000000000000002
+                        },
+                        new
+                        {
+                            OrderId = 1003,
+                            CustomerId = 1001,
+                            OrderDate = new DateTime(2019, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Tax = 7.7000000000000002
+                        },
+                        new
+                        {
+                            OrderId = 1004,
+                            CustomerId = 1001,
+                            OrderDate = new DateTime(2018, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Tax = 7.7000000000000002
+                        },
+                        new
+                        {
+                            OrderId = 1005,
+                            CustomerId = 1003,
+                            OrderDate = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Tax = 7.7000000000000002
+                        },
+                        new
+                        {
+                            OrderId = 1006,
+                            CustomerId = 1004,
+                            OrderDate = new DateTime(2019, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Tax = 7.7000000000000002
+                        },
+                        new
+                        {
+                            OrderId = 1007,
+                            CustomerId = 1005,
+                            OrderDate = new DateTime(2018, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Tax = 7.7000000000000002
+                        },
+                        new
+                        {
+                            OrderId = 1008,
+                            CustomerId = 1006,
+                            OrderDate = new DateTime(2020, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Tax = 7.7000000000000002
+                        },
+                        new
+                        {
+                            OrderId = 1009,
+                            CustomerId = 1007,
+                            OrderDate = new DateTime(2020, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Tax = 7.7000000000000002
+                        },
+                        new
+                        {
+                            OrderId = 1010,
+                            CustomerId = 1008,
+                            OrderDate = new DateTime(2019, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Tax = 7.7000000000000002
+                        });
                 });
 
             modelBuilder.Entity("order_management.OrderDetail", b =>
@@ -210,6 +289,85 @@ namespace order_management.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("OrderDetails");
+
+                    b.HasData(
+                        new
+                        {
+                            OrderDetailId = 1000,
+                            OrderId = 1001,
+                            ProductId = 1000,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderDetailId = 1001,
+                            OrderId = 1001,
+                            ProductId = 1001,
+                            Quantity = 4
+                        },
+                        new
+                        {
+                            OrderDetailId = 1002,
+                            OrderId = 1002,
+                            ProductId = 1003,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            OrderDetailId = 1003,
+                            OrderId = 1002,
+                            ProductId = 1004,
+                            Quantity = 12
+                        },
+                        new
+                        {
+                            OrderDetailId = 1004,
+                            OrderId = 1003,
+                            ProductId = 1004,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            OrderDetailId = 1005,
+                            OrderId = 1003,
+                            ProductId = 1005,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderDetailId = 1006,
+                            OrderId = 1003,
+                            ProductId = 1006,
+                            Quantity = 5
+                        },
+                        new
+                        {
+                            OrderDetailId = 1007,
+                            OrderId = 1004,
+                            ProductId = 1007,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            OrderDetailId = 1008,
+                            OrderId = 1005,
+                            ProductId = 1008,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderDetailId = 1009,
+                            OrderId = 1006,
+                            ProductId = 1008,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            OrderDetailId = 10010,
+                            OrderId = 1007,
+                            ProductId = 1002,
+                            Quantity = 3
+                        });
                 });
 
             modelBuilder.Entity("order_management.Product", b =>

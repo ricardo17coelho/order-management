@@ -28,7 +28,11 @@ namespace order_management.View
         private void CmdProducts_Click(object sender, EventArgs e)
         {
             new ViewProducts().ShowDialog();
+        }
 
+        private void CmdOrders_Click(object sender, EventArgs e)
+        {
+            new ViewOrders().ShowDialog();
         }
 
         private void CmdCategoryTreeView_Click(object sender, EventArgs e)

@@ -21,7 +21,7 @@ namespace order_management
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.; Database=dbName15; Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Data Source=.; Database=dbName20; Trusted_Connection=True");
 
             //For Debugging
             //optionsBuilder.LogTo(Console.WriteLine); 
@@ -71,10 +71,41 @@ namespace order_management
                 new Product(1008, "Bad Table", 250, "Fr.", new DateTime(2018, 5, 15), 1005),
             };
 
+            List<Order> orders = new List<Order>
+            {
+                new Order(1000,1000, new DateTime(2018, 1, 15)),
+                new Order(1001,1000, new DateTime(2019, 5, 15)),
+                new Order(1002,1001, new DateTime(2020, 8, 15)),
+                new Order(1003,1001, new DateTime(2019, 12, 15)),
+                new Order(1004,1001, new DateTime(2018, 1, 15)),
+                new Order(1005,1003, new DateTime(2020, 5, 15)),
+                new Order(1006,1004, new DateTime(2019, 9, 15)),
+                new Order(1007,1005, new DateTime(2018, 12, 15)),
+                new Order(1008,1006, new DateTime(2020, 1, 15)),
+                new Order(1009,1007, new DateTime(2020, 1, 15)),
+                new Order(1010,1008, new DateTime(2019, 12, 15)),
+            };
+
+            List<OrderDetail> orderDetails = new List<OrderDetail>
+            {
+                new OrderDetail(1000, 1, 1001, 1000),
+                new OrderDetail(1001, 4, 1001, 1001),
+                new OrderDetail(1002, 3, 1002, 1003),
+                new OrderDetail(1003, 12, 1002, 1004),
+                new OrderDetail(1004, 2, 1003, 1004),
+                new OrderDetail(1005, 1, 1003, 1005),
+                new OrderDetail(1006, 5, 1003, 1006),
+                new OrderDetail(1007, 2, 1004, 1007),
+                new OrderDetail(1008, 1, 1005, 1008),
+                new OrderDetail(1009, 3, 1006, 1008),
+                new OrderDetail(10010, 3, 1007, 1002)
+            };
+
             customers.ForEach(customer => modelBuilder.Entity<Customer>().HasData(customer));
             categories.ForEach(category => modelBuilder.Entity<ProductCategory>().HasData(category));
             products.ForEach(product => modelBuilder.Entity<Product>().HasData(product));
-
+            orders.ForEach(order => modelBuilder.Entity<Order>().HasData(order));
+            orderDetails.ForEach(orderDetail => modelBuilder.Entity<OrderDetail>().HasData(orderDetail));
         }
     }
 }

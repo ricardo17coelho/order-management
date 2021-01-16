@@ -8,11 +8,16 @@ using System.Windows.Forms;
 
 namespace order_management.View
 {
-    public partial class ViewOrder : Form
+    public partial class FormOrders : Form
     {
-        public ViewOrder()
+        ViewOrders viewOrders;
+
+        public FormOrders(ViewOrders viewOrders)
         {
             InitializeComponent();
+            this.viewOrders = viewOrders;
+            //CbCategory.DataSource = categoryService.GetAll();
         }
+
     }
 }

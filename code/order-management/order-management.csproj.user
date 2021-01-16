@@ -7,6 +7,9 @@
     <Compile Update="View\FormCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\FormOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\FormProducts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -22,7 +25,7 @@
     <Compile Update="View\HomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\ViewOrder.cs">
+    <Compile Update="View\ViewOrders.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\ViewProducts.cs">

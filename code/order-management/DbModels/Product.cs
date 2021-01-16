@@ -37,5 +37,10 @@ namespace order_management
 
         //Add-Migration needs this constructor. No Idea Why :-)
         public Product() { }
+
+        public override string ToString()
+        {
+            return ProductName;
+        }
     }
 }
