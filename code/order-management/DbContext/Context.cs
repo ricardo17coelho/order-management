@@ -21,7 +21,7 @@ namespace order_management
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.; Database=dbName20; Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Data Source=.; Database=dbName22; Trusted_Connection=True");
 
             //For Debugging
             //optionsBuilder.LogTo(Console.WriteLine); 
@@ -88,17 +88,37 @@ namespace order_management
 
             List<OrderDetail> orderDetails = new List<OrderDetail>
             {
-                new OrderDetail(1000, 1, 1001, 1000),
-                new OrderDetail(1001, 4, 1001, 1001),
-                new OrderDetail(1002, 3, 1002, 1003),
-                new OrderDetail(1003, 12, 1002, 1004),
-                new OrderDetail(1004, 2, 1003, 1004),
-                new OrderDetail(1005, 1, 1003, 1005),
-                new OrderDetail(1006, 5, 1003, 1006),
-                new OrderDetail(1007, 2, 1004, 1007),
-                new OrderDetail(1008, 1, 1005, 1008),
-                new OrderDetail(1009, 3, 1006, 1008),
-                new OrderDetail(10010, 3, 1007, 1002)
+                new OrderDetail(1000, 2, 1000, 1001),
+                new OrderDetail(1001, 4, 1000, 1004),
+                new OrderDetail(1002, 4, 1000, 1005),
+                new OrderDetail(1003, 1, 1000, 1002),
+                new OrderDetail(1004, 2, 1000, 1003),
+                new OrderDetail(1005, 1, 1001, 1008),
+                new OrderDetail(1006, 4, 1001, 1001),
+                new OrderDetail(1007, 3, 1002, 1003),
+                new OrderDetail(1008, 12, 1002, 1004),
+                new OrderDetail(1009, 2, 1003, 1004),
+                new OrderDetail(1010, 1, 1003, 1005),
+                new OrderDetail(1011, 5, 1003, 1006),
+                new OrderDetail(1012, 2, 1004, 1007),
+                new OrderDetail(1013, 1, 1004, 1008),
+                new OrderDetail(1014, 3, 1004, 1008),
+                new OrderDetail(1015, 4, 1005, 1002),
+                new OrderDetail(1016, 5, 1005, 1001),
+                new OrderDetail(1017, 1, 1005, 1001),
+                new OrderDetail(1018, 2, 1005, 1006),
+                new OrderDetail(1019, 4, 1006, 1001),
+                new OrderDetail(1020, 1, 1006, 1002),
+                new OrderDetail(1021, 2, 1007, 1003),
+                new OrderDetail(1022, 4, 1007, 1004),
+                new OrderDetail(1023, 3, 1007, 1008),
+                new OrderDetail(1024, 1, 1008, 1001),
+                new OrderDetail(1025, 12, 1009, 1002),
+                new OrderDetail(1026, 1, 1009, 1004),
+                new OrderDetail(1027, 64, 1010, 1003),
+                new OrderDetail(1028, 1, 1010, 1006),
+                new OrderDetail(1029, 2, 1010, 1001),
+                new OrderDetail(1030, 4, 1010, 1007)
             };
 
             customers.ForEach(customer => modelBuilder.Entity<Customer>().HasData(customer));

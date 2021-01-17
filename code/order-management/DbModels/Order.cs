@@ -12,10 +12,10 @@ namespace order_management
         public virtual Customer Customer { get; set; }
         public virtual int CustomerId { get; set; }
 
-        public Order(Customer customer, DateTime date)
+        public Order(Customer customer, double tax, DateTime date)
         {
             OrderDate = date;
-            Tax = 7.7;
+            Tax = tax;
             Customer = customer;
             CustomerId = customer.CustomerId;
         }

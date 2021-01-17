@@ -23,7 +23,7 @@ namespace order_management
             using (var context = new Context())
             {
                 return context.Customers
-                .Where(c => (c.FirstName == firstName && c.LastName == c.LastName))
+                .Where(c => (c.FirstName == firstName && c.LastName == lastName))
                 .FirstOrDefault<Customer>();
             }
         }

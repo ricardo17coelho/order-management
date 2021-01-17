@@ -11,7 +11,7 @@ namespace order_management.View
 
     public partial class ViewOrders : Form
     {
-        OrderDetailService orderDetailService = new OrderDetailService();
+        OrderService orderService = new OrderService();
 
         public ViewOrders()
         {
@@ -26,18 +26,18 @@ namespace order_management.View
 
         private void CmdEdit_Click(object sender, EventArgs e)
         {
-            //new FormOrders(this, (OrderDetail)DgvOrders.CurrentRow.DataBoundItem).ShowDialog();
+            new FormOrders(this, (Order)DgvOrders.CurrentRow.DataBoundItem).ShowDialog();
         }
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
-            orderDetailService.Delete((OrderDetail)DgvOrders.CurrentRow.DataBoundItem);
+            orderService.Delete((Order)DgvOrders.CurrentRow.DataBoundItem);
             ReloadData();
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            DgvOrders.DataSource = orderDetailService.Search(TxtSearch.Text.ToLower());
+            DgvOrders.DataSource = orderService.Search(TxtSearch.Text.ToLower());
         }
 
         private void DgvOrder_SelectionChanged(object sender, EventArgs e)
@@ -56,7 +56,10 @@ namespace order_management.View
 
         public void ReloadData()
         {
-            DgvOrders.DataSource = orderDetailService.GetAll();
+            DgvOrders.DataSource = orderService.GetAll();
+            DgvOrders.Columns[0].Visible = false;
+            DgvOrders.Columns[4].Visible = false;
+
         }
     }
 }

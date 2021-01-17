@@ -14,19 +14,29 @@ namespace order_management
         {
             using (var context = new Context())
             {
-                return context.OrderDetails.Include(od => od.Order).Include(od => od.Product).Include(od => od.Order.Customer).ToList();
+                return context.OrderDetails.Include(od => od.Order).Include(od => od.Product).ToList();
             }
         }
 
-        //public Customer GetByName(string firstName, string lastName)
-        //{
-        //    using (var context = new Context())
-        //    {
-        //        return context.Customers
-        //        .Where(c => (c.FirstName == firstName && c.LastName == c.LastName))
-        //        .FirstOrDefault<Customer>();
-        //    }
-        //}
+        public List<OrderDetail> GetByOrder(Order order)
+        {
+            using (var context = new Context())
+            {
+                return GetAll()
+                .Where(o => (o.OrderId == order.OrderId))
+                .ToList();
+            }
+        }
+
+        public OrderDetail GetById(int id)
+        {
+            using (var context = new Context())
+            {
+                return context.OrderDetails
+                .Where(o => (o.OrderDetailId == id))
+                .FirstOrDefault<OrderDetail>();
+            }
+        }
 
         public void Add(OrderDetail orderDetail)
         {
@@ -37,28 +47,23 @@ namespace order_management
             }
         }
 
-        //public void Update(Customer oldCustomer, Customer newCustomer)
-        //{
-        //    using (var context = new Context())
-        //    {
-        //        Customer entity = GetByName(oldCustomer.FirstName, oldCustomer.LastName);
+        public void Update(OrderDetail oldOrderDetail, OrderDetail newOrderDetail)
+        {
+            using (var context = new Context())
+            {
+                OrderDetail entity = GetById(oldOrderDetail.OrderDetailId);
 
-        //        if (entity != null)
-        //        {
-        //            entity.FirstName = newCustomer.FirstName;
-        //            entity.LastName = newCustomer.LastName;
-        //            entity.Street = newCustomer.Street;
-        //            entity.StreetNr = newCustomer.StreetNr;
-        //            entity.Zip = newCustomer.Zip;
-        //            entity.City = newCustomer.City;
-        //            entity.Country = newCustomer.Country;
+                if (entity != null)
+                {
+                    entity.Quantity = newOrderDetail.Quantity;
+                    entity.Product = newOrderDetail.Product;
 
-        //            var attach = context.Customers.Attach(entity);
-        //            attach.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-        //            context.SaveChanges();
-        //        }
-        //    }
-        //}
+                    var attach = context.OrderDetails.Attach(entity);
+                    attach.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    context.SaveChanges();
+                }
+            }
+        }
 
         public void Delete(OrderDetail orderDetail)
         {
@@ -76,9 +81,6 @@ namespace order_management
             using (var context = new Context())
             {
 
-                //return context.OrderDetails.Include(od => od.Order).Include(od => od.Product).ToList();
-
-
                 return context.OrderDetails.Include(od => od.Order).Include(od => od.Product)
                     .Where(orderDetail =>
                         orderDetail.Product.ProductName.ToLower().Contains(searchString)
@@ -86,87 +88,11 @@ namespace order_management
             }
         }
 
-        //public Boolean IsUnique(Customer customer)
-        //{
-        //    using (var context = new Context())
-        //    {
-        //        return !context.Customers
-        //        .Any(c => (c.FirstName == customer.FirstName) &&
-        //          (c.LastName == customer.LastName));
-        //    }
-        //}
-
-        //public Boolean IsValid(Customer customer)
-        //{
-        //    return customer.FirstName != "" &&
-        //      customer.LastName != "";
-        //}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public static BindingList<OrderDetail> GetBoundedList(Context context)
+        public Boolean IsValid(OrderDetail orderDetail)
         {
-            context.OrderDetails.Load();
-            return context.OrderDetails.Local.ToBindingList();
+            return orderDetail.Quantity > 0 &&
+              orderDetail.Product != null;
         }
 
-        public static void Add(Context context, OrderDetail orderDetail)
-        {
-            context.OrderDetails.Add(orderDetail);
-            context.SaveChanges();
-        }
-
-        public static void Remove(Context context, OrderDetail orderDetail)
-        {
-            context.OrderDetails.Remove(orderDetail);
-            context.SaveChanges();
-        }
-
-        public static void RemoveAll(Context context)
-        {
-            context.OrderDetails.RemoveRange(context.OrderDetails);
-            context.SaveChanges();
-        }
-
-        public static Boolean IsUnique(Context context, OrderDetail orderDetail)
-        {
-            return !context.OrderDetails
-                .Any(od => (od.OrderId == orderDetail.OrderId) &&
-                  (od.ProductId == od.ProductId));
-        }
-
-        public static Boolean IsValid(Context context, OrderDetail order)
-        {
-            return order.Quantity != 0;
-        }
-
-        public static OrderDetail GetEntityById(Context context, int id)
-        {
-            return context.OrderDetails.Find(id);
-        }
     }
 }

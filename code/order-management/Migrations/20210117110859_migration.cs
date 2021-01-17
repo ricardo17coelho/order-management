@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace order_management.Migrations
 {
-    public partial class ordermanagement : Migration
+    public partial class migration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -178,11 +178,6 @@ namespace order_management.Migrations
                 values: new object[] { 1000, new DateTime(2018, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 300.0, 1000, "HP Compaq 24 Inch", "Fr." });
 
             migrationBuilder.InsertData(
-                table: "OrderDetails",
-                columns: new[] { "OrderDetailId", "OrderId", "ProductId", "Quantity" },
-                values: new object[] { 1000, 1001, 1000, 1 });
-
-            migrationBuilder.InsertData(
                 table: "ProductCategories",
                 columns: new[] { "ProductCategoryId", "ParentId", "ProductCategoryName" },
                 values: new object[,]
@@ -209,14 +204,32 @@ namespace order_management.Migrations
                 columns: new[] { "OrderDetailId", "OrderId", "ProductId", "Quantity" },
                 values: new object[,]
                 {
-                    { 1001, 1001, 1001, 4 },
-                    { 10010, 1007, 1002, 3 },
-                    { 1007, 1004, 1007, 2 },
-                    { 1008, 1005, 1008, 1 },
-                    { 1009, 1006, 1008, 3 },
-                    { 1002, 1002, 1003, 3 },
-                    { 1003, 1002, 1004, 12 },
-                    { 1004, 1003, 1004, 2 }
+                    { 1000, 1000, 1001, 2 },
+                    { 1022, 1007, 1004, 4 },
+                    { 1009, 1003, 1004, 2 },
+                    { 1008, 1002, 1004, 12 },
+                    { 1001, 1000, 1004, 4 },
+                    { 1027, 1010, 1003, 64 },
+                    { 1021, 1007, 1003, 2 },
+                    { 1007, 1002, 1003, 3 },
+                    { 1004, 1000, 1003, 2 },
+                    { 1023, 1007, 1008, 3 },
+                    { 1014, 1004, 1008, 3 },
+                    { 1013, 1004, 1008, 1 },
+                    { 1005, 1001, 1008, 1 },
+                    { 1030, 1010, 1007, 4 },
+                    { 1012, 1004, 1007, 2 },
+                    { 1025, 1009, 1002, 12 },
+                    { 1020, 1006, 1002, 1 },
+                    { 1015, 1005, 1002, 4 },
+                    { 1003, 1000, 1002, 1 },
+                    { 1029, 1010, 1001, 2 },
+                    { 1024, 1008, 1001, 1 },
+                    { 1019, 1006, 1001, 4 },
+                    { 1017, 1005, 1001, 1 },
+                    { 1016, 1005, 1001, 5 },
+                    { 1006, 1001, 1001, 4 },
+                    { 1026, 1009, 1004, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -231,12 +244,14 @@ namespace order_management.Migrations
             migrationBuilder.InsertData(
                 table: "OrderDetails",
                 columns: new[] { "OrderDetailId", "OrderId", "ProductId", "Quantity" },
-                values: new object[] { 1006, 1003, 1006, 5 });
-
-            migrationBuilder.InsertData(
-                table: "OrderDetails",
-                columns: new[] { "OrderDetailId", "OrderId", "ProductId", "Quantity" },
-                values: new object[] { 1005, 1003, 1005, 1 });
+                values: new object[,]
+                {
+                    { 1011, 1003, 1006, 5 },
+                    { 1018, 1005, 1006, 2 },
+                    { 1028, 1010, 1006, 1 },
+                    { 1002, 1000, 1005, 4 },
+                    { 1010, 1003, 1005, 1 }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetails_OrderId",

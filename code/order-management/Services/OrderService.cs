@@ -9,52 +9,89 @@ namespace order_management
 {
     public class OrderService
     {
-        public static BindingList<Order> GetBoundedList(Context context)
+        public List<Order> GetAll()
         {
-            context.Orders.Load();
-            return context.Orders.Local.ToBindingList();
+            using (var context = new Context())
+            {
+                return context.Orders.Include(o => o.Customer).ToList();
+            }
         }
 
-        public static void Add(Context context, Order order)
+        public Order GetById(int id)
         {
-            context.Orders.Add(order);
-            context.SaveChanges();
+            using (var context = new Context())
+            {
+                return context.Orders
+                .Where(o => (o.OrderId == id))
+                .FirstOrDefault<Order>();
+            }
         }
 
-        public static void Remove(Context context, Order order)
+        public Order Add(Order order)
         {
-            context.Orders.Remove(order);
-            context.SaveChanges();
+            using (var context = new Context())
+            {
+                var attach = context.Orders.Attach(order);
+                context.SaveChanges();
+                return attach.Entity;
+            }
         }
 
-        public static void RemoveAll(Context context)
+        public void Update(Order oldOrder, Order newOrder)
         {
-            context.Orders.RemoveRange(context.Orders);
-            context.SaveChanges();
+            using (var context = new Context())
+            {
+                Order entity = GetById(oldOrder.OrderId);
+
+                if (entity != null)
+                {
+                    entity.Customer = newOrder.Customer;
+                    entity.Tax = newOrder.Tax;
+                    entity.OrderDate = newOrder.OrderDate;
+
+                    var attach = context.Orders.Attach(entity);
+                    attach.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    context.SaveChanges();
+                }
+            }
         }
 
-        public static Boolean IsUnique(Context context, Order order)
+        public void Delete(Order order)
         {
-            return !context.Orders
-                .Any(c => (c.OrderDate == order.OrderDate) &&
-                  (c.CustomerId == order.CustomerId));
+            using (var context = new Context())
+            {
+                context.Orders.Remove(order);
+                context.SaveChanges();
+            }
         }
 
-        public static Boolean IsValid(Context context, Order order)
+        public List<Order> Search(string searchString)
         {
-            return order.OrderDate != null;
+            searchString = searchString.ToLower();
+
+            using (var context = new Context())
+            {
+                return GetAll()
+                    .Where(order =>
+                        order.Customer.FirstName.ToLower().Contains(searchString) ||
+                        order.Customer.LastName.ToLower().Contains(searchString)
+                    ).ToList();
+            }
         }
 
-        public static Order GetEntityById(Context context, int id)
+        public Boolean IsUnique(Order order)
         {
-            return context.Orders.Find(id);
+            using (var context = new Context())
+            {
+                return !context.Orders
+                .Any(o => (o.Customer == order.Customer) &&
+                  (o.OrderDate == order.OrderDate));
+            }
         }
 
-        public static List<Order> GetOrdersByCustomer(Context context, Customer customer)
+        public Boolean IsValid(Order order)
         {
-            return context.Orders
-            .Where(o => o.CustomerId == customer.CustomerId)
-            .ToList();
+            return order.OrderDate != null && order.Customer != null;
         }
     }
 }

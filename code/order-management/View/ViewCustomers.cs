@@ -56,6 +56,7 @@ namespace order_management.View
         public void ReloadData()
         {
             DgvCustomer.DataSource = customerService.GetAll();
+            DgvCustomer.Columns[0].Visible = false;
         }
     }
 }

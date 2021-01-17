@@ -294,79 +294,219 @@ namespace order_management.Migrations
                         new
                         {
                             OrderDetailId = 1000,
-                            OrderId = 1001,
-                            ProductId = 1000,
-                            Quantity = 1
+                            OrderId = 1000,
+                            ProductId = 1001,
+                            Quantity = 2
                         },
                         new
                         {
                             OrderDetailId = 1001,
+                            OrderId = 1000,
+                            ProductId = 1004,
+                            Quantity = 4
+                        },
+                        new
+                        {
+                            OrderDetailId = 1002,
+                            OrderId = 1000,
+                            ProductId = 1005,
+                            Quantity = 4
+                        },
+                        new
+                        {
+                            OrderDetailId = 1003,
+                            OrderId = 1000,
+                            ProductId = 1002,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderDetailId = 1004,
+                            OrderId = 1000,
+                            ProductId = 1003,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            OrderDetailId = 1005,
+                            OrderId = 1001,
+                            ProductId = 1008,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderDetailId = 1006,
                             OrderId = 1001,
                             ProductId = 1001,
                             Quantity = 4
                         },
                         new
                         {
-                            OrderDetailId = 1002,
+                            OrderDetailId = 1007,
                             OrderId = 1002,
                             ProductId = 1003,
                             Quantity = 3
                         },
                         new
                         {
-                            OrderDetailId = 1003,
+                            OrderDetailId = 1008,
                             OrderId = 1002,
                             ProductId = 1004,
                             Quantity = 12
                         },
                         new
                         {
-                            OrderDetailId = 1004,
+                            OrderDetailId = 1009,
                             OrderId = 1003,
                             ProductId = 1004,
                             Quantity = 2
                         },
                         new
                         {
-                            OrderDetailId = 1005,
+                            OrderDetailId = 1010,
                             OrderId = 1003,
                             ProductId = 1005,
                             Quantity = 1
                         },
                         new
                         {
-                            OrderDetailId = 1006,
+                            OrderDetailId = 1011,
                             OrderId = 1003,
                             ProductId = 1006,
                             Quantity = 5
                         },
                         new
                         {
-                            OrderDetailId = 1007,
+                            OrderDetailId = 1012,
                             OrderId = 1004,
                             ProductId = 1007,
                             Quantity = 2
                         },
                         new
                         {
-                            OrderDetailId = 1008,
-                            OrderId = 1005,
+                            OrderDetailId = 1013,
+                            OrderId = 1004,
                             ProductId = 1008,
                             Quantity = 1
                         },
                         new
                         {
-                            OrderDetailId = 1009,
-                            OrderId = 1006,
+                            OrderDetailId = 1014,
+                            OrderId = 1004,
                             ProductId = 1008,
                             Quantity = 3
                         },
                         new
                         {
-                            OrderDetailId = 10010,
-                            OrderId = 1007,
+                            OrderDetailId = 1015,
+                            OrderId = 1005,
                             ProductId = 1002,
+                            Quantity = 4
+                        },
+                        new
+                        {
+                            OrderDetailId = 1016,
+                            OrderId = 1005,
+                            ProductId = 1001,
+                            Quantity = 5
+                        },
+                        new
+                        {
+                            OrderDetailId = 1017,
+                            OrderId = 1005,
+                            ProductId = 1001,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderDetailId = 1018,
+                            OrderId = 1005,
+                            ProductId = 1006,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            OrderDetailId = 1019,
+                            OrderId = 1006,
+                            ProductId = 1001,
+                            Quantity = 4
+                        },
+                        new
+                        {
+                            OrderDetailId = 1020,
+                            OrderId = 1006,
+                            ProductId = 1002,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderDetailId = 1021,
+                            OrderId = 1007,
+                            ProductId = 1003,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            OrderDetailId = 1022,
+                            OrderId = 1007,
+                            ProductId = 1004,
+                            Quantity = 4
+                        },
+                        new
+                        {
+                            OrderDetailId = 1023,
+                            OrderId = 1007,
+                            ProductId = 1008,
                             Quantity = 3
+                        },
+                        new
+                        {
+                            OrderDetailId = 1024,
+                            OrderId = 1008,
+                            ProductId = 1001,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderDetailId = 1025,
+                            OrderId = 1009,
+                            ProductId = 1002,
+                            Quantity = 12
+                        },
+                        new
+                        {
+                            OrderDetailId = 1026,
+                            OrderId = 1009,
+                            ProductId = 1004,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderDetailId = 1027,
+                            OrderId = 1010,
+                            ProductId = 1003,
+                            Quantity = 64
+                        },
+                        new
+                        {
+                            OrderDetailId = 1028,
+                            OrderId = 1010,
+                            ProductId = 1006,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderDetailId = 1029,
+                            OrderId = 1010,
+                            ProductId = 1001,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            OrderDetailId = 1030,
+                            OrderId = 1010,
+                            ProductId = 1007,
+                            Quantity = 4
                         });
                 });
 
