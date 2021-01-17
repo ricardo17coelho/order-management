@@ -20,56 +20,35 @@ namespace order_management.View
 
         private void ViewCategoryTreeView_Load(object sender, EventArgs e)
         {
-            var categories = categoryService.GetAll();
-            LoadTreeView(categories);
+            var categories = categoryService.GetCteDataForTreeView();
+            BuildTreeView(categories);
         }
 
-        private void LoadTreeView(List<ProductCategory> categories)
+        private void BuildTreeView(List<ProductCategory> categories)
         {
             TvCategories.Nodes.Clear();
-            TreeNode root = null;
-            PopulateTree(ref root, categories.ToList());
-            TvCategories.Nodes.Add(root);
+            PopulateTreeView(categories, null);
             TvCategories.ExpandAll();
         }
 
-        public void PopulateTree(ref TreeNode root, List<ProductCategory> categoriesList)
+        //Build TreeView recursively
+        private void PopulateTreeView(List<ProductCategory> items, TreeNode node)
         {
-            if (root == null)
+            var parentID = node != null
+                ? (int)node.Tag
+                : 0;
+
+            var nodesCollection = node != null
+                ? node.Nodes
+                : TvCategories.Nodes;
+
+            foreach (var item in items.Where(i => i.ParentId == parentID))
             {
-                root = new TreeNode();
-                root.Text = "Categories";
-                root.Tag = null;
-                // get all departments in the list with parent is null
-                var sortedCategories = categoriesList.Where(t => t.ParentId == null);
-                foreach (var category in sortedCategories)
-                {
-                    var child = new TreeNode()
-                    {
-                        Text = category.ProductCategoryName,
-                        Tag = category.ProductCategoryId,
-                    };
-                    PopulateTree(ref child, categoriesList);
-                    root.Nodes.Add(child);
-                }
-            }
-            else
-            {
-                var id = (int)root.Tag;
-                var sortedCategories = categoriesList.Where(t => t.ParentId == id);
-                foreach (var category in sortedCategories)
-                {
-                    var child = new TreeNode()
-                    {
-                        Text = category.ProductCategoryName,
-                        Tag = category.ProductCategoryId,
-                    };
-                    PopulateTree(ref child, categoriesList);
-                    root.Nodes.Add(child);
-                }
+                var newNode = nodesCollection.Add(item.ProductCategoryName, item.ProductCategoryName);
+                newNode.Tag = item.ProductCategoryId;
+
+                PopulateTreeView(items, newNode);
             }
         }
-
-
     }
 }
