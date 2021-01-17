@@ -78,7 +78,11 @@ namespace order_management
                 return context.Customers
                     .Where(customer =>
                         customer.FirstName.ToLower().Contains(searchString) ||
-                        customer.LastName.ToLower().Contains(searchString)
+                        customer.LastName.ToLower().Contains(searchString) ||
+                        customer.Street.ToLower().Contains(searchString) ||
+                        customer.Zip.ToString().Contains(searchString) ||
+                        customer.City.ToLower().Contains(searchString) ||
+                        customer.Country.ToLower().Contains(searchString)
                     ).ToList();
             }
         }
