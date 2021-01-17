@@ -58,5 +58,15 @@ namespace order_management.View
             DgvCustomer.DataSource = customerService.GetAll();
             DgvCustomer.Columns[0].Visible = false;
         }
+
+        private void TxtSearch_Enter(object sender, EventArgs e)
+        {
+            lblParams.Visible = true;
+        }
+
+        private void TxtSearch_Leave(object sender, EventArgs e)
+        {
+            lblParams.Visible = false;
+        }
     }
 }
