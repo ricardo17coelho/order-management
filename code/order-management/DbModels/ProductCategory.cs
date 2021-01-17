@@ -10,6 +10,7 @@ namespace order_management
         public string ProductCategoryName { get; set; }
         public virtual ProductCategory Parent { get; set; }
         public virtual int? ParentId { get; set; }
+        public virtual int? Level { get; set; }
 
         // Constructor for creating a new Root Category
         public ProductCategory(string productCategoryName)
@@ -39,7 +40,14 @@ namespace order_management
             ProductCategoryName = productCategoryName;
             ParentId = parentId;
         }
-
+        // This constructor is for the cte data to populate treeview
+        public ProductCategory(int id, string productCategoryName, int parentId, int level)
+        {
+            ProductCategoryId = id;
+            ProductCategoryName = productCategoryName;
+            ParentId = parentId;
+            Level = level;
+        }
         public override string ToString()
         {
             return ProductCategoryName;
