@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Raphi\\Desktop\\asdfasdf\\order-management\\code\\order-management\\order-management.csproj": {}
+    "C:\\Users\\Raphi\\Desktop\\testat\\order-management\\code\\order-management\\order-management.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Raphi\\Desktop\\asdfasdf\\order-management\\code\\order-management\\order-management.csproj": {
+    "C:\\Users\\Raphi\\Desktop\\testat\\order-management\\code\\order-management\\order-management.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Raphi\\Desktop\\asdfasdf\\order-management\\code\\order-management\\order-management.csproj",
+        "projectUniqueName": "C:\\Users\\Raphi\\Desktop\\testat\\order-management\\code\\order-management\\order-management.csproj",
         "projectName": "order-management",
-        "projectPath": "C:\\Users\\Raphi\\Desktop\\asdfasdf\\order-management\\code\\order-management\\order-management.csproj",
+        "projectPath": "C:\\Users\\Raphi\\Desktop\\testat\\order-management\\code\\order-management\\order-management.csproj",
         "packagesPath": "C:\\Users\\Raphi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Raphi\\Desktop\\asdfasdf\\order-management\\code\\order-management\\obj\\",
+        "outputPath": "C:\\Users\\Raphi\\Desktop\\testat\\order-management\\code\\order-management\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Raphi\\AppData\\Roaming\\NuGet\\NuGet.Config",

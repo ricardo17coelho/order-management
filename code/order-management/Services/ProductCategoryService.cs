@@ -89,5 +89,46 @@ namespace order_management
         {
             return category.ProductCategoryName != "";
         }
+
+        public List<ProductCategory> GetCteDataForTreeView()
+        {
+            var productCategories = new List<ProductCategory>();
+            using (var context = new Context())
+            {
+                var query = @";WITH RecurseTable " +
+                    "(ProductCategoryId, ProductCategoryName, ParentId, Level) " +
+                    "AS (SELECT " +
+                                "ProductCategoryId," +
+                                "ProductCategoryName," +
+                                "ISNULL(ParentId, 0)," +
+                                "0 AS Level " +
+                    "FROM ProductCategories " +
+                    "WHERE ParentId IS NULL " +
+                    "UNION ALL " +
+                    "SELECT " +
+                                "pcat.ProductCategoryId," +
+                                "pcat.ProductCategoryName," +
+                                "pcat.ParentId," +
+                                "Level + 1 " +
+                    "FROM ProductCategories AS pcat " +
+                    "INNER JOIN RecurseTable AS rec " +
+                        "ON rec.ProductCategoryId = pcat.ParentId " +
+                    ") " +
+                    "SELECT " +
+                                "ProductCategoryId," +
+                                "ProductCategoryName," +
+                                "ParentId," +
+                                "Level " +
+                    "FROM RecurseTable";
+
+                var result = context.ProductCategories.FromSqlRaw(query);
+
+                foreach (var item in result)
+                {
+                    productCategories.Add(item);
+                }
+                return productCategories;
+            }
+        }
     }
 }
