@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace order_management
 {
@@ -51,6 +52,15 @@ namespace order_management
                     attach.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     context.SaveChanges();
                 }
+            }
+        }
+
+        public List<ProductCategory> GetChildrenByParentId(int categoryId)
+        {
+            using (var context = new Context())
+            {
+                return context.ProductCategories
+                    .Where(pc => pc.ParentId == categoryId).ToList();
             }
         }
 
