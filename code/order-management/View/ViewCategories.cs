@@ -30,8 +30,35 @@ namespace order_management.View
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
-            categoryService.Delete((ProductCategory)DgvCategories.CurrentRow.DataBoundItem);
-            ReloadData();
+            ProductCategory category = (ProductCategory)DgvCategories.CurrentRow.DataBoundItem;
+            var filteredList = categoryService.GetChildrenByParentId(category.ProductCategoryId);
+            if (filteredList.Count > 0)
+            {
+                string message = "You need to delete all the children first:";
+                string title = "Category has children";
+                var newLine = "\r\n";
+                foreach (var item in filteredList)
+                {
+                    message += newLine;
+                    message += "- " + item.ProductCategoryName;
+                }
+                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                DialogResult result;
+                result = MessageBox.Show(message, title, buttons);
+
+            } else
+            {
+                string message = "Do you want to delete category?";
+                string title = "Delete Category";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+                result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.Yes)
+                {
+                    categoryService.Delete(category);
+                    ReloadData();
+                }
+            }
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
