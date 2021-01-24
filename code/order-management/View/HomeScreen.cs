@@ -44,5 +44,10 @@ namespace order_management.View
         {
             new ViewYoyComparison().ShowDialog();
         }
+
+        private void CmdBills_Click(object sender, EventArgs e)
+        {
+            new ViewBills().ShowDialog();
+        }
     }
 }

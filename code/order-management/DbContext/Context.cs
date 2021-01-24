@@ -20,6 +20,7 @@ namespace order_management
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<YoyComparison> YoyComparisons { get; set; }
+        public DbSet<Bill> Bills { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,6 +33,10 @@ namespace order_management
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<YoyComparison>()
+                .HasNoKey()
+                .ToView(null);
+
+            modelBuilder.Entity<Bill>()
                 .HasNoKey()
                 .ToView(null);
 
