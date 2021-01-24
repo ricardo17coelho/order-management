@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using order_management.DbModels;
 
 
 namespace order_management
@@ -18,10 +19,11 @@ namespace order_management
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<YoyComparison> YoyComparisons { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.; Database=dbName22; Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Data Source=.; Database=dbName31; Trusted_Connection=True");
 
             //For Debugging
             //optionsBuilder.LogTo(Console.WriteLine); 
@@ -29,8 +31,9 @@ namespace order_management
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<ProductCategory>()
-            //.OnDelete(DeleteBehavior.Restrict); // TODO: Rekursives löschen
+            modelBuilder.Entity<YoyComparison>()
+                .HasNoKey()
+                .ToView(null);
 
             List<Customer> customers = new List<Customer>
             {

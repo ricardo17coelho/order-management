@@ -39,5 +39,10 @@ namespace order_management.View
         {
             new ViewCategoryTreeView().ShowDialog();
         }
+
+        private void CmdYoyComparison_Click(object sender, EventArgs e)
+        {
+            new ViewYoyComparison().ShowDialog();
+        }
     }
 }

@@ -10,8 +10,8 @@ using order_management;
 namespace order_management.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210117110859_migration")]
-    partial class migration
+    [Migration("20210124163212_order-management")]
+    partial class ordermanagement
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -164,6 +164,24 @@ namespace order_management.Migrations
                             StreetNr = "5",
                             Zip = 5423
                         });
+                });
+
+            modelBuilder.Entity("order_management.DbModels.YoyComparison", b =>
+                {
+                    b.Property<double>("AverageCountProductsPerOrderPerQuarter")
+                        .HasColumnType("float");
+
+                    b.Property<double>("CountOrdersPerQuarter")
+                        .HasColumnType("float");
+
+                    b.Property<double>("CountProductsPerQuarter")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Quarter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TotalRevenuePerQuarter")
+                        .HasColumnType("float");
                 });
 
             modelBuilder.Entity("order_management.Order", b =>

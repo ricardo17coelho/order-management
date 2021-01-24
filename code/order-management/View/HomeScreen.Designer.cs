@@ -42,7 +42,7 @@
             // 
             this.CmdCustomers.Location = new System.Drawing.Point(3, 3);
             this.CmdCustomers.Name = "CmdCustomers";
-            this.CmdCustomers.Size = new System.Drawing.Size(177, 91);
+            this.CmdCustomers.Size = new System.Drawing.Size(204, 105);
             this.CmdCustomers.TabIndex = 0;
             this.CmdCustomers.Text = "Customers";
             this.CmdCustomers.UseVisualStyleBackColor = true;
@@ -50,9 +50,9 @@
             // 
             // CmdCategoryTreeView
             // 
-            this.CmdCategoryTreeView.Location = new System.Drawing.Point(735, 3);
+            this.CmdCategoryTreeView.Location = new System.Drawing.Point(843, 3);
             this.CmdCategoryTreeView.Name = "CmdCategoryTreeView";
-            this.CmdCategoryTreeView.Size = new System.Drawing.Size(177, 91);
+            this.CmdCategoryTreeView.Size = new System.Drawing.Size(204, 105);
             this.CmdCategoryTreeView.TabIndex = 0;
             this.CmdCategoryTreeView.Text = "Category Treeview";
             this.CmdCategoryTreeView.UseVisualStyleBackColor = true;
@@ -60,18 +60,19 @@
             // 
             // CmdYoyComparison
             // 
-            this.CmdYoyComparison.Location = new System.Drawing.Point(3, 100);
+            this.CmdYoyComparison.Location = new System.Drawing.Point(1053, 3);
             this.CmdYoyComparison.Name = "CmdYoyComparison";
-            this.CmdYoyComparison.Size = new System.Drawing.Size(177, 91);
+            this.CmdYoyComparison.Size = new System.Drawing.Size(204, 105);
             this.CmdYoyComparison.TabIndex = 0;
             this.CmdYoyComparison.Text = "YOY Comparison";
             this.CmdYoyComparison.UseVisualStyleBackColor = true;
+            this.CmdYoyComparison.Click += new System.EventHandler(this.CmdYoyComparison_Click);
             // 
             // CmdOrders
             // 
-            this.CmdOrders.Location = new System.Drawing.Point(552, 3);
+            this.CmdOrders.Location = new System.Drawing.Point(633, 3);
             this.CmdOrders.Name = "CmdOrders";
-            this.CmdOrders.Size = new System.Drawing.Size(177, 91);
+            this.CmdOrders.Size = new System.Drawing.Size(204, 105);
             this.CmdOrders.TabIndex = 0;
             this.CmdOrders.Text = "Orders";
             this.CmdOrders.UseVisualStyleBackColor = true;
@@ -79,9 +80,9 @@
             // 
             // CmdProducts
             // 
-            this.CmdProducts.Location = new System.Drawing.Point(369, 3);
+            this.CmdProducts.Location = new System.Drawing.Point(423, 3);
             this.CmdProducts.Name = "CmdProducts";
-            this.CmdProducts.Size = new System.Drawing.Size(177, 91);
+            this.CmdProducts.Size = new System.Drawing.Size(204, 105);
             this.CmdProducts.TabIndex = 0;
             this.CmdProducts.Text = "Products";
             this.CmdProducts.UseVisualStyleBackColor = true;
@@ -89,9 +90,9 @@
             // 
             // CmdCategories
             // 
-            this.CmdCategories.Location = new System.Drawing.Point(186, 3);
+            this.CmdCategories.Location = new System.Drawing.Point(213, 3);
             this.CmdCategories.Name = "CmdCategories";
-            this.CmdCategories.Size = new System.Drawing.Size(177, 91);
+            this.CmdCategories.Size = new System.Drawing.Size(204, 105);
             this.CmdCategories.TabIndex = 0;
             this.CmdCategories.Text = "Categories";
             this.CmdCategories.UseVisualStyleBackColor = true;
@@ -108,16 +109,16 @@
             this.flowLayoutPanel1.Controls.Add(this.CmdOrders);
             this.flowLayoutPanel1.Controls.Add(this.CmdCategoryTreeView);
             this.flowLayoutPanel1.Controls.Add(this.CmdYoyComparison);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(23, 30);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(27, 35);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1094, 546);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1262, 631);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // HomeScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1129, 609);
+            this.ClientSize = new System.Drawing.Size(1303, 704);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "HomeScreen";
             this.Text = "Home";

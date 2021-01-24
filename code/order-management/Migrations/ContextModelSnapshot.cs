@@ -164,6 +164,24 @@ namespace order_management.Migrations
                         });
                 });
 
+            modelBuilder.Entity("order_management.DbModels.YoyComparison", b =>
+                {
+                    b.Property<double>("AverageCountProductsPerOrderPerQuarter")
+                        .HasColumnType("float");
+
+                    b.Property<double>("CountOrdersPerQuarter")
+                        .HasColumnType("float");
+
+                    b.Property<double>("CountProductsPerQuarter")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Quarter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TotalRevenuePerQuarter")
+                        .HasColumnType("float");
+                });
+
             modelBuilder.Entity("order_management.Order", b =>
                 {
                     b.Property<int>("OrderId")
