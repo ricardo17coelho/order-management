@@ -41,7 +41,7 @@
             // 
             // CmdCustomers
             // 
-            this.CmdCustomers.Location = new System.Drawing.Point(213, 3);
+            this.CmdCustomers.Location = new System.Drawing.Point(3, 3);
             this.CmdCustomers.Name = "CmdCustomers";
             this.CmdCustomers.Size = new System.Drawing.Size(204, 105);
             this.CmdCustomers.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             // CmdCategoryTreeView
             // 
-            this.CmdCategoryTreeView.Location = new System.Drawing.Point(1053, 3);
+            this.CmdCategoryTreeView.Location = new System.Drawing.Point(843, 3);
             this.CmdCategoryTreeView.Name = "CmdCategoryTreeView";
             this.CmdCategoryTreeView.Size = new System.Drawing.Size(204, 105);
             this.CmdCategoryTreeView.TabIndex = 0;
@@ -71,7 +71,7 @@
             // 
             // CmdOrders
             // 
-            this.CmdOrders.Location = new System.Drawing.Point(843, 3);
+            this.CmdOrders.Location = new System.Drawing.Point(633, 3);
             this.CmdOrders.Name = "CmdOrders";
             this.CmdOrders.Size = new System.Drawing.Size(204, 105);
             this.CmdOrders.TabIndex = 0;
@@ -81,7 +81,7 @@
             // 
             // CmdProducts
             // 
-            this.CmdProducts.Location = new System.Drawing.Point(633, 3);
+            this.CmdProducts.Location = new System.Drawing.Point(423, 3);
             this.CmdProducts.Name = "CmdProducts";
             this.CmdProducts.Size = new System.Drawing.Size(204, 105);
             this.CmdProducts.TabIndex = 0;
@@ -91,7 +91,7 @@
             // 
             // CmdCategories
             // 
-            this.CmdCategories.Location = new System.Drawing.Point(423, 3);
+            this.CmdCategories.Location = new System.Drawing.Point(213, 3);
             this.CmdCategories.Name = "CmdCategories";
             this.CmdCategories.Size = new System.Drawing.Size(204, 105);
             this.CmdCategories.TabIndex = 0;
@@ -104,12 +104,12 @@
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.CmdCustomers);
             this.flowLayoutPanel1.Controls.Add(this.CmdCategories);
             this.flowLayoutPanel1.Controls.Add(this.CmdProducts);
             this.flowLayoutPanel1.Controls.Add(this.CmdOrders);
             this.flowLayoutPanel1.Controls.Add(this.CmdCategoryTreeView);
+            this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.CmdBills);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(27, 35);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -118,7 +118,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Location = new System.Drawing.Point(1053, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(204, 105);
             this.button1.TabIndex = 0;
