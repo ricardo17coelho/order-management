@@ -34,6 +34,8 @@
             this.TxtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.DgvOrders = new System.Windows.Forms.DataGridView();
+            this.CmdGenerateBill = new System.Windows.Forms.Button();
+            this.CmdViewBills = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,18 +103,40 @@
             this.DgvOrders.Text = "dataGridView1";
             this.DgvOrders.SelectionChanged += new System.EventHandler(this.DgvOrder_SelectionChanged);
             // 
-            // ViewOrder
+            // CmdGenerateBill
+            // 
+            this.CmdGenerateBill.Location = new System.Drawing.Point(68, 642);
+            this.CmdGenerateBill.Name = "CmdGenerateBill";
+            this.CmdGenerateBill.Size = new System.Drawing.Size(187, 79);
+            this.CmdGenerateBill.TabIndex = 6;
+            this.CmdGenerateBill.Text = "Generate Bill";
+            this.CmdGenerateBill.UseVisualStyleBackColor = true;
+            this.CmdGenerateBill.Click += new System.EventHandler(this.CmdGenerateBill_Click);
+            // 
+            // CmdViewBills
+            // 
+            this.CmdViewBills.Location = new System.Drawing.Point(280, 642);
+            this.CmdViewBills.Name = "CmdViewBills";
+            this.CmdViewBills.Size = new System.Drawing.Size(165, 79);
+            this.CmdViewBills.TabIndex = 7;
+            this.CmdViewBills.Text = "Show Bills";
+            this.CmdViewBills.UseVisualStyleBackColor = true;
+            this.CmdViewBills.Click += new System.EventHandler(this.CmdViewBills_Click);
+            // 
+            // ViewOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1277, 757);
+            this.Controls.Add(this.CmdViewBills);
+            this.Controls.Add(this.CmdGenerateBill);
             this.Controls.Add(this.DgvOrders);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtSearch);
             this.Controls.Add(this.CmdDelete);
             this.Controls.Add(this.CmdEdit);
             this.Controls.Add(this.CmdAddNew);
-            this.Name = "ViewOrder";
+            this.Name = "ViewOrders";
             this.Text = "ViewOrder";
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrders)).EndInit();
             this.ResumeLayout(false);
@@ -128,5 +152,7 @@
         private System.Windows.Forms.TextBox TxtSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView DgvOrders;
+        private System.Windows.Forms.Button CmdGenerateBill;
+        private System.Windows.Forms.Button CmdViewBills;
     }
 }

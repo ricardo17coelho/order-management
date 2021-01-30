@@ -29,6 +29,16 @@ namespace order_management
             }
         }
 
+        public Customer GetByOrder(Order order)
+        {
+            using (var context = new Context())
+            {
+                return GetAll()
+                    .Where(o => (o.CustomerId == order.CustomerId))
+                    .FirstOrDefault<Customer>();
+            }
+        }
+
         public void Add(Customer customer)
         {
             using (var context = new Context())
@@ -104,55 +114,6 @@ namespace order_management
               customer.LastName != "";
         }
 
-        public List<Customer> GetBills()
-        {
-            List<Customer> objects = new List<Customer>();
-
-            using (var context = new Context())
-            {
-                string query = @"SELECT    c.customerid, 
-                                           c.firstname, 
-                                           c.lastname, 
-                                           c.street, 
-                                           c.streetnr, 
-                                           c.zip, 
-                                           c.city, 
-                                           c.country, 
-                                           o.orderdate, 
-                                           o.orderid, 
-                                           Sum(od.quantity * p.price)                           AS Netto, 
-                                           Sum(od.quantity * p.price) * ( ( o.tax / 100 ) + 1 ) AS Brutto 
-                                    
-                                    FROM   orders o 
-                                           INNER JOIN orderdetails od 
-                                                   ON o.orderid = od.orderid 
-                                           INNER JOIN products p 
-                                                   ON p.productid = od.productid 
-                                           INNER JOIN productcategories pc 
-                                                   ON pc.productcategoryid = p.productcategoryid 
-                                           INNER JOIN customers c 
-                                                   ON o.customerid = c.customerid 
-                                    
-                                    GROUP  BY o.orderid, 
-                                              c.customerid, 
-                                              c.firstname, 
-                                              c.lastname, 
-                                              c.street, 
-                                              c.streetnr, 
-                                              c.zip, 
-                                              c.city, 
-                                              c.country, 
-                                              o.orderdate, 
-                                              o.tax";
-
-                IQueryable<Customer> result = context.Customers.FromSqlRaw(query);
-
-                foreach (var item in result)
-                {
-                    objects.Add(item);
-                }
-                return objects;
-            }
-        }
+        
     }
 }

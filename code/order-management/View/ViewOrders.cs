@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using order_management.DbModels;
 
 namespace order_management.View
 {
@@ -12,6 +13,7 @@ namespace order_management.View
     public partial class ViewOrders : Form
     {
         OrderService orderService = new OrderService();
+        BillService billService = new BillService();
 
         public ViewOrders()
         {
@@ -46,11 +48,13 @@ namespace order_management.View
             {
                 CmdEdit.Enabled = true;
                 CmdDelete.Enabled = true;
+                CmdGenerateBill.Enabled = true;
             }
             else
             {
                 CmdEdit.Enabled = false;
                 CmdDelete.Enabled = false;
+                CmdGenerateBill.Enabled = false;
             }
         }
 
@@ -60,6 +64,24 @@ namespace order_management.View
             DgvOrders.Columns[0].Visible = false;
             DgvOrders.Columns[4].Visible = false;
 
+        }
+
+        private void CmdGenerateBill_Click(object sender, EventArgs e)
+        {
+            var selectedOrder = (Order)DgvOrders.CurrentRow.DataBoundItem;
+
+            var response = MessageBox.Show($"Generate Bill for {selectedOrder.Customer} ?");
+
+            if (response == DialogResult.OK)
+            {
+                billService.GenerateBill(selectedOrder);
+                new ViewBills().ShowDialog();
+            }
+        }
+
+        private void CmdViewBills_Click(object sender, EventArgs e)
+        {
+            new ViewBills().ShowDialog();
         }
     }
 }

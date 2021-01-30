@@ -24,7 +24,7 @@ namespace order_management
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.; Database=dbName31; Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Data Source=.; Database=dbName32; Trusted_Connection=True");
 
             //For Debugging
             //optionsBuilder.LogTo(Console.WriteLine); 
@@ -36,9 +36,9 @@ namespace order_management
                 .HasNoKey()
                 .ToView(null);
 
-            modelBuilder.Entity<Bill>()
-                .HasNoKey()
-                .ToView(null);
+            //modelBuilder.Entity<Bill>()
+            //    .HasNoKey()
+            //    .ToView(null);
 
             List<Customer> customers = new List<Customer>
             {
@@ -129,11 +129,21 @@ namespace order_management
                 new OrderDetail(1030, 4, 1010, 1007)
             };
 
+            List<Bill> bills = new List<Bill>
+            {
+                new Bill(1000,1000, "Hans", "Müller", 
+                    "street","nr", 1234, "city", "country", 
+                    new DateTime(2018, 11, 15), 1000, 100, 107.7),
+
+
+            };
+
             customers.ForEach(customer => modelBuilder.Entity<Customer>().HasData(customer));
             categories.ForEach(category => modelBuilder.Entity<ProductCategory>().HasData(category));
             products.ForEach(product => modelBuilder.Entity<Product>().HasData(product));
             orders.ForEach(order => modelBuilder.Entity<Order>().HasData(order));
             orderDetails.ForEach(orderDetail => modelBuilder.Entity<OrderDetail>().HasData(orderDetail));
+            bills.ForEach(bill => modelBuilder.Entity<Bill>().HasData(bill));
         }
     }
 }

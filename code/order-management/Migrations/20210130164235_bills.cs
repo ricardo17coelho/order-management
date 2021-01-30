@@ -3,10 +3,34 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace order_management.Migrations
 {
-    public partial class ordermanagement : Migration
+    public partial class bills : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Bills",
+                columns: table => new
+                {
+                    BillId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CustomerId = table.Column<int>(type: "int", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Street = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StreetNr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Zip = table.Column<int>(type: "int", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    OrderId = table.Column<int>(type: "int", nullable: false),
+                    Netto = table.Column<double>(type: "float", nullable: false),
+                    Brutto = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Bills", x => x.BillId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Customers",
                 columns: table => new
@@ -116,6 +140,11 @@ namespace order_management.Migrations
                         principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Bills",
+                columns: new[] { "BillId", "Brutto", "City", "Country", "CustomerId", "FirstName", "LastName", "Netto", "OrderDate", "OrderId", "Street", "StreetNr", "Zip" },
+                values: new object[] { 1000, 107.7, "city", "country", 1000, "Hans", "Müller", 100.0, new DateTime(2018, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 1000, "street", "nr", 1234 });
 
             migrationBuilder.InsertData(
                 table: "Customers",
@@ -281,6 +310,9 @@ namespace order_management.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Bills");
+
             migrationBuilder.DropTable(
                 name: "OrderDetails");
 

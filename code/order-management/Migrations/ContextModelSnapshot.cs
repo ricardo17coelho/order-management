@@ -164,21 +164,84 @@ namespace order_management.Migrations
                         });
                 });
 
+            modelBuilder.Entity("order_management.DbModels.Bill", b =>
+                {
+                    b.Property<int>("BillId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<double>("Brutto")
+                        .HasColumnType("float");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Netto")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StreetNr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Zip")
+                        .HasColumnType("int");
+
+                    b.HasKey("BillId");
+
+                    b.ToTable("Bills");
+
+                    b.HasData(
+                        new
+                        {
+                            BillId = 1000,
+                            Brutto = 107.7,
+                            City = "city",
+                            Country = "country",
+                            CustomerId = 1000,
+                            FirstName = "Hans",
+                            LastName = "Müller",
+                            Netto = 100.0,
+                            OrderDate = new DateTime(2018, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = 1000,
+                            Street = "street",
+                            StreetNr = "nr",
+                            Zip = 1234
+                        });
+                });
+
             modelBuilder.Entity("order_management.DbModels.YoyComparison", b =>
                 {
-                    b.Property<double>("AverageCountProductsPerOrderPerQuarter")
-                        .HasColumnType("float");
+                    b.Property<int>("AvgCountProductsPerOrder")
+                        .HasColumnType("int");
 
-                    b.Property<double>("CountOrdersPerQuarter")
-                        .HasColumnType("float");
-
-                    b.Property<double>("CountProductsPerQuarter")
-                        .HasColumnType("float");
+                    b.Property<int>("CountOrders")
+                        .HasColumnType("int");
 
                     b.Property<string>("Quarter")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("TotalRevenuePerQuarter")
+                    b.Property<double>("TotalRevenue")
                         .HasColumnType("float");
                 });
 

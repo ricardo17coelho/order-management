@@ -16,13 +16,37 @@ namespace order_management.View
         public ViewBills()
         {
             InitializeComponent();
-            LoadData();
+            CmdDelete.Enabled = false;
+            ReLoadData();
         }
 
-        private void LoadData()
+        private void ReLoadData()
         {
-            List<Bill> customers = billService.GetBills();
-            DgvBills.DataSource = customers;
+            List<Bill> bills = billService.GetAll();
+            DgvBills.DataSource = bills;
+        }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            DgvBills.DataSource = billService.Search(TxtSearch.Text.ToLower());
+        }
+
+        private void CmdDelete_Click(object sender, EventArgs e)
+        {
+            billService.Delete((Bill)DgvBills.CurrentRow.DataBoundItem);
+            ReLoadData();
+        }
+
+        private void DgvBills_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DgvBills.SelectedRows != null)
+            {
+                CmdDelete.Enabled = true;
+            }
+            else
+            {
+                CmdDelete.Enabled = false;
+            }
         }
     }
 }
