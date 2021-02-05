@@ -24,7 +24,7 @@ namespace order_management
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.; Database=dbName32; Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Data Source=.; Database=OrderManagement; Trusted_Connection=True");
 
             //For Debugging
             //optionsBuilder.LogTo(Console.WriteLine); 
@@ -35,10 +35,6 @@ namespace order_management
             modelBuilder.Entity<YoyComparison>()
                 .HasNoKey()
                 .ToView(null);
-
-            //modelBuilder.Entity<Bill>()
-            //    .HasNoKey()
-            //    .ToView(null);
 
             List<Customer> customers = new List<Customer>
             {
@@ -131,11 +127,21 @@ namespace order_management
 
             List<Bill> bills = new List<Bill>
             {
-                new Bill(1000,1000, "Hans", "Müller", 
-                    "street","nr", 1234, "city", "country", 
+                new Bill(1000,1000, "Hans", "Müller",
+                    "Bahnhofstrasse","12a", 9400, "Wil", "Schweiz", 
                     new DateTime(2018, 11, 15), 1000, 100, 107.7),
-
-
+                new Bill(1001,1000, "Hans", "Müller",
+                    "Bahnhofstrasse","12a", 9400, "Wil", "Schweiz",
+                    new DateTime(2020, 01, 15), 1005, 200, 215.2),
+                new Bill(1002,1001, "Peter", "Haller",
+                    "Dorfstrasse","5", 8452, "Uznach", "Schweiz",
+                    new DateTime(2019, 05, 15), 1004, 75, 100),
+                new Bill(1003,1001, "Peter", "Haller",
+                    "Dorfstrasse","5", 8452, "Uznach", "Schweiz",
+                    new DateTime(2020, 02, 01), 1002, 50, 57.5),
+                new Bill(1004,1002, "Ueli", "Moser",
+                    "Lindenstrasse","27", 4524, "Zuckenriet", "Schweiz",
+                    new DateTime(2020, 02, 01), 1007, 75, 80.5),
             };
 
             customers.ForEach(customer => modelBuilder.Entity<Customer>().HasData(customer));

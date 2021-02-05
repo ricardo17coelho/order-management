@@ -216,17 +216,81 @@ namespace order_management.Migrations
                         {
                             BillId = 1000,
                             Brutto = 107.7,
-                            City = "city",
-                            Country = "country",
+                            City = "Wil",
+                            Country = "Schweiz",
                             CustomerId = 1000,
                             FirstName = "Hans",
                             LastName = "Müller",
                             Netto = 100.0,
                             OrderDate = new DateTime(2018, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 1000,
-                            Street = "street",
-                            StreetNr = "nr",
-                            Zip = 1234
+                            Street = "Bahnhofstrasse",
+                            StreetNr = "12a",
+                            Zip = 9400
+                        },
+                        new
+                        {
+                            BillId = 1001,
+                            Brutto = 215.19999999999999,
+                            City = "Wil",
+                            Country = "Schweiz",
+                            CustomerId = 1000,
+                            FirstName = "Hans",
+                            LastName = "Müller",
+                            Netto = 200.0,
+                            OrderDate = new DateTime(2020, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = 1005,
+                            Street = "Bahnhofstrasse",
+                            StreetNr = "12a",
+                            Zip = 9400
+                        },
+                        new
+                        {
+                            BillId = 1002,
+                            Brutto = 100.0,
+                            City = "Uznach",
+                            Country = "Schweiz",
+                            CustomerId = 1001,
+                            FirstName = "Peter",
+                            LastName = "Haller",
+                            Netto = 75.0,
+                            OrderDate = new DateTime(2019, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = 1004,
+                            Street = "Dorfstrasse",
+                            StreetNr = "5",
+                            Zip = 8452
+                        },
+                        new
+                        {
+                            BillId = 1003,
+                            Brutto = 57.5,
+                            City = "Uznach",
+                            Country = "Schweiz",
+                            CustomerId = 1001,
+                            FirstName = "Peter",
+                            LastName = "Haller",
+                            Netto = 50.0,
+                            OrderDate = new DateTime(2020, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = 1002,
+                            Street = "Dorfstrasse",
+                            StreetNr = "5",
+                            Zip = 8452
+                        },
+                        new
+                        {
+                            BillId = 1004,
+                            Brutto = 80.5,
+                            City = "Zuckenriet",
+                            Country = "Schweiz",
+                            CustomerId = 1002,
+                            FirstName = "Ueli",
+                            LastName = "Moser",
+                            Netto = 75.0,
+                            OrderDate = new DateTime(2020, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = 1007,
+                            Street = "Lindenstrasse",
+                            StreetNr = "27",
+                            Zip = 4524
                         });
                 });
 
