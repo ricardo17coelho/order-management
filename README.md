@@ -71,9 +71,6 @@
 
 <img src="images/screenshots/06.png" alt="06" />
 
-
-
-
 ### Built With
 
 * [MS Visual Studio](https://visualstudio.microsoft.com/de/)
@@ -100,13 +97,7 @@ This is an example of how to list things you need to use the software and how to
    git clone https://github.com/ricardo17coelho/order-management.git
    ```
    
-2. Change "connectString"
-   
-   ```
-   
-   ```
-   
-   `date`
+2. Mit MS Visual Studio öffnen
    
 3. Update-Database
 
