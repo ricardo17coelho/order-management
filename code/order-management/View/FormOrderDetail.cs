@@ -11,8 +11,8 @@ namespace order_management.View
     public partial class FormOrderDetail : Form
     {
 
-        OrderDetailService orderDetailService = new OrderDetailService();
-        ProductService productService = new ProductService();
+        RepoOrderDetail repoOrderDetail = new RepoOrderDetail();
+        RepoProduct repoProduct = new RepoProduct();
         FormOrders formOrders;
         OrderDetail orderDetailToEdit;
         Order order;
@@ -22,7 +22,7 @@ namespace order_management.View
             InitializeComponent();
             this.formOrders = formOrders;
             this.order = order;
-            CbProduct.DataSource = productService.GetAll();
+            CbProduct.DataSource = repoProduct.GetAll();
         }
 
         public FormOrderDetail(FormOrders formOrders, OrderDetail orderDetailToEdit, Order order)
@@ -31,14 +31,14 @@ namespace order_management.View
             this.formOrders = formOrders;
             this.order = order;
             this.orderDetailToEdit = orderDetailToEdit;
-            CbProduct.DataSource = productService.GetAll();
+            CbProduct.DataSource = repoProduct.GetAll();
             LoadOrderDetailToEditIntoFields();
         }
 
         private void CmdSave_Click(object sender, EventArgs e)
         {
             int quantity = Convert.ToInt32(NumQuantity.Value);
-            Product product = productService.GetByName(CbProduct.Text);
+            Product product = repoProduct.GetByName(CbProduct.Text);
 
             if (orderDetailToEdit == null)
             {
@@ -46,7 +46,10 @@ namespace order_management.View
             }
             else
             {
-                UpdateOrderDetail(new OrderDetail(quantity, order, product));
+                orderDetailToEdit.Quantity = quantity;
+                orderDetailToEdit.Order = order;
+                orderDetailToEdit.Product = product;
+                UpdateOrderDetail();
             }
         }
 
@@ -65,17 +68,17 @@ namespace order_management.View
         {
             if (IsValid(orderDetail))
             {
-                orderDetailService.Add(orderDetail);
+                repoOrderDetail.Add(orderDetail);
                 formOrders.ReloadData();
                 this.Close();
             }
         }
 
-        private void UpdateOrderDetail(OrderDetail orderDetail)
+        private void UpdateOrderDetail()
         {
-            if (IsValid(orderDetail))
+            if (IsValid(orderDetailToEdit))
             {
-                orderDetailService.Update(orderDetailToEdit, orderDetail);
+                repoOrderDetail.Update(orderDetailToEdit);
                 formOrders.ReloadData();
                 this.Close();
             }
@@ -83,7 +86,7 @@ namespace order_management.View
 
         private Boolean IsValid(OrderDetail orderDetail)
         {
-            if (!orderDetailService.IsValid(orderDetail))
+            if (!repoOrderDetail.IsValid(orderDetail))
             {
                 MessageBox.Show("Quantity and Product is required!");
                 return false;

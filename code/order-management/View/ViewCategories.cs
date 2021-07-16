@@ -10,7 +10,7 @@ namespace order_management.View
 {
     public partial class ViewCategories : Form
     {
-        ProductCategoryService categoryService = new ProductCategoryService();
+        RepoProductCategory repoProductCategory = new RepoProductCategory();
 
         public ViewCategories()
         {
@@ -31,7 +31,7 @@ namespace order_management.View
         private void CmdDelete_Click(object sender, EventArgs e)
         {
             ProductCategory category = (ProductCategory)DgvCategories.CurrentRow.DataBoundItem;
-            var filteredList = categoryService.GetChildrenByParentId(category.ProductCategoryId);
+            var filteredList = repoProductCategory.GetChildrenByParentId(category.ProductCategoryId);
             if (filteredList.Count > 0)
             {
                 string message = "You need to delete all the children first:";
@@ -55,7 +55,7 @@ namespace order_management.View
                 result = MessageBox.Show(message, title, buttons);
                 if (result == DialogResult.Yes)
                 {
-                    categoryService.Delete(category);
+                    repoProductCategory.Delete(category.ProductCategoryId);
                     ReloadData();
                 }
             }
@@ -63,7 +63,7 @@ namespace order_management.View
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            DgvCategories.DataSource = categoryService.Search(TxtSearch.Text.ToLower());
+            DgvCategories.DataSource = repoProductCategory.Search(TxtSearch.Text.ToLower());
         }
 
         private void DgvCategories_SelectionChanged(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace order_management.View
 
         public void ReloadData()
         {
-            DgvCategories.DataSource = categoryService.GetAll();
+            DgvCategories.DataSource = repoProductCategory.GetAll();
             DgvCategories.Columns[0].Visible = false;
             DgvCategories.Columns[3].Visible = false;
         }

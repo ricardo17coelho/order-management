@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.EntityFrameworkCore;
-using order_management.DbModels;
 
-namespace order_management.Services
+namespace order_management
 {
-    public class YoyService
+    public class RepoYoy : RepoBase<YoyComparison>
     {
+
         public List<YoyComparison> GetYoyComparison()
         {
             List<YoyComparison> objects = new List<YoyComparison>();

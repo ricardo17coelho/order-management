@@ -5,15 +5,14 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using order_management.DbModels;
 
 namespace order_management.View
 {
 
     public partial class ViewOrders : Form
     {
-        OrderService orderService = new OrderService();
-        BillService billService = new BillService();
+        RepoOrder repoOrder = new RepoOrder();
+        RepoBill repoBill = new RepoBill();
 
         public ViewOrders()
         {
@@ -33,13 +32,14 @@ namespace order_management.View
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
-            orderService.Delete((Order)DgvOrders.CurrentRow.DataBoundItem);
+            Order orderToDelete = (Order)DgvOrders.CurrentRow.DataBoundItem;
+            repoOrder.Delete(orderToDelete.OrderId);
             ReloadData();
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            DgvOrders.DataSource = orderService.Search(TxtSearch.Text.ToLower());
+            DgvOrders.DataSource = repoOrder.Search(TxtSearch.Text.ToLower());
         }
 
         private void DgvOrder_SelectionChanged(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace order_management.View
 
         public void ReloadData()
         {
-            DgvOrders.DataSource = orderService.GetAll();
+            DgvOrders.DataSource = repoOrder.GetAll();
             DgvOrders.Columns[0].Visible = false;
             DgvOrders.Columns[4].Visible = false;
 
@@ -74,7 +74,7 @@ namespace order_management.View
 
             if (response == DialogResult.OK)
             {
-                billService.GenerateBill(selectedOrder);
+                repoBill.GenerateBill(selectedOrder);
                 new ViewBills().ShowDialog();
             }
         }

@@ -10,9 +10,9 @@ namespace order_management.View
 {
     public partial class FormOrders : Form
     {
-        CustomerService customerService = new CustomerService();
-        OrderService orderService = new OrderService();
-        OrderDetailService orderDetailService = new OrderDetailService();
+        RepoCustomer repoCustomer = new RepoCustomer();
+        RepoOrder repoOrder = new RepoOrder();
+        RepoOrderDetail repoOrderDetail = new RepoOrderDetail();
         ViewOrders viewOrders;
         Order orderToEdit;
 
@@ -20,7 +20,7 @@ namespace order_management.View
         {
             InitializeComponent();
             this.viewOrders = viewOrders;
-            CbCustomer.DataSource = customerService.GetAll();
+            CbCustomer.DataSource = repoCustomer.GetAll();
         }
 
         public FormOrders(ViewOrders viewOrders, Order orderToEdit)
@@ -28,7 +28,7 @@ namespace order_management.View
             InitializeComponent();
             this.viewOrders = viewOrders;
             this.orderToEdit = orderToEdit;
-            CbCustomer.DataSource = customerService.GetAll();
+            CbCustomer.DataSource = repoCustomer.GetAll();
             LoadOrderToEditIntoFields();
             ReloadData();
         }
@@ -44,7 +44,7 @@ namespace order_management.View
             string firstName = CbCustomer.Text.Split(" ")[0]; //Risky for Names with Space!
             string lastName = CbCustomer.Text.Split(" ")[1]; //Risky for Names with Space!
 
-            Customer customer = customerService.GetByName(firstName, lastName);
+            Customer customer = repoCustomer.GetByName(firstName, lastName);
             DateTime date = DtpOrderDate.Value;
             double tax = Convert.ToDouble(NumTax.Value);
 
@@ -54,7 +54,10 @@ namespace order_management.View
             }
             else
             {
-                UpdateOrder(new Order(customer, tax, date));
+                orderToEdit.Customer = customer;
+                orderToEdit.OrderDate = date;
+                orderToEdit.Tax = tax;
+                UpdateOrder();
             }
         }
 
@@ -74,23 +77,23 @@ namespace order_management.View
         {
             if (IsValid(order) && IsUnique(order))
             {
-                orderToEdit = orderService.Add(order);
+                orderToEdit = repoOrder.Add(order);
                 viewOrders.ReloadData();
             }
         }
 
-        private void UpdateOrder(Order order)
+        private void UpdateOrder()
         {
-            if (IsValid(order))
+            if (IsValid(orderToEdit))
             {
-                orderService.Update(orderToEdit, order);
+                repoOrder.Update(orderToEdit);
                 viewOrders.ReloadData();
             }
         }
 
         private Boolean IsUnique(Order order)
         {
-            if (!orderService.IsUnique(order))
+            if (!repoOrder.IsUnique(order))
             {
                 MessageBox.Show("Order From " + order.Customer.ToString() + " at " + order.OrderDate.ToString() + " already exists!");
                 return false;
@@ -100,7 +103,7 @@ namespace order_management.View
 
         private Boolean IsValid(Order order)
         {
-            if (!orderService.IsValid(order))
+            if (!repoOrder.IsValid(order))
             {
                 MessageBox.Show("Customer and Date is required!");
                 return false;
@@ -123,7 +126,8 @@ namespace order_management.View
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
-            orderDetailService.Delete((OrderDetail)DgvOrderDetails.CurrentRow.DataBoundItem);
+            OrderDetail orderDetailToDelete = (OrderDetail)DgvOrderDetails.CurrentRow.DataBoundItem;
+            repoOrderDetail.Delete(orderDetailToDelete.OrderDetailId);
             ReloadData();
         }
 
@@ -143,7 +147,7 @@ namespace order_management.View
 
         public void ReloadData()
         {
-            DgvOrderDetails.DataSource = orderDetailService.GetByOrder(orderToEdit);
+            DgvOrderDetails.DataSource = repoOrderDetail.GetByOrder(orderToEdit);
             DgvOrderDetails.Columns[0].Visible = false;
             DgvOrderDetails.Columns[2].Visible = false;
             DgvOrderDetails.Columns[3].Visible = false;

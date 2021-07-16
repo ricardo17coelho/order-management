@@ -10,8 +10,7 @@ namespace order_management.View
 {
     public partial class FormCustomers : Form
     {
-
-        CustomerService customerService = new CustomerService();
+        RepoCustomer repoCustomer = new RepoCustomer();
         ViewCustomers viewCustomers;
         Customer customerToEdit;
 
@@ -45,7 +44,14 @@ namespace order_management.View
             }
             else
             {
-                UpdateCustomer(new Customer(firstName, lastName, street, streetNr, zip, city, country));
+                customerToEdit.FirstName = firstName;
+                customerToEdit.LastName = lastName;
+                customerToEdit.Street = street;
+                customerToEdit.StreetNr = streetNr;
+                customerToEdit.Zip = zip;
+                customerToEdit.City = city;
+                customerToEdit.Country = country;
+                UpdateCustomer();
             }
         }
 
@@ -69,17 +75,17 @@ namespace order_management.View
         {
             if (IsValid(customer) && IsUnique(customer))
             {
-                customerService.Add(customer);
+                repoCustomer.Add(customer);
                 viewCustomers.ReloadData();
                 this.Close();
             }
         }
 
-        private void UpdateCustomer(Customer customer)
+        private void UpdateCustomer()
         {
-            if (IsValid(customer))
+            if (IsValid(customerToEdit))
             {
-                customerService.Update(customerToEdit, customer);
+                repoCustomer.Update(customerToEdit);
                 viewCustomers.ReloadData();
                 this.Close();
             }
@@ -87,7 +93,7 @@ namespace order_management.View
 
         private Boolean IsUnique(Customer customer)
         {
-            if (!customerService.IsUnique(customer))
+            if (!repoCustomer.IsUnique(customer))
             {
                 MessageBox.Show("Customer " + customer.FirstName + " " + customer.LastName + " already exists!");
                 return false;
@@ -97,7 +103,7 @@ namespace order_management.View
 
         private Boolean IsValid(Customer customer)
         {
-            if (!customerService.IsValid(customer))
+            if (!repoCustomer.IsValid(customer))
             {
                 MessageBox.Show("First and Lastname is required!");
                 return false;

@@ -10,8 +10,8 @@ namespace order_management.View
 {
     public partial class FormProducts : Form
     {
-        ProductService productService = new ProductService();
-        ProductCategoryService categoryService = new ProductCategoryService();
+        RepoProduct repoProduct = new RepoProduct();
+        RepoProductCategory repoProductCategory = new RepoProductCategory();
         ViewProducts ViewProducts;
         Product productToEdit;
 
@@ -19,7 +19,7 @@ namespace order_management.View
         {
             InitializeComponent();
             this.ViewProducts = viewProducts;
-            CbCategory.DataSource = categoryService.GetAll();
+            CbCategory.DataSource = repoProductCategory.GetAll();
         }
 
         public FormProducts(ViewProducts viewProducts, Product productToEdit)
@@ -27,7 +27,7 @@ namespace order_management.View
             InitializeComponent();
             this.ViewProducts = viewProducts;
             this.productToEdit = productToEdit;
-            CbCategory.DataSource = categoryService.GetAll();
+            CbCategory.DataSource = repoProductCategory.GetAll();
             LoadProductToEditIntoFields();
         }
 
@@ -37,7 +37,7 @@ namespace order_management.View
             double price = Convert.ToDouble(NumPrice.Value);
             string unit = TxtUnit.Text;
             DateTime date = DtpDate.Value;
-            ProductCategory category = categoryService.GetByName(CbCategory.Text);
+            ProductCategory category = repoProductCategory.GetByName(CbCategory.Text);
 
             if (productToEdit == null)
             {
@@ -45,7 +45,13 @@ namespace order_management.View
             }
             else
             {
-                UpdateCategory(new Product(productName, price, unit, date, category));
+                productToEdit.ProductName = productName;
+                productToEdit.Price = price;
+                productToEdit.Unit = unit;
+                productToEdit.Date = date;
+                productToEdit.ProductCategory = category;
+
+                UpdateCategory();
             }
         }
 
@@ -67,17 +73,17 @@ namespace order_management.View
         {
             if (IsValid(product) && IsUnique(product))
             {
-                productService.Add(product);
+                repoProduct.Add(product);
                 ViewProducts.ReloadData();
                 this.Close();
             }
         }
 
-        private void UpdateCategory(Product product)
+        private void UpdateCategory()
         {
-            if (IsValid(product))
+            if (IsValid(productToEdit))
             {
-                productService.Update(productToEdit, product);
+                repoProduct.Update(productToEdit);
                 ViewProducts.ReloadData();
                 this.Close();
             }
@@ -85,7 +91,7 @@ namespace order_management.View
 
         private Boolean IsUnique(Product product)
         {
-            if (!productService.IsUnique(product))
+            if (!repoProduct.IsUnique(product))
             {
                 MessageBox.Show("Product " + product.ProductName + " already exists!");
                 return false;
@@ -95,7 +101,7 @@ namespace order_management.View
 
         private Boolean IsValid(Product product)
         {
-            if (!productService.IsValid(product))
+            if (!repoProduct.IsValid(product))
             {
                 MessageBox.Show("Product Name is required!");
                 return false;

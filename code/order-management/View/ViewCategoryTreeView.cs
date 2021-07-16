@@ -11,7 +11,7 @@ namespace order_management.View
 {
     public partial class ViewCategoryTreeView : Form
     {
-        ProductCategoryService categoryService = new ProductCategoryService();
+        RepoProductCategory repoProductCategory = new RepoProductCategory();
 
         public ViewCategoryTreeView()
         {
@@ -20,7 +20,7 @@ namespace order_management.View
 
         private void ViewCategoryTreeView_Load(object sender, EventArgs e)
         {
-            var categories = categoryService.GetCteDataForTreeView();
+            var categories = repoProductCategory.GetCteDataForTreeView();
             BuildTreeView(categories);
         }
 

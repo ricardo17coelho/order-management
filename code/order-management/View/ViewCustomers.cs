@@ -10,7 +10,7 @@ namespace order_management.View
 {
     public partial class ViewCustomers : Form
     {
-        CustomerService customerService = new CustomerService();
+        RepoCustomer repoCustomer = new RepoCustomer();
 
         public ViewCustomers()
         {
@@ -30,13 +30,14 @@ namespace order_management.View
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
-            customerService.Delete((Customer)DgvCustomer.CurrentRow.DataBoundItem);
+            Customer customerToDelete = (Customer)DgvCustomer.CurrentRow.DataBoundItem;
+            repoCustomer.Delete(customerToDelete.CustomerId);
             ReloadData();
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            DgvCustomer.DataSource = customerService.Search(TxtSearch.Text.ToLower());
+            DgvCustomer.DataSource = repoCustomer.Search(TxtSearch.Text.ToLower());
         }
 
         private void DgvCustomer_SelectionChanged(object sender, EventArgs e)
@@ -55,7 +56,7 @@ namespace order_management.View
 
         public void ReloadData()
         {
-            DgvCustomer.DataSource = customerService.GetAll();
+            DgvCustomer.DataSource = repoCustomer.GetAll();
             DgvCustomer.Columns[0].Visible = false;
         }
 

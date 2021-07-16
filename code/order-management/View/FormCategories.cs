@@ -10,7 +10,7 @@ namespace order_management.View
 {
     public partial class FormCategories : Form
     {
-        ProductCategoryService categoryService = new ProductCategoryService();
+        RepoProductCategory repoProductCategory = new RepoProductCategory();
         ViewCategories viewCategories;
         ProductCategory categoryToEdit;
 
@@ -18,7 +18,7 @@ namespace order_management.View
         {
             InitializeComponent();
             this.viewCategories = viewCategories;
-            CbParentCategory.DataSource = categoryService.GetAll();
+            CbParentCategory.DataSource = repoProductCategory.GetAll();
         }
 
         public FormCategories(ViewCategories viewCategories, ProductCategory categoryToEdit)
@@ -26,14 +26,14 @@ namespace order_management.View
             InitializeComponent();
             this.viewCategories = viewCategories;
             this.categoryToEdit = categoryToEdit;
-            CbParentCategory.DataSource = categoryService.GetAll();
+            CbParentCategory.DataSource = repoProductCategory.GetAll();
             LoadCategoryToEditIntoFields();
         }
 
         private void CmdSave_Click(object sender, EventArgs e)
         {
             string categoryName = TxtCategoryName.Text;
-            ProductCategory parentCategory = categoryService.GetByName(CbParentCategory.Text);
+            ProductCategory parentCategory = repoProductCategory.GetByName(CbParentCategory.Text);
 
             if (categoryToEdit == null)
             {
@@ -48,13 +48,17 @@ namespace order_management.View
             }
             else
             {
+                categoryToEdit.ProductCategoryName = categoryName;
+
                 if (CkbRootCategory.Checked)
                 {
-                    UpdateCategory(new ProductCategory(categoryName));
+                    categoryToEdit.Parent = null;
+                    UpdateCategory();
                 }
                 else
                 {
-                    UpdateCategory(new ProductCategory(categoryName, parentCategory));
+                    categoryToEdit.Parent = parentCategory;
+                    UpdateCategory();
                 }
             }
         }
@@ -83,17 +87,17 @@ namespace order_management.View
         {
             if (IsValid(category) && IsUnique(category))
             {
-                categoryService.Add(category);
+                repoProductCategory.Add(category);
                 viewCategories.ReloadData();
                 this.Close();
             }
         }
 
-        private void UpdateCategory(ProductCategory category)
+        private void UpdateCategory()
         {
-            if (IsValid(category))
+            if (IsValid(categoryToEdit))
             {
-                categoryService.Update(categoryToEdit, category);
+                repoProductCategory.Update(categoryToEdit);
                 viewCategories.ReloadData();
                 this.Close();
             }
@@ -101,7 +105,7 @@ namespace order_management.View
 
         private Boolean IsUnique(ProductCategory category)
         {
-            if (!categoryService.IsUnique(category))
+            if (!repoProductCategory.IsUnique(category))
             {
                 MessageBox.Show("Category " + category.ProductCategoryName + " already exists!");
                 return false;
@@ -111,7 +115,7 @@ namespace order_management.View
 
         private Boolean IsValid(ProductCategory category)
         {
-            if (!categoryService.IsValid(category))
+            if (!repoProductCategory.IsValid(category))
             {
                 MessageBox.Show("Category Name is required!");
                 return false;

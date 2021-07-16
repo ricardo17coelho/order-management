@@ -1,41 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using order_management.DbModels;
 
 namespace order_management
 {
-    public class BillService
+    public class RepoBill : RepoBase<Bill>
     {
-
-        public List<Bill> GetAll()
-        {
-            using (var context = new Context())
-            {
-                return context.Bills.ToList();
-            }
-        }
-
-        public void Add(Bill bill)
-        {
-            using (var context = new Context())
-            {
-                context.Bills.Attach(bill);
-                context.SaveChanges();
-            }
-        }
-
-        public void Delete(Bill bill)
-        {
-            using (var context = new Context())
-            {
-                context.Bills.Remove(bill);
-                context.SaveChanges();
-            }
-        }
 
         public List<Bill> Search(string searchString)
         {
@@ -57,11 +29,11 @@ namespace order_management
 
         public void GenerateBill(Order order)
         {
-            var customerService = new CustomerService();
-            var orderDetailService = new OrderDetailService();
+            var repoCustomer = new RepoCustomer();
+            var repoOrderDetail = new RepoOrderDetail();
 
-            var customer = customerService.GetByOrder(order);
-            var orderDetails = orderDetailService.GetByOrder(order);
+            var customer = repoCustomer.GetById(order.CustomerId);
+            var orderDetails = repoOrderDetail.GetByOrder(order);
             var customerId = customer.CustomerId;
             var firstName = customer.FirstName;
             var lastName = customer.LastName;
@@ -72,7 +44,6 @@ namespace order_management
             var country = customer.Country;
             var orderDate = order.OrderDate;
             var orderId = order.OrderId;
-
 
             double netto = 0;
 

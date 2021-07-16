@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace order_management.DbModels
+namespace order_management
 {
     public class Bill
     {

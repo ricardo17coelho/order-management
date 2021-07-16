@@ -5,13 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using order_management.DbModels;
 
 namespace order_management.View
 {
     public partial class ViewBills : Form
     {
-        private BillService billService = new BillService();
+        private RepoBill repoBill = new RepoBill();
         
         public ViewBills()
         {
@@ -22,18 +21,19 @@ namespace order_management.View
 
         private void ReLoadData()
         {
-            List<Bill> bills = billService.GetAll();
+            var bills = repoBill.GetAll();
             DgvBills.DataSource = bills;
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            DgvBills.DataSource = billService.Search(TxtSearch.Text.ToLower());
+            DgvBills.DataSource = repoBill.Search(TxtSearch.Text.ToLower());
         }
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
-            billService.Delete((Bill)DgvBills.CurrentRow.DataBoundItem);
+            Bill billToDelete = (Bill)DgvBills.CurrentRow.DataBoundItem;
+            repoBill.Delete(billToDelete.BillId);
             ReLoadData();
         }
 

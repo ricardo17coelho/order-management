@@ -10,7 +10,7 @@ namespace order_management.View
 {
     public partial class ViewProducts : Form
     {
-        ProductService productService = new ProductService();
+        RepoProduct repoProduct = new RepoProduct();
 
         public ViewProducts()
         {
@@ -30,14 +30,15 @@ namespace order_management.View
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
-            productService.Delete((Product)DgvProducts.CurrentRow.DataBoundItem);
+            Product productToDelete = (Product)DgvProducts.CurrentRow.DataBoundItem;
+            repoProduct.Delete(productToDelete.ProductId);
             ReloadData();
         }
 
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            DgvProducts.DataSource = productService.Search(TxtSearch.Text.ToLower());
+            DgvProducts.DataSource = repoProduct.Search(TxtSearch.Text.ToLower());
         }
 
         private void DgvProduct_SelectionChanged(object sender, EventArgs e)
@@ -56,10 +57,9 @@ namespace order_management.View
 
         public void ReloadData()
         {
-            DgvProducts.DataSource = productService.GetAll();
+            DgvProducts.DataSource = repoProduct.GetAll();
             DgvProducts.Columns[0].Visible = false;
             DgvProducts.Columns[6].Visible = false;
-
         }
     }
 }
