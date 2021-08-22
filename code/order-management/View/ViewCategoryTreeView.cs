@@ -1,4 +1,5 @@
-﻿using System;
+﻿using order_management.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,16 +12,17 @@ namespace order_management.View
 {
     public partial class ViewCategoryTreeView : Form
     {
-        RepoProductCategory repoProductCategory = new RepoProductCategory();
+        private readonly IProductCategoryService _productCategoryService;
 
-        public ViewCategoryTreeView()
+        public ViewCategoryTreeView(IProductCategoryService productCategoryService)
         {
             InitializeComponent();
+            _productCategoryService = productCategoryService;
         }
 
         private void ViewCategoryTreeView_Load(object sender, EventArgs e)
         {
-            var categories = repoProductCategory.GetCteDataForTreeView();
+            var categories = _productCategoryService.GetCteDataForTreeView();
             BuildTreeView(categories);
         }
 

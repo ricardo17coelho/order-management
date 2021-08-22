@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using order_management.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,14 @@ namespace order_management
 {
     public class RepoBill : RepoBase<Bill>
     {
+        private readonly ICustomerService _customerService;
+        private readonly IOrderDetailService _orderDetailService;
+
+        public RepoBill(OrderManagementDbContext orderManagementDbContext, ICustomerService customerService, IOrderDetailService orderDetailService) : base(orderManagementDbContext)
+        {
+            _customerService = customerService;
+            _orderDetailService = orderDetailService;
+        }
 
         public List<Bill> Search(string searchString)
         {
@@ -27,13 +36,11 @@ namespace order_management
                 ).ToList();
         }
 
-        public void GenerateBill(Order order)
+        public Bill GenerateBill(Order order)
         {
-            var repoCustomer = new RepoCustomer();
-            var repoOrderDetail = new RepoOrderDetail();
 
-            var customer = repoCustomer.GetById(order.CustomerId);
-            var orderDetails = repoOrderDetail.GetByOrder(order);
+            var customer = _customerService.GetById(order.CustomerId);
+            var orderDetails = _orderDetailService.GetByOrder(order);
             var customerId = customer.CustomerId;
             var firstName = customer.FirstName;
             var lastName = customer.LastName;
@@ -54,7 +61,7 @@ namespace order_management
 
             var brutto = netto * (order.Tax / 100) + netto;
 
-            Add(new Bill(customerId, firstName, lastName, street, streetNr, zip, city,
+            return Add(new Bill(customerId, firstName, lastName, street, streetNr, zip, city,
                                         country, orderDate, orderId, netto, brutto));
 
         }

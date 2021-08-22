@@ -1,4 +1,5 @@
-﻿using System;
+﻿using order_management.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,24 +11,32 @@ namespace order_management.View
 {
     public partial class FormProducts : Form
     {
-        RepoProduct repoProduct = new RepoProduct();
-        RepoProductCategory repoProductCategory = new RepoProductCategory();
-        ViewProducts ViewProducts;
-        Product productToEdit;
+        private readonly IProductService _productService;
+        private readonly IProductCategoryService _productCategoryService;
+        private protected ViewProducts _viewProducts;
+        private protected Product _productToEdit;
 
-        public FormProducts(ViewProducts viewProducts)
+        public FormProducts(IProductService productService, IProductCategoryService productCategoryService)
         {
             InitializeComponent();
-            this.ViewProducts = viewProducts;
-            CbCategory.DataSource = repoProductCategory.GetAll();
+            _productService = productService;
+            _productCategoryService = productCategoryService;
+            ReloadData();
         }
 
-        public FormProducts(ViewProducts viewProducts, Product productToEdit)
+        private void ReloadData()
         {
-            InitializeComponent();
-            this.ViewProducts = viewProducts;
-            this.productToEdit = productToEdit;
-            CbCategory.DataSource = repoProductCategory.GetAll();
+            CbCategory.DataSource = _productCategoryService.GetAll();
+        }
+
+        public void SetProductsView(ViewProducts viewProducts)
+        {
+            _viewProducts = viewProducts;
+        }
+
+        public void SetProductToEdit(Product productToEdit)
+        {
+            _productToEdit = productToEdit;
             LoadProductToEditIntoFields();
         }
 
@@ -37,19 +46,19 @@ namespace order_management.View
             double price = Convert.ToDouble(NumPrice.Value);
             string unit = TxtUnit.Text;
             DateTime date = DtpDate.Value;
-            ProductCategory category = repoProductCategory.GetByName(CbCategory.Text);
+            ProductCategory category = _productCategoryService.GetByName(CbCategory.Text);
 
-            if (productToEdit == null)
+            if (_productToEdit == null)
             {
                 AddNewProduct(new Product(productName, price, unit, date, category));
             }
             else
             {
-                productToEdit.ProductName = productName;
-                productToEdit.Price = price;
-                productToEdit.Unit = unit;
-                productToEdit.Date = date;
-                productToEdit.ProductCategory = category;
+                _productToEdit.ProductName = productName;
+                _productToEdit.Price = price;
+                _productToEdit.Unit = unit;
+                _productToEdit.Date = date;
+                _productToEdit.ProductCategory = category;
 
                 UpdateCategory();
             }
@@ -62,36 +71,36 @@ namespace order_management.View
 
         private void LoadProductToEditIntoFields()
         {
-            TxtProductName.Text = productToEdit.ProductName;
-            NumPrice.Value = Convert.ToDecimal(productToEdit.Price);
-            TxtUnit.Text = productToEdit.Unit;
-            DtpDate.Value = productToEdit.Date;
-            CbCategory.Text = productToEdit.ProductCategory.ToString();
+            TxtProductName.Text = _productToEdit.ProductName;
+            NumPrice.Value = Convert.ToDecimal(_productToEdit.Price);
+            TxtUnit.Text = _productToEdit.Unit;
+            DtpDate.Value = _productToEdit.Date;
+            CbCategory.Text = _productToEdit.ProductCategory.ToString();
         }
 
         private void AddNewProduct(Product product)
         {
             if (IsValid(product) && IsUnique(product))
             {
-                repoProduct.Add(product);
-                ViewProducts.ReloadData();
+                _productService.Add(product);
+                _viewProducts.ReloadData();
                 this.Close();
             }
         }
 
         private void UpdateCategory()
         {
-            if (IsValid(productToEdit))
+            if (IsValid(_productToEdit))
             {
-                repoProduct.Update(productToEdit);
-                ViewProducts.ReloadData();
+                _productService.Update(_productToEdit);
+                _viewProducts.ReloadData();
                 this.Close();
             }
         }
 
         private Boolean IsUnique(Product product)
         {
-            if (!repoProduct.IsUnique(product))
+            if (!_productService.IsUnique(product))
             {
                 MessageBox.Show("Product " + product.ProductName + " already exists!");
                 return false;
@@ -101,7 +110,7 @@ namespace order_management.View
 
         private Boolean IsValid(Product product)
         {
-            if (!repoProduct.IsValid(product))
+            if (!_productService.IsValid(product))
             {
                 MessageBox.Show("Product Name is required!");
                 return false;

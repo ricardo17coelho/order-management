@@ -1,4 +1,5 @@
-﻿using System;
+﻿using order_management.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,21 +11,24 @@ namespace order_management.View
 {
     public partial class FormCustomers : Form
     {
-        RepoCustomer repoCustomer = new RepoCustomer();
-        ViewCustomers viewCustomers;
-        Customer customerToEdit;
+        private readonly ICustomerService _customerService;
+        private protected ViewCustomers _viewCustomers;
+        private protected Customer _customerToEdit;
 
-        public FormCustomers(ViewCustomers customersView)
+        public FormCustomers(ICustomerService customerService)
         {
             InitializeComponent();
-            this.viewCustomers = customersView;
+            _customerService = customerService;
         }
 
-        public FormCustomers(ViewCustomers customersView, Customer customerToEdit)
+        public void SetCustomerView(ViewCustomers customersView)
         {
-            InitializeComponent();
-            this.viewCustomers = customersView;
-            this.customerToEdit = customerToEdit;
+            _viewCustomers = customersView;
+        }
+
+        public void SetCustomerToEdit(Customer customerToEdit)
+        {
+            _customerToEdit = customerToEdit;
             LoadCustomerToEditIntoFields();
         }
 
@@ -38,19 +42,19 @@ namespace order_management.View
             string city = TxtCity.Text;
             string country = TxtCountry.Text;
 
-            if(customerToEdit == null)
+            if(_customerToEdit == null)
             {
                 AddNewCustomer(new Customer(firstName, lastName, street, streetNr, zip, city, country));
             }
             else
             {
-                customerToEdit.FirstName = firstName;
-                customerToEdit.LastName = lastName;
-                customerToEdit.Street = street;
-                customerToEdit.StreetNr = streetNr;
-                customerToEdit.Zip = zip;
-                customerToEdit.City = city;
-                customerToEdit.Country = country;
+                _customerToEdit.FirstName = firstName;
+                _customerToEdit.LastName = lastName;
+                _customerToEdit.Street = street;
+                _customerToEdit.StreetNr = streetNr;
+                _customerToEdit.Zip = zip;
+                _customerToEdit.City = city;
+                _customerToEdit.Country = country;
                 UpdateCustomer();
             }
         }
@@ -62,38 +66,38 @@ namespace order_management.View
 
         private void LoadCustomerToEditIntoFields()
         {
-            TxtFirstName.Text = customerToEdit.FirstName;
-            TxtLastName.Text = customerToEdit.LastName;
-            TxtStreet.Text = customerToEdit.Street;
-            TxtStreetNr.Text = customerToEdit.StreetNr;
-            NumZip.Value = customerToEdit.Zip;
-            TxtCity.Text = customerToEdit.City;
-            TxtCountry.Text = customerToEdit.Country;
+            TxtFirstName.Text = _customerToEdit.FirstName;
+            TxtLastName.Text = _customerToEdit.LastName;
+            TxtStreet.Text = _customerToEdit.Street;
+            TxtStreetNr.Text = _customerToEdit.StreetNr;
+            NumZip.Value = _customerToEdit.Zip;
+            TxtCity.Text = _customerToEdit.City;
+            TxtCountry.Text = _customerToEdit.Country;
         }
 
         private void AddNewCustomer(Customer customer)
         {
             if (IsValid(customer) && IsUnique(customer))
             {
-                repoCustomer.Add(customer);
-                viewCustomers.ReloadData();
+                _customerService.Add(customer);
+                _viewCustomers.ReloadData();
                 this.Close();
             }
         }
 
         private void UpdateCustomer()
         {
-            if (IsValid(customerToEdit))
+            if (IsValid(_customerToEdit))
             {
-                repoCustomer.Update(customerToEdit);
-                viewCustomers.ReloadData();
+                _customerService.Update(_customerToEdit);
+                _viewCustomers.ReloadData();
                 this.Close();
             }
         }
 
         private Boolean IsUnique(Customer customer)
         {
-            if (!repoCustomer.IsUnique(customer))
+            if (!_customerService.IsUnique(customer))
             {
                 MessageBox.Show("Customer " + customer.FirstName + " " + customer.LastName + " already exists!");
                 return false;
@@ -103,7 +107,7 @@ namespace order_management.View
 
         private Boolean IsValid(Customer customer)
         {
-            if (!repoCustomer.IsValid(customer))
+            if (!_customerService.IsValid(customer))
             {
                 MessageBox.Show("First and Lastname is required!");
                 return false;

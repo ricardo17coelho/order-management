@@ -1,4 +1,5 @@
-﻿using System;
+﻿using order_management.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,35 +11,42 @@ namespace order_management.View
 {
     public partial class ViewProducts : Form
     {
-        RepoProduct repoProduct = new RepoProduct();
+        private readonly IProductService _productService;
 
-        public ViewProducts()
+        public ViewProducts(IProductService productService)
         {
             InitializeComponent();
+            _productService = productService;
             ReloadData();
         }
 
         private void CmdAddNew_Click(object sender, EventArgs e)
         {
-            new FormProducts(this).ShowDialog();
+            var formProducts = (FormProducts)Program.ServiceProvider.GetService(typeof(FormProducts));
+            formProducts.SetProductsView(this);
+            formProducts.ShowDialog();
         }
 
         private void CmdEdit_Click(object sender, EventArgs e)
         {
-            new FormProducts(this, (Product)DgvProducts.CurrentRow.DataBoundItem).ShowDialog();
+            var formProducts = (FormProducts)Program.ServiceProvider.GetService(typeof(FormProducts));
+            formProducts.SetProductsView(this);
+            Product productToEdit = (Product)DgvProducts.CurrentRow.DataBoundItem;
+            formProducts.SetProductToEdit(productToEdit);
+            formProducts.ShowDialog();
         }
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
             Product productToDelete = (Product)DgvProducts.CurrentRow.DataBoundItem;
-            repoProduct.Delete(productToDelete.ProductId);
+            _productService.DeleteById(productToDelete.ProductId);
             ReloadData();
         }
 
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            DgvProducts.DataSource = repoProduct.Search(TxtSearch.Text.ToLower());
+            DgvProducts.DataSource = _productService.Search(TxtSearch.Text.ToLower());
         }
 
         private void DgvProduct_SelectionChanged(object sender, EventArgs e)
@@ -57,7 +65,7 @@ namespace order_management.View
 
         public void ReloadData()
         {
-            DgvProducts.DataSource = repoProduct.GetAll();
+            DgvProducts.DataSource = _productService.GetAll();
             DgvProducts.Columns[0].Visible = false;
             DgvProducts.Columns[6].Visible = false;
         }

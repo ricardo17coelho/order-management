@@ -1,4 +1,5 @@
-﻿using System;
+﻿using order_management.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,31 +11,32 @@ namespace order_management.View
 {
     public partial class ViewBills : Form
     {
-        private RepoBill repoBill = new RepoBill();
-        
-        public ViewBills()
+        private readonly IBillService _billService;
+
+        public ViewBills(IBillService billService)
         {
             InitializeComponent();
             CmdDelete.Enabled = false;
-            ReLoadData();
+            _billService = billService;
+            ReloadData();
         }
 
-        private void ReLoadData()
+        private void ReloadData()
         {
-            var bills = repoBill.GetAll();
+            var bills = _billService.GetAll();
             DgvBills.DataSource = bills;
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            DgvBills.DataSource = repoBill.Search(TxtSearch.Text.ToLower());
+            DgvBills.DataSource = _billService.Search(TxtSearch.Text.ToLower());
         }
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
             Bill billToDelete = (Bill)DgvBills.CurrentRow.DataBoundItem;
-            repoBill.Delete(billToDelete.BillId);
-            ReLoadData();
+            _billService.DeleteById(billToDelete.BillId);
+            ReloadData();
         }
 
         private void DgvBills_SelectionChanged(object sender, EventArgs e)

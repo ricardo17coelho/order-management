@@ -8,7 +8,7 @@ using order_management;
 
 namespace order_management.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(OrderManagementDbContext))]
     partial class ContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

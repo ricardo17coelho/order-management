@@ -15,5 +15,6 @@ namespace order_management
         T Update(T obj);
         
         void Delete(object id);
+        void Delete(T entity);
     }
 }

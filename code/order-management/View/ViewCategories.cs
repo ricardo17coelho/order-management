@@ -1,4 +1,5 @@
-﻿using System;
+﻿using order_management.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,28 +11,35 @@ namespace order_management.View
 {
     public partial class ViewCategories : Form
     {
-        RepoProductCategory repoProductCategory = new RepoProductCategory();
+        private readonly IProductCategoryService _productCategoryService;
 
-        public ViewCategories()
+        public ViewCategories(IProductCategoryService productCategoryService)
         {
             InitializeComponent();
+            _productCategoryService = productCategoryService;
             ReloadData();
         }
 
         private void CmdAddNew_Click(object sender, EventArgs e)
         {
-            new FormCategories(this).ShowDialog();
+            var formCategories = (FormCategories)Program.ServiceProvider.GetService(typeof(FormCategories));
+            formCategories.SetCategoriesView(this);
+            formCategories.ShowDialog();
         }
 
         private void CmdEdit_Click(object sender, EventArgs e)
         {
-            new FormCategories(this, (ProductCategory)DgvCategories.CurrentRow.DataBoundItem).ShowDialog();
+            var formCategories = (FormCategories)Program.ServiceProvider.GetService(typeof(FormCategories));
+            formCategories.SetCategoriesView(this);
+            ProductCategory productCategoryToEdit = (ProductCategory)DgvCategories.CurrentRow.DataBoundItem;
+            formCategories.SetProductCategoryToEdit(productCategoryToEdit);
+            formCategories.ShowDialog();
         }
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
             ProductCategory category = (ProductCategory)DgvCategories.CurrentRow.DataBoundItem;
-            var filteredList = repoProductCategory.GetChildrenByParentId(category.ProductCategoryId);
+            var filteredList = _productCategoryService.GetChildrenByParentId(category.ProductCategoryId);
             if (filteredList.Count > 0)
             {
                 string message = "You need to delete all the children first:";
@@ -43,8 +51,7 @@ namespace order_management.View
                     message += "- " + item.ProductCategoryName;
                 }
                 MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                DialogResult result;
-                result = MessageBox.Show(message, title, buttons);
+                MessageBox.Show(message, title, buttons);
 
             } else
             {
@@ -55,7 +62,7 @@ namespace order_management.View
                 result = MessageBox.Show(message, title, buttons);
                 if (result == DialogResult.Yes)
                 {
-                    repoProductCategory.Delete(category.ProductCategoryId);
+                    _productCategoryService.DeleteById(category.ProductCategoryId);
                     ReloadData();
                 }
             }
@@ -63,7 +70,7 @@ namespace order_management.View
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            DgvCategories.DataSource = repoProductCategory.Search(TxtSearch.Text.ToLower());
+            DgvCategories.DataSource = _productCategoryService.Search(TxtSearch.Text.ToLower());
         }
 
         private void DgvCategories_SelectionChanged(object sender, EventArgs e)
@@ -82,7 +89,7 @@ namespace order_management.View
 
         public void ReloadData()
         {
-            DgvCategories.DataSource = repoProductCategory.GetAll();
+            DgvCategories.DataSource = _productCategoryService.GetAll();
             DgvCategories.Columns[0].Visible = false;
             DgvCategories.Columns[3].Visible = false;
         }

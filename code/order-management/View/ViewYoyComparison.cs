@@ -1,4 +1,5 @@
-﻿using System;
+﻿using order_management.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,17 +11,18 @@ namespace order_management.View
 {
     public partial class ViewYoyComparison : Form
     {
-        private RepoYoy repoYoy = new RepoYoy();
+        private readonly IYoyComparisonService _yoyComparisonService;
 
-        public ViewYoyComparison()
+        public ViewYoyComparison(IYoyComparisonService yoyComparisonService)
         {
             InitializeComponent();
+            _yoyComparisonService = yoyComparisonService;
             LoadData();
         }
 
         private void LoadData()
         {
-            List<YoyComparison> list = repoYoy.GetYoyComparison();
+            List<YoyComparison> list = _yoyComparisonService.GetYoyComparison();
             DgvYoy.DataSource = list;
         }
     }

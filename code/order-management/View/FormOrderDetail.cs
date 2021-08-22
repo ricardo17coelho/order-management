@@ -1,4 +1,5 @@
-﻿using System;
+﻿using order_management.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,45 +11,55 @@ namespace order_management.View
 {
     public partial class FormOrderDetail : Form
     {
+        private readonly IProductService _productService;
+        private readonly IOrderDetailService _orderDetailService;
+        private protected FormOrders _formOrders;
+        private protected OrderDetail _orderDetailToEdit;
+        private protected Order _order;
 
-        RepoOrderDetail repoOrderDetail = new RepoOrderDetail();
-        RepoProduct repoProduct = new RepoProduct();
-        FormOrders formOrders;
-        OrderDetail orderDetailToEdit;
-        Order order;
-
-        public FormOrderDetail(FormOrders formOrders, Order order)
+        public FormOrderDetail(IProductService productService, IOrderDetailService orderDetailService)
         {
             InitializeComponent();
-            this.formOrders = formOrders;
-            this.order = order;
-            CbProduct.DataSource = repoProduct.GetAll();
+            _productService = productService;
+            _orderDetailService = orderDetailService;
+            LoadProductData();
         }
 
-        public FormOrderDetail(FormOrders formOrders, OrderDetail orderDetailToEdit, Order order)
+        private void LoadProductData()
         {
-            InitializeComponent();
-            this.formOrders = formOrders;
-            this.order = order;
-            this.orderDetailToEdit = orderDetailToEdit;
-            CbProduct.DataSource = repoProduct.GetAll();
+            CbProduct.DataSource = _productService.GetAll();
+        }
+
+        public void SetFormOrders(FormOrders formOrders)
+        {
+            _formOrders = formOrders;
+        }
+
+        public void SetOrder(Order order)
+        {
+            _order = order;
+        }
+
+        public void SetOrderDetailToEdit(OrderDetail orderDetailToEdit)
+        {
+            _orderDetailToEdit = orderDetailToEdit;
             LoadOrderDetailToEditIntoFields();
         }
 
         private void CmdSave_Click(object sender, EventArgs e)
         {
             int quantity = Convert.ToInt32(NumQuantity.Value);
-            Product product = repoProduct.GetByName(CbProduct.Text);
+            Product product = _productService.GetByName(CbProduct.Text);
 
-            if (orderDetailToEdit == null)
+            if (_orderDetailToEdit == null)
             {
-                AddNewOrderDetail(new OrderDetail(quantity, order, product));
+                AddNewOrderDetail(new OrderDetail(quantity, _order, product));
             }
             else
             {
-                orderDetailToEdit.Quantity = quantity;
-                orderDetailToEdit.Order = order;
-                orderDetailToEdit.Product = product;
+                _orderDetailToEdit.Quantity = quantity;
+                _orderDetailToEdit.Order = _order;
+                _orderDetailToEdit.Product = product;
                 UpdateOrderDetail();
             }
         }
@@ -60,33 +71,33 @@ namespace order_management.View
 
         private void LoadOrderDetailToEditIntoFields()
         {
-            NumQuantity.Value = Convert.ToDecimal(orderDetailToEdit.Quantity);
-            CbProduct.Text = orderDetailToEdit.Product.ToString();
+            NumQuantity.Value = Convert.ToDecimal(_orderDetailToEdit.Quantity);
+            CbProduct.Text = _orderDetailToEdit.Product.ToString();
         }
 
         private void AddNewOrderDetail(OrderDetail orderDetail)
         {
             if (IsValid(orderDetail))
             {
-                repoOrderDetail.Add(orderDetail);
-                formOrders.ReloadData();
+                _orderDetailService.Add(orderDetail);
+                _formOrders.ReloadData();
                 this.Close();
             }
         }
 
         private void UpdateOrderDetail()
         {
-            if (IsValid(orderDetailToEdit))
+            if (IsValid(_orderDetailToEdit))
             {
-                repoOrderDetail.Update(orderDetailToEdit);
-                formOrders.ReloadData();
+                _orderDetailService.Update(_orderDetailToEdit);
+                _formOrders.ReloadData();
                 this.Close();
             }
         }
 
         private Boolean IsValid(OrderDetail orderDetail)
         {
-            if (!repoOrderDetail.IsValid(orderDetail))
+            if (!_orderDetailService.IsValid(orderDetail))
             {
                 MessageBox.Show("Quantity and Product is required!");
                 return false;

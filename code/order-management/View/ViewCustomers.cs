@@ -1,4 +1,5 @@
-﻿using System;
+﻿using order_management.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,34 +11,41 @@ namespace order_management.View
 {
     public partial class ViewCustomers : Form
     {
-        RepoCustomer repoCustomer = new RepoCustomer();
+        private readonly ICustomerService _customerService;
 
-        public ViewCustomers()
+        public ViewCustomers(ICustomerService customerService)
         {
             InitializeComponent();
+            _customerService = customerService;
             ReloadData();
         }
 
         private void CmdAddNew_Click(object sender, EventArgs e)
         {
-            new FormCustomers(this).ShowDialog();
+            var formCustomers = (FormCustomers)Program.ServiceProvider.GetService(typeof(FormCustomers));
+            formCustomers.SetCustomerView(this);
+            formCustomers.ShowDialog();
         }
 
         private void CmdEdit_Click(object sender, EventArgs e)
         {
-            new FormCustomers(this, (Customer)DgvCustomer.CurrentRow.DataBoundItem).ShowDialog();
+            var formCustomers = (FormCustomers)Program.ServiceProvider.GetService(typeof(FormCustomers));
+            formCustomers.SetCustomerView(this);
+            Customer customerToEdit = (Customer)DgvCustomer.CurrentRow.DataBoundItem;
+            formCustomers.SetCustomerToEdit(customerToEdit);
+            formCustomers.ShowDialog();
         }
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
             Customer customerToDelete = (Customer)DgvCustomer.CurrentRow.DataBoundItem;
-            repoCustomer.Delete(customerToDelete.CustomerId);
+            _customerService.DeleteById(customerToDelete.CustomerId);
             ReloadData();
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            DgvCustomer.DataSource = repoCustomer.Search(TxtSearch.Text.ToLower());
+            DgvCustomer.DataSource = _customerService.Search(TxtSearch.Text.ToLower());
         }
 
         private void DgvCustomer_SelectionChanged(object sender, EventArgs e)
@@ -56,7 +64,7 @@ namespace order_management.View
 
         public void ReloadData()
         {
-            DgvCustomer.DataSource = repoCustomer.GetAll();
+            DgvCustomer.DataSource = _customerService.GetAll();
             DgvCustomer.Columns[0].Visible = false;
         }
 

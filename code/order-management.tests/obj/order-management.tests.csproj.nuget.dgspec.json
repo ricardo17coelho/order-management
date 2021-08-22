@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Raphi\\Desktop\\order-management\\code\\order-management.tests\\order-management.tests.csproj": {}
+    "C:\\Users\\rmorgado\\DSDrive\\ZBW\\modules\\open\\Programming-Advanced-II\\projects\\testate\\order-management\\code\\order-management.tests\\order-management.tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Raphi\\Desktop\\order-management\\code\\order-management.tests\\order-management.tests.csproj": {
+    "C:\\Users\\rmorgado\\DSDrive\\ZBW\\modules\\open\\Programming-Advanced-II\\projects\\testate\\order-management\\code\\order-management.tests\\order-management.tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Raphi\\Desktop\\order-management\\code\\order-management.tests\\order-management.tests.csproj",
+        "projectUniqueName": "C:\\Users\\rmorgado\\DSDrive\\ZBW\\modules\\open\\Programming-Advanced-II\\projects\\testate\\order-management\\code\\order-management.tests\\order-management.tests.csproj",
         "projectName": "order-management.tests",
-        "projectPath": "C:\\Users\\Raphi\\Desktop\\order-management\\code\\order-management.tests\\order-management.tests.csproj",
-        "packagesPath": "C:\\Users\\Raphi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Raphi\\Desktop\\order-management\\code\\order-management.tests\\obj\\",
+        "projectPath": "C:\\Users\\rmorgado\\DSDrive\\ZBW\\modules\\open\\Programming-Advanced-II\\projects\\testate\\order-management\\code\\order-management.tests\\order-management.tests.csproj",
+        "packagesPath": "C:\\Users\\rmorgado\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rmorgado\\DSDrive\\ZBW\\modules\\open\\Programming-Advanced-II\\projects\\testate\\order-management\\code\\order-management.tests\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Raphi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\rmorgado\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

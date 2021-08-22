@@ -9,7 +9,7 @@ using order_management;
 
 namespace order_management.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(OrderManagementDbContext))]
     [Migration("20210205095823_order-management")]
     partial class ordermanagement
     {

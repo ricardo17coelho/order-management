@@ -1,4 +1,5 @@
-﻿using System;
+﻿using order_management.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,27 +11,35 @@ namespace order_management.View
 {
     public partial class FormOrders : Form
     {
-        RepoCustomer repoCustomer = new RepoCustomer();
-        RepoOrder repoOrder = new RepoOrder();
-        RepoOrderDetail repoOrderDetail = new RepoOrderDetail();
-        ViewOrders viewOrders;
-        Order orderToEdit;
+        private readonly ICustomerService _customerService;
+        private readonly IOrderService _orderService;
+        private readonly IOrderDetailService _orderDetailService;
+        private protected ViewOrders _viewOrders;
+        private protected Order _orderToEdit;
 
-        public FormOrders(ViewOrders viewOrders)
+        public FormOrders(ICustomerService customerService, IOrderService orderService, IOrderDetailService orderDetailService)
         {
             InitializeComponent();
-            this.viewOrders = viewOrders;
-            CbCustomer.DataSource = repoCustomer.GetAll();
+            _customerService = customerService;
+            _orderService = orderService;
+            _orderDetailService = orderDetailService;
+            LoadAllCustomersData();
         }
 
-        public FormOrders(ViewOrders viewOrders, Order orderToEdit)
+        private void LoadAllCustomersData()
         {
-            InitializeComponent();
-            this.viewOrders = viewOrders;
-            this.orderToEdit = orderToEdit;
-            CbCustomer.DataSource = repoCustomer.GetAll();
+            CbCustomer.DataSource = _customerService.GetAll();
+        }
+
+        public void SetOrdersView(ViewOrders viewOrders)
+        {
+            _viewOrders = viewOrders;
+        }
+
+        public void SetOrderToEdit(Order orderToEdit)
+        {
+            _orderToEdit = orderToEdit;
             LoadOrderToEditIntoFields();
-            ReloadData();
         }
 
         private void CmdSave_Click(object sender, EventArgs e)
@@ -44,19 +53,19 @@ namespace order_management.View
             string firstName = CbCustomer.Text.Split(" ")[0]; //Risky for Names with Space!
             string lastName = CbCustomer.Text.Split(" ")[1]; //Risky for Names with Space!
 
-            Customer customer = repoCustomer.GetByName(firstName, lastName);
+            Customer customer = _customerService.GetByName(firstName, lastName);
             DateTime date = DtpOrderDate.Value;
             double tax = Convert.ToDouble(NumTax.Value);
 
-            if (orderToEdit == null)
+            if (_orderToEdit == null)
             {
                 AddNewOrder(new Order(customer, tax, date));
             }
             else
             {
-                orderToEdit.Customer = customer;
-                orderToEdit.OrderDate = date;
-                orderToEdit.Tax = tax;
+                _orderToEdit.Customer = customer;
+                _orderToEdit.OrderDate = date;
+                _orderToEdit.Tax = tax;
                 UpdateOrder();
             }
         }
@@ -68,32 +77,32 @@ namespace order_management.View
 
         private void LoadOrderToEditIntoFields()
         {
-            CbCustomer.Text = orderToEdit.Customer.ToString();
-            DtpOrderDate.Value = orderToEdit.OrderDate;
-            NumTax.Value = Convert.ToDecimal(orderToEdit.Tax);
+            CbCustomer.Text = _orderToEdit.Customer.ToString();
+            DtpOrderDate.Value = _orderToEdit.OrderDate;
+            NumTax.Value = Convert.ToDecimal(_orderToEdit.Tax);
         }
 
         private void AddNewOrder(Order order)
         {
             if (IsValid(order) && IsUnique(order))
             {
-                orderToEdit = repoOrder.Add(order);
-                viewOrders.ReloadData();
+                _orderService.Add(order);
+                _viewOrders.ReloadData();
             }
         }
 
         private void UpdateOrder()
         {
-            if (IsValid(orderToEdit))
+            if (IsValid(_orderToEdit))
             {
-                repoOrder.Update(orderToEdit);
-                viewOrders.ReloadData();
+                _orderService.Update(_orderToEdit);
+                _viewOrders.ReloadData();
             }
         }
 
         private Boolean IsUnique(Order order)
         {
-            if (!repoOrder.IsUnique(order))
+            if (!_orderService.IsUnique(order))
             {
                 MessageBox.Show("Order From " + order.Customer.ToString() + " at " + order.OrderDate.ToString() + " already exists!");
                 return false;
@@ -103,7 +112,7 @@ namespace order_management.View
 
         private Boolean IsValid(Order order)
         {
-            if (!repoOrder.IsValid(order))
+            if (!_orderService.IsValid(order))
             {
                 MessageBox.Show("Customer and Date is required!");
                 return false;
@@ -116,18 +125,26 @@ namespace order_management.View
             // It could be a new order.
             // This must be saved before we can add some details
             SaveOrder();
-            new FormOrderDetail(this, orderToEdit).ShowDialog();
+            var formOrderDetail = (FormOrderDetail)Program.ServiceProvider.GetService(typeof(FormOrderDetail));
+            formOrderDetail.SetFormOrders(this);
+            formOrderDetail.SetOrder(_orderToEdit);
+            formOrderDetail.ShowDialog();
         }
 
         private void CmdEdit_Click(object sender, EventArgs e)
         {
-            new FormOrderDetail(this, (OrderDetail)DgvOrderDetails.CurrentRow.DataBoundItem, orderToEdit).ShowDialog();
+            var formOrderDetail = (FormOrderDetail)Program.ServiceProvider.GetService(typeof(FormOrderDetail));
+            formOrderDetail.SetFormOrders(this);
+            OrderDetail orderDetailToEdit = (OrderDetail)DgvOrderDetails.CurrentRow.DataBoundItem;
+            formOrderDetail.SetOrderDetailToEdit(orderDetailToEdit);
+            formOrderDetail.SetOrder(_orderToEdit);
+            formOrderDetail.ShowDialog();
         }
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
             OrderDetail orderDetailToDelete = (OrderDetail)DgvOrderDetails.CurrentRow.DataBoundItem;
-            repoOrderDetail.Delete(orderDetailToDelete.OrderDetailId);
+            _orderDetailService.DeleteById(orderDetailToDelete.OrderDetailId);
             ReloadData();
         }
 
@@ -147,7 +164,7 @@ namespace order_management.View
 
         public void ReloadData()
         {
-            DgvOrderDetails.DataSource = repoOrderDetail.GetByOrder(orderToEdit);
+            DgvOrderDetails.DataSource = _orderDetailService.GetByOrder(_orderToEdit);
             DgvOrderDetails.Columns[0].Visible = false;
             DgvOrderDetails.Columns[2].Visible = false;
             DgvOrderDetails.Columns[3].Visible = false;

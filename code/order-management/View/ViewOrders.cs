@@ -1,4 +1,5 @@
-﻿using System;
+﻿using order_management.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,35 +12,43 @@ namespace order_management.View
 
     public partial class ViewOrders : Form
     {
-        RepoOrder repoOrder = new RepoOrder();
-        RepoBill repoBill = new RepoBill();
+        private readonly IOrderService _orderService;
+        private readonly IBillService _billService;
 
-        public ViewOrders()
+        public ViewOrders(IOrderService orderService, IBillService billService)
         {
             InitializeComponent();
+            _orderService = orderService;
+            _billService = billService;
             ReloadData();
         }
 
         private void CmdAddNew_Click(object sender, EventArgs e)
         {
-            new FormOrders(this).ShowDialog();
+            var formOrders = (FormOrders)Program.ServiceProvider.GetService(typeof(FormOrders));
+            formOrders.SetOrdersView(this);
+            formOrders.ShowDialog();
         }
 
         private void CmdEdit_Click(object sender, EventArgs e)
         {
-            new FormOrders(this, (Order)DgvOrders.CurrentRow.DataBoundItem).ShowDialog();
+            var formOrders = (FormOrders)Program.ServiceProvider.GetService(typeof(FormOrders));
+            formOrders.SetOrdersView(this);
+            Order orderToEdit = (Order)DgvOrders.CurrentRow.DataBoundItem;
+            formOrders.SetOrderToEdit(orderToEdit);
+            formOrders.ShowDialog();
         }
 
         private void CmdDelete_Click(object sender, EventArgs e)
         {
             Order orderToDelete = (Order)DgvOrders.CurrentRow.DataBoundItem;
-            repoOrder.Delete(orderToDelete.OrderId);
+            _orderService.DeleteById(orderToDelete.OrderId);
             ReloadData();
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            DgvOrders.DataSource = repoOrder.Search(TxtSearch.Text.ToLower());
+            DgvOrders.DataSource = _orderService.Search(TxtSearch.Text.ToLower());
         }
 
         private void DgvOrder_SelectionChanged(object sender, EventArgs e)
@@ -60,7 +69,7 @@ namespace order_management.View
 
         public void ReloadData()
         {
-            DgvOrders.DataSource = repoOrder.GetAll();
+            DgvOrders.DataSource = _orderService.GetAll();
             DgvOrders.Columns[0].Visible = false;
             DgvOrders.Columns[4].Visible = false;
 
@@ -74,14 +83,16 @@ namespace order_management.View
 
             if (response == DialogResult.OK)
             {
-                repoBill.GenerateBill(selectedOrder);
-                new ViewBills().ShowDialog();
+                _billService.GenerateBill(selectedOrder);
+                var viewBills = (ViewBills)Program.ServiceProvider.GetService(typeof(ViewBills));
+                viewBills.ShowDialog();
             }
         }
 
         private void CmdViewBills_Click(object sender, EventArgs e)
         {
-            new ViewBills().ShowDialog();
+            var viewBills = (ViewBills)Program.ServiceProvider.GetService(typeof(ViewBills));
+            viewBills.ShowDialog();
         }
     }
 }

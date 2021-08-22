@@ -8,49 +8,42 @@ namespace order_management
 {
     public class RepoProductCategory : RepoBase<ProductCategory>
     {
+        public RepoProductCategory(OrderManagementDbContext orderManagementDbContext) : base(orderManagementDbContext)
+        {
+        }
         public ProductCategory GetByName(string name)
         {
-            using (var context = new Context())
-            {
-                var table = context.Set<ProductCategory>();
-                return table
-                .Where(pc => pc.ProductCategoryName == name)
-                .FirstOrDefault<ProductCategory>();
-            }
+
+            var table = _orderManagementDbContext.Set<ProductCategory>();
+            return table
+            .Where(pc => pc.ProductCategoryName == name)
+            .FirstOrDefault<ProductCategory>();
+
         }
 
         public List<ProductCategory> Search(string searchString)
         {
             searchString = searchString.ToLower();
 
-            using (var context = new Context())
-            {
-                var table = context.Set<ProductCategory>();
-                return table
-                .Where(category =>
-                    category.ProductCategoryName.ToLower().Contains(searchString)
-                ).ToList();
-            }
+            var table = _orderManagementDbContext.Set<ProductCategory>();
+            return table
+            .Where(category =>
+                category.ProductCategoryName.ToLower().Contains(searchString)
+            ).ToList();
         }
 
         public List<ProductCategory> GetChildrenByParentId(int categoryId)
         {
-            using (var context = new Context())
-            {
-                var table = context.Set<ProductCategory>();
-                return table
-                .Where(pc => pc.ParentId == categoryId).ToList();
-            }
+            var table = _orderManagementDbContext.Set<ProductCategory>();
+            return table
+            .Where(pc => pc.ParentId == categoryId).ToList();
         }
 
         public Boolean IsUnique(ProductCategory category)
         {
-            using (var context = new Context())
-            {
-                var table = context.Set<ProductCategory>();
-                return !table
-                    .Any(c => (c.ProductCategoryName == category.ProductCategoryName));
-            }
+            var table = _orderManagementDbContext.Set<ProductCategory>();
+            return !table
+                .Any(c => (c.ProductCategoryName == category.ProductCategoryName));
         }
 
         public Boolean IsValid(ProductCategory category)
@@ -87,18 +80,15 @@ namespace order_management
                             "Level " +
                 "FROM RecurseTable";
 
-            using (var context = new Context())
+            var table = _orderManagementDbContext.Set<ProductCategory>();
+            var result = table.FromSqlRaw(query);
+
+            foreach (var item in result)
             {
-                var table = context.Set<ProductCategory>();
-                var result = table.FromSqlRaw(query);
-
-                foreach (var item in result)
-                {
-                    productCategories.Add(item);
-                }
-
-                return productCategories;
+                productCategories.Add(item);
             }
+
+            return productCategories;
         }
     }
 }
