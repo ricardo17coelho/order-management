@@ -63,6 +63,10 @@
             "NUnit3TestAdapter": {
               "target": "Package",
               "version": "[4.0.0, )"
+            },
+            "OpenCover": {
+              "target": "Package",
+              "version": "[4.7.1221, )"
             }
           },
           "imports": [

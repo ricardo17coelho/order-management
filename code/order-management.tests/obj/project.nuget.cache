@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ameKoI4DVEmrdKe3dDnSSkAa/HRkijLieezGdBKK9992YMv8EdE6Viyucc8waoFcWSb6+1SyIqdhnUVTGihTEQ==",
+  "dgSpecHash": "mi1soM+OpqOoh5V9ZCzQA6mAApE7m96OFqO7wjcu+zsBD5umG3faDY6CyhG0Wf1G1ISxRln42Yd8RIlP6MEJ8A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Raphi\\Desktop\\order-management\\code\\order-management.tests\\order-management.tests.csproj",
   "expectedPackageFiles": [
@@ -60,6 +60,7 @@
     "C:\\Users\\Raphi\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
     "C:\\Users\\Raphi\\.nuget\\packages\\nunit\\3.13.2\\nunit.3.13.2.nupkg.sha512",
     "C:\\Users\\Raphi\\.nuget\\packages\\nunit3testadapter\\4.0.0\\nunit3testadapter.4.0.0.nupkg.sha512",
+    "C:\\Users\\Raphi\\.nuget\\packages\\opencover\\4.7.1221\\opencover.4.7.1221.nupkg.sha512",
     "C:\\Users\\Raphi\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Raphi\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Raphi\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
