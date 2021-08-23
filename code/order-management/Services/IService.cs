@@ -8,9 +8,9 @@ namespace order_management.Services
     {
         List<T> GetAll();
         T GetById(int id);
-        void Add(T entity);
+        T Add(T entity);
         void DeleteById(int id);
         void Delete(T entity);
-        void Update(T entity);
+        T Update(T entity);
     }
 }

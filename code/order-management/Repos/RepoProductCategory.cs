@@ -11,14 +11,13 @@ namespace order_management
         public RepoProductCategory(OrderManagementDbContext orderManagementDbContext) : base(orderManagementDbContext)
         {
         }
+
         public ProductCategory GetByName(string name)
         {
-
             var table = _orderManagementDbContext.Set<ProductCategory>();
             return table
             .Where(pc => pc.ProductCategoryName == name)
             .FirstOrDefault<ProductCategory>();
-
         }
 
         public List<ProductCategory> Search(string searchString)

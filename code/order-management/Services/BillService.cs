@@ -12,9 +12,9 @@ namespace order_management.Services
         {
             _repository = repository;
         }
-        public void Add(Bill entity)
+        public Bill Add(Bill entity)
         {
-            _repository.Add(entity);
+            return _repository.Add(entity);
         }
 
         public void Delete(Bill entity)
@@ -42,9 +42,9 @@ namespace order_management.Services
             return _repository.GetById(id);
         }
 
-        public void Update(Bill entity)
+        public Bill Update(Bill entity)
         {
-            _repository.Update(entity);
+            return _repository.Update(entity);
         }
 
         public Bill GenerateBill(Order order)

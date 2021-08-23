@@ -12,9 +12,8 @@ namespace order_management
         {
 
         }
-        public new List<Product> GetAll()
+        public override IEnumerable<Product> GetAll()
         {
-
             return _orderManagementDbContext.Products.Include(p => p.ProductCategory).ToList();
         }
 

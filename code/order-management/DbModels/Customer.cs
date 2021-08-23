@@ -54,6 +54,10 @@ namespace order_management
             Country = country;
         }
 
+        public Customer()
+        {
+        }
+
         public override string ToString()
         {
             return FirstName + " " + LastName;

@@ -11,7 +11,7 @@ namespace order_management
         public RepoOrder(OrderManagementDbContext orderManagementDbContext) : base(orderManagementDbContext)
         {
         }
-        public new List<Order> GetAll()
+        public override IEnumerable<Order> GetAll()
         {
 
             return _orderManagementDbContext.Orders.Include(o => o.Customer).ToList();

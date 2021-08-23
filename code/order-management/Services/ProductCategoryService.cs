@@ -12,9 +12,9 @@ namespace order_management.Services
         {
             _repository = repository;
         }
-        public void Add(ProductCategory entity)
+        public ProductCategory Add(ProductCategory entity)
         {
-            _repository.Add(entity);
+            return _repository.Add(entity);
         }
 
         public void Delete(ProductCategory entity)
@@ -37,9 +37,9 @@ namespace order_management.Services
             return _repository.GetById(id);
         }
 
-        public void Update(ProductCategory entity)
+        public ProductCategory Update(ProductCategory entity)
         {
-            _repository.Update(entity);
+            return _repository.Update(entity);
         }
 
         public Boolean IsUnique(ProductCategory entity)

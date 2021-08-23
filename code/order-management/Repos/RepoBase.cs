@@ -15,20 +15,20 @@ namespace order_management
             _orderManagementDbContext = orderManagementDbContext;
         }
 
-        public IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             _orderManagementDbContext.Database.EnsureCreated();
             var table = _orderManagementDbContext.Set<T>();
             return table.ToList();
         }
 
-        public T GetById(object id)
+        public virtual T GetById(object id)
         {
             var table = _orderManagementDbContext.Set<T>();
             return table.Find(id);
         }
         
-        public T Add(T obj)
+        public virtual T Add(T obj)
         {
 
             var table = _orderManagementDbContext.Set<T>();
@@ -36,8 +36,8 @@ namespace order_management
             _orderManagementDbContext.SaveChanges();
             return attach.Entity;
         }
-        
-        public T Update(T obj)
+
+        public virtual T Update(T obj)
         {
             var table = _orderManagementDbContext.Set<T>();
             var attach = table.Attach(obj);
@@ -45,13 +45,13 @@ namespace order_management
             _orderManagementDbContext.SaveChanges();
             return attach.Entity;
         }
-        
-        public void Delete(object id)
+
+        public virtual void Delete(object id)
         {
             Delete(GetById(id));
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             _orderManagementDbContext.Remove(entity);
             _orderManagementDbContext.SaveChanges();

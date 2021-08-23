@@ -1,11 +1,125 @@
 ﻿using FakeItEasy;
 using NUnit.Framework;
 using order_management.Services;
+using System.Collections.Generic;
+
 namespace order_management.tests.Services
 {
     [TestFixture]
     class CustomerServiceTests
     {
+        [Test]
+        public void Add_Invokes_RepoAdd()
+        {
+            var fakeRepo = A.Fake<RepoCustomer>();
+            var service = new CustomerService(fakeRepo);
+            var customer = new Customer() { FirstName = "Hans" };
+
+            A.CallTo(() => fakeRepo.Add(customer)).Returns(customer);
+
+            var retrieved = service.Add(customer);
+
+            Assert.That(customer.FirstName, Is.EqualTo(retrieved.FirstName));
+        }
+
+        [Test]
+        public void Delete_Invokes_RepoDelete()
+        {
+            var fakeRepo = A.Fake<RepoCustomer>();
+            var service = new CustomerService(fakeRepo);
+            var customer = new Customer();
+
+            service.Delete(customer);
+
+            A.CallTo(() => fakeRepo.Delete(customer)).MustHaveHappenedOnceExactly();
+        }
+
+        [Test]
+        public void DeleteById_Invokes_RepoDelete()
+        {
+            var fakeRepo = A.Fake<RepoCustomer>();
+            var service = new CustomerService(fakeRepo);
+            var customer = new Customer();
+
+            service.DeleteById(customer.CustomerId);
+
+            A.CallTo(() => fakeRepo.Delete(customer.CustomerId)).MustHaveHappenedOnceExactly();
+        }
+
+        [Test]
+        public void GetAll_Invokes_RepoGetAll()
+        {
+            var fakeRepo = A.Fake<RepoCustomer>();
+            var service = new CustomerService(fakeRepo);
+            var customer = new Customer() { FirstName = "Hans" };
+
+            A.CallTo(() => fakeRepo.GetAll()).Returns(new List<Customer>(){ customer });
+
+            var retrieved = service.GetAll();
+
+            Assert.That(customer.FirstName, Is.EqualTo(retrieved[0].FirstName));
+        }
+
+        [Test]
+        public void GetById_Invokes_RepoGetById()
+        {
+            var fakeRepo = A.Fake<RepoCustomer>();
+            var service = new CustomerService(fakeRepo);
+            var customer = new Customer() { FirstName = "Hans" };
+
+            A.CallTo(() => fakeRepo.GetById(customer.CustomerId)).Returns(customer);
+
+            var retrieved = service.GetById(customer.CustomerId);
+
+            Assert.That(customer.FirstName, Is.EqualTo(retrieved.FirstName));
+        }
+
+        [Test]
+        public void Update_Invokes_RepoUpdate()
+        {
+            var fakeRepo = A.Fake<RepoCustomer>();
+            var service = new CustomerService(fakeRepo);
+            var customer = new Customer() { FirstName = "Hans" };
+
+            A.CallTo(() => fakeRepo.Update(customer)).Returns(customer);
+
+            var retrieved = service.Update(customer);
+
+            Assert.That(customer.FirstName, Is.EqualTo(retrieved.FirstName));
+        }
+
+        [Test]
+        public void IsUnique_Invokes_RepoIsUnique()
+        {
+            var fakeRepo = A.Fake<RepoCustomer>();
+            var service = new CustomerService(fakeRepo);
+            var customer = new Customer();
+
+            A.CallTo(() => fakeRepo.IsUnique(customer)).Returns(true);
+
+            service.IsUnique(customer);
+
+            A.CallTo(() => fakeRepo.IsUnique(customer)).MustHaveHappenedOnceExactly();
+        }
+
+        [Test]
+        public void RequiredFieldsAreNotBlank_ReturnsTrue()
+        {
+            var fakeRepo = A.Fake<RepoCustomer>();
+            var service = new CustomerService(fakeRepo);
+            var customer = new Customer()
+            {
+                CustomerNr = "CU12345",
+                FirstName = "Hans",
+                LastName = "Ueli",
+                Email = "hans@ueli.ch",
+                Website = "hans.ueli.ch",
+                Password = "Super@Save2000"
+            };
+
+            Assert.That(service.RequiredFieldsAreNotBlank(customer), Is.EqualTo(true));
+        }
+
         [Test]
         public void IsValidEmailAddress_ReturnsTrue()
         {

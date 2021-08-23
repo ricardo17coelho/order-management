@@ -12,9 +12,9 @@ namespace order_management.Services
         {
             _repository = repository;
         }
-        public void Add(YoyComparison entity)
+        public YoyComparison Add(YoyComparison entity)
         {
-            _repository.Add(entity);
+            return _repository.Add(entity);
         }
 
         public void Delete(YoyComparison entity)
@@ -42,9 +42,9 @@ namespace order_management.Services
             return _repository.GetYoyComparison();
         }
 
-        public void Update(YoyComparison entity)
+        public YoyComparison Update(YoyComparison entity)
         {
-            _repository.Update(entity);
+            return _repository.Update(entity);
         }
     }
 }

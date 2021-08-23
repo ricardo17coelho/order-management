@@ -37,16 +37,13 @@ namespace order_management
             
         }
 
-        public Boolean IsUnique(Customer customer)
+        public virtual Boolean IsUnique(Customer customer)
         {
-
             var table = _orderManagementDbContext.Set<Customer>();
             return !table
             .Any(c => (c.FirstName == customer.FirstName) &&
                 (c.LastName == customer.LastName));
 
         }
-
-        
     }
 }

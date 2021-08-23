@@ -12,9 +12,9 @@ namespace order_management.Services
         {
             _repository = repository;
         }
-        public void Add(Order entity)
+        public Order Add(Order entity)
         {
-            _repository.Add(entity);
+            return _repository.Add(entity);
         }
 
         public void Delete(Order entity)
@@ -37,9 +37,9 @@ namespace order_management.Services
             return _repository.GetById(id);
         }
 
-        public void Update(Order entity)
+        public Order Update(Order entity)
         {
-            _repository.Update(entity);
+            return _repository.Update(entity);
         }
 
         public Boolean IsUnique(Order entity)

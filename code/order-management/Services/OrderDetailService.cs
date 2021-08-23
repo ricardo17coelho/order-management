@@ -12,9 +12,9 @@ namespace order_management.Services
         {
             _repository = repository;
         }
-        public void Add(OrderDetail entity)
+        public OrderDetail Add(OrderDetail entity)
         {
-            _repository.Add(entity);
+            return _repository.Add(entity);
         }
 
         public void Delete(OrderDetail entity)
@@ -37,9 +37,9 @@ namespace order_management.Services
             return _repository.GetById(id);
         }
 
-        public void Update(OrderDetail entity)
+        public OrderDetail Update(OrderDetail entity)
         {
-            _repository.Update(entity);
+            return _repository.Update(entity);
         }
 
         public Boolean IsValid(OrderDetail entity)

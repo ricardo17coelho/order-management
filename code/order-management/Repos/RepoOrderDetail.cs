@@ -12,18 +12,16 @@ namespace order_management
         {
 
         }
-        public List<OrderDetail> GetAll()
+        public override IEnumerable<OrderDetail> GetAll()
         {
             return _orderManagementDbContext.OrderDetails.Include(od => od.Order).Include(od => od.Product).ToList();   
         }
 
         public List<OrderDetail> GetByOrder(Order order)
         {
-
             return GetAll()
             .Where(o => (o.OrderId == order.OrderId))
             .ToList();
-
         }
 
         public List<OrderDetail> Search(string searchString)
