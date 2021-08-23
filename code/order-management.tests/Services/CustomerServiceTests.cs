@@ -1,14 +1,13 @@
 ﻿using FakeItEasy;
-using NUnit.Framework;
 using order_management.Services;
 using System.Collections.Generic;
+using Xunit;
 
 namespace order_management.tests.Services
 {
-    [TestFixture]
-    class CustomerServiceTests
+    public class CustomerServiceTests
     {
-        [Test]
+        [Fact]
         public void Add_Invokes_RepoAdd()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
@@ -19,10 +18,10 @@ namespace order_management.tests.Services
 
             var retrieved = service.Add(customer);
 
-            Assert.That(customer.FirstName, Is.EqualTo(retrieved.FirstName));
+            Assert.Equal(customer.FirstName, retrieved.FirstName);
         }
 
-        [Test]
+        [Fact]
         public void Delete_Invokes_RepoDelete()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
@@ -34,7 +33,7 @@ namespace order_management.tests.Services
             A.CallTo(() => fakeRepo.Delete(customer)).MustHaveHappenedOnceExactly();
         }
 
-        [Test]
+        [Fact]
         public void DeleteById_Invokes_RepoDelete()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
@@ -46,7 +45,7 @@ namespace order_management.tests.Services
             A.CallTo(() => fakeRepo.Delete(customer.CustomerId)).MustHaveHappenedOnceExactly();
         }
 
-        [Test]
+        [Fact]
         public void GetAll_Invokes_RepoGetAll()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
@@ -57,10 +56,10 @@ namespace order_management.tests.Services
 
             var retrieved = service.GetAll();
 
-            Assert.That(customer.FirstName, Is.EqualTo(retrieved[0].FirstName));
+            Assert.Equal(customer.FirstName, retrieved[0].FirstName);
         }
 
-        [Test]
+        [Fact]
         public void GetById_Invokes_RepoGetById()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
@@ -71,10 +70,10 @@ namespace order_management.tests.Services
 
             var retrieved = service.GetById(customer.CustomerId);
 
-            Assert.That(customer.FirstName, Is.EqualTo(retrieved.FirstName));
+            Assert.Equal(customer.FirstName, retrieved.FirstName);
         }
 
-        [Test]
+        [Fact]
         public void Update_Invokes_RepoUpdate()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
@@ -85,10 +84,10 @@ namespace order_management.tests.Services
 
             var retrieved = service.Update(customer);
 
-            Assert.That(customer.FirstName, Is.EqualTo(retrieved.FirstName));
+            Assert.Equal(customer.FirstName, retrieved.FirstName);
         }
 
-        [Test]
+        [Fact]
         public void IsUnique_Invokes_RepoIsUnique()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
@@ -102,7 +101,7 @@ namespace order_management.tests.Services
             A.CallTo(() => fakeRepo.IsUnique(customer)).MustHaveHappenedOnceExactly();
         }
 
-        [Test]
+        [Fact]
         public void RequiredFieldsAreNotBlank_ReturnsTrue()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
@@ -117,110 +116,112 @@ namespace order_management.tests.Services
                 Password = "Super@Save2000"
             };
 
-            Assert.That(service.RequiredFieldsAreNotBlank(customer), Is.EqualTo(true));
+            Assert.True(service.RequiredFieldsAreNotBlank(customer));
         }
 
-        [Test]
+        [Fact]
         public void IsValidEmailAddress_ReturnsTrue()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
             var service = new CustomerService(fakeRepo);
 
-            Assert.That(service.IsValidEmailAddress("foo@demo.net"), Is.EqualTo(true));
-            Assert.That(service.IsValidEmailAddress("bar.ba@test.co.uk"), Is.EqualTo(true));
-            Assert.That(service.IsValidEmailAddress("email.subdoms@dosmmda.com"), Is.EqualTo(true));
-            Assert.That(service.IsValidEmailAddress("matteo@78.47.122.114"), Is.EqualTo(true));
-            Assert.That(service.IsValidEmailAddress("webmaster@müller.de"), Is.EqualTo(true));
+            Assert.True(service.IsValidEmailAddress("foo@demo.net"));
+            Assert.True(service.IsValidEmailAddress("bar.ba@test.co.uk"));
+            Assert.True(service.IsValidEmailAddress("email.subdoms@dosmmda.com"));
+            Assert.True(service.IsValidEmailAddress("matteo@78.47.122.114"));
+            Assert.True(service.IsValidEmailAddress("webmaster@müller.de"));
         }
 
-        [Test]
+        [Fact]
         public void IsValidEmailAddress_ReturnsFalse()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
             var service = new CustomerService(fakeRepo);
 
-            Assert.That(service.IsValidEmailAddress("foo"), Is.EqualTo(false));
-            Assert.That(service.IsValidEmailAddress("bar@"), Is.EqualTo(false));
-            Assert.That(service.IsValidEmailAddress("@barfoo"), Is.EqualTo(false));
-            Assert.That(service.IsValidEmailAddress("foo@bar"), Is.EqualTo(false));
-            Assert.That(service.IsValidEmailAddress("text@asd@f.com"), Is.EqualTo(false));
-            Assert.That(service.IsValidEmailAddress("text @asdf.com"), Is.EqualTo(false));
+            Assert.False(service.IsValidEmailAddress("foo"));
+            Assert.False(service.IsValidEmailAddress("bar@"));
+            Assert.False(service.IsValidEmailAddress("@barfoo"));
+            Assert.False(service.IsValidEmailAddress("foo@bar"));
+            Assert.False(service.IsValidEmailAddress("text@asd@f.com"));
+            Assert.False(service.IsValidEmailAddress("text @asdf.com"));
         }
 
-        [Test]
+        [Fact]
         public void IsValidCustomerNr_ReturnsTrue()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
             var service = new CustomerService(fakeRepo);
 
-            Assert.That(service.IsValidCustomerNr("CU12345"), Is.EqualTo(true));
-            Assert.That(service.IsValidCustomerNr("CU67890"), Is.EqualTo(true));
-            Assert.That(service.IsValidCustomerNr("CU00000"), Is.EqualTo(true));
-            Assert.That(service.IsValidCustomerNr("CU54905"), Is.EqualTo(true));
+            Assert.True(service.IsValidCustomerNr("CU12345"));
+            Assert.True(service.IsValidCustomerNr("CU67890"));
+            Assert.True(service.IsValidCustomerNr("CU00000"));
+            Assert.True(service.IsValidCustomerNr("CU54905"));
         }
 
-        [Test]
+        [Fact]
         public void IsValidCustomerNr_ReturnsFalse()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
             var service = new CustomerService(fakeRepo);
 
-            Assert.That(service.IsValidCustomerNr("12345"), Is.EqualTo(false));
-            Assert.That(service.IsValidCustomerNr("67890CU"), Is.EqualTo(false));
-            Assert.That(service.IsValidCustomerNr("CU000000"), Is.EqualTo(false));
-            Assert.That(service.IsValidCustomerNr("CU0000"), Is.EqualTo(false));
+            Assert.False(service.IsValidCustomerNr("12345"));
+            Assert.False(service.IsValidCustomerNr("67890CU"));
+            Assert.False(service.IsValidCustomerNr("CU000000"));
+            Assert.False(service.IsValidCustomerNr("CU0000"));
         }
 
-        [Test]
+        [Fact]
         public void IsValidWebsite_ReturnsTrue()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
             var service = new CustomerService(fakeRepo);
 
-            Assert.That(service.IsValidWebsite("www.google.ch"), Is.EqualTo(true));
-            Assert.That(service.IsValidWebsite("http://www.google.com"), Is.EqualTo(true));
-            Assert.That(service.IsValidWebsite("https://www.google.com"), Is.EqualTo(true));
-            Assert.That(service.IsValidWebsite("https://policies.google.com"), Is.EqualTo(true));
-            Assert.That(service.IsValidWebsite("https://policies.google.com/technologies/voice?hl=de&gl=ch"), Is.EqualTo(true));
-            Assert.That(service.IsValidWebsite("google.com"), Is.EqualTo(true));
+            Assert.True(service.IsValidWebsite("www.google.ch"));
+            Assert.True(service.IsValidWebsite("http://www.google.com"));
+            Assert.True(service.IsValidWebsite("https://www.google.com"));
+            Assert.True(service.IsValidWebsite("https://policies.google.com"));
+            Assert.True(service.IsValidWebsite("https://policies.google.com"));
+            Assert.True(service.IsValidWebsite("https://policies.google.com/technologies/voice?hl=de&gl=ch"));
+            Assert.True(service.IsValidWebsite("google.com"));
         }
 
-        [Test]
+        [Fact]
         public void IsValidWebsite_ReturnsFalse()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
             var service = new CustomerService(fakeRepo);
 
-            Assert.That(service.IsValidWebsite("google."), Is.EqualTo(false));
-            Assert.That(service.IsValidWebsite(".google"), Is.EqualTo(false));
-            Assert.That(service.IsValidWebsite("g-.com"), Is.EqualTo(false));
-            Assert.That(service.IsValidWebsite(".com"), Is.EqualTo(false));
-            Assert.That(service.IsValidWebsite("0-0o_.com"), Is.EqualTo(false));
+            Assert.False(service.IsValidWebsite("google."));
+            Assert.False(service.IsValidWebsite(".google"));
+            Assert.False(service.IsValidWebsite("g-.com"));
+            Assert.False(service.IsValidWebsite(".com"));
+            Assert.False(service.IsValidWebsite("0-0o_.comh"));
+            Assert.False(service.IsValidWebsite("www.google.ch"));
         }
 
-        [Test]
+        [Fact]
         public void IsValidPassword_ReturnsTrue()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
             var service = new CustomerService(fakeRepo);
 
-            Assert.That(service.IsValidPassword("11111&aA"), Is.EqualTo(true));
-            Assert.That(service.IsValidPassword("aaaaa$A1"), Is.EqualTo(true));
-            Assert.That(service.IsValidPassword("@$!%*?&aA1s"), Is.EqualTo(true));
-            Assert.That(service.IsValidPassword("QWERasd&f123456"), Is.EqualTo(true));
+            Assert.True(service.IsValidPassword("11111&aA"));
+            Assert.True(service.IsValidPassword("aaaaa$A1"));
+            Assert.True(service.IsValidPassword("@$!%*?&aA1s"));
+            Assert.True(service.IsValidPassword("QWERasd&f123456"));
         }
 
-        [Test]
+        [Fact]
         public void IsValidPassword_ReturnsFalse()
         {
             var fakeRepo = A.Fake<RepoCustomer>();
             var service = new CustomerService(fakeRepo);
 
-            Assert.That(service.IsValidPassword("111111a&a"), Is.EqualTo(false));
-            Assert.That(service.IsValidPassword("Aa1D5!"), Is.EqualTo(false));
-            Assert.That(service.IsValidPassword(""), Is.EqualTo(false));
-            Assert.That(service.IsValidPassword("ASDFWERTFDSJ"), Is.EqualTo(false));
-            Assert.That(service.IsValidPassword("asdfuS?DgDfn"), Is.EqualTo(false));
+            Assert.False(service.IsValidPassword("111111a&a"));
+            Assert.False(service.IsValidPassword("Aa1D5!"));
+            Assert.False(service.IsValidPassword(""));
+            Assert.False(service.IsValidPassword("ASDFWERTFDSJ"));
+            Assert.False(service.IsValidPassword("asdfuS?DgDfn"));
         }
     }
 }
