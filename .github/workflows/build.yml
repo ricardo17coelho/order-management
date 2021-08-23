@@ -49,5 +49,5 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"ricardo17coelho_order-management" /d:sonar.cs.opencover.reportsPaths="./code/order-management/**/coverage.opencover.xml" /o:"ricardo17coelho" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet restore ./code/order-management
           dotnet build --no-restore ./code/order-management
-          dotnet test --no-build --collect:"XPlat Code Coverage" --verbosity normal ./code/order-management.tests -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+          dotnet test --no-build --collect:"XPlat Code Coverage" --verbosity normal ./code/order-management.tests/order-management.tests.csproj -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
