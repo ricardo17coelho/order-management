@@ -119,9 +119,29 @@ namespace order_management.View
 
         private Boolean IsValid(Customer customer)
         {
-            if (!_customerService.IsValid(customer))
+            if (!_customerService.RequiredFieldsAreNotBlank(customer))
             {
-                MessageBox.Show("First and Lastname is required!");
+                MessageBox.Show("CustomerNr, FirstName, LastName, Email, Website and Password is required!");
+                return false;
+            }
+            if (!_customerService.IsValidEmailAddress(customer.Email))
+            {
+                MessageBox.Show("Email Address is not valid!");
+                return false;
+            }
+            if (!_customerService.IsValidCustomerNr(customer.CustomerNr))
+            {
+                MessageBox.Show("Customer Nr is not valid!");
+                return false;
+            }
+            if (!_customerService.IsValidWebsite(customer.Website))
+            {
+                MessageBox.Show("Website is not valid!");
+                return false;
+            }
+            if (!_customerService.IsValidPassword(customer.Password))
+            {
+                MessageBox.Show("Password is not valid!");
                 return false;
             }
             return true;

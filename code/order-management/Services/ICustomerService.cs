@@ -8,7 +8,11 @@ namespace order_management.Services
     {
         List<Customer> Search(string searchString);
         Boolean IsUnique(Customer entity);
-        Boolean IsValid(Customer entity);
+        Boolean RequiredFieldsAreNotBlank(Customer entity);
         Customer GetByName(string firstName, string lastName);
+        bool IsValidEmailAddress(string email);
+        bool IsValidCustomerNr(string email);
+        bool IsValidWebsite(string email);
+        bool IsValidPassword(string password);
     }
 }

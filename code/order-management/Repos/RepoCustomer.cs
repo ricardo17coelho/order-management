@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace order_management
 {
@@ -48,10 +47,6 @@ namespace order_management
 
         }
 
-        public Boolean IsValid(Customer customer)
-        {
-            return customer.FirstName != "" &&
-              customer.LastName != "";
-        }
+        
     }
 }
