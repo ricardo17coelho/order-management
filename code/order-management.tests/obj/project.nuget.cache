@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "TQSFtNFk1W4ToROW8Z1+oov2YnUGged4zN7P0me9aUtf/apojbOYqUjyHrFbUD1cORisFvSMrJwUwMGJJwskkw==",
+  "dgSpecHash": "sWnczCnOKO9fghWVM0BhnsQhTaxWaXxp+a/s6Zc1p2wUy8aKeO2TLSZY3zCgfs0/xCAwMId8lCpr1g4rMlHJTQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Raphi\\order-management\\code\\order-management.tests\\order-management.tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Raphi\\.nuget\\packages\\castle.core\\4.3.1\\castle.core.4.3.1.nupkg.sha512",
+    "C:\\Users\\Raphi\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
     "C:\\Users\\Raphi\\.nuget\\packages\\fakeiteasy\\7.1.0\\fakeiteasy.7.1.0.nupkg.sha512",
     "C:\\Users\\Raphi\\.nuget\\packages\\microsoft.codecoverage\\16.11.0\\microsoft.codecoverage.16.11.0.nupkg.sha512",
     "C:\\Users\\Raphi\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
