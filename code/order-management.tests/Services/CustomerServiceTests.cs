@@ -196,7 +196,6 @@ namespace order_management.tests.Services
             Assert.False(service.IsValidWebsite("g-.com"));
             Assert.False(service.IsValidWebsite(".com"));
             Assert.False(service.IsValidWebsite("0-0o_.comh"));
-            Assert.False(service.IsValidWebsite("www.google.ch"));
         }
 
         [Fact]
