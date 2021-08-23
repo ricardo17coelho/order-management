@@ -15,6 +15,11 @@ namespace order_management
         public DbSet<YoyComparison> YoyComparisons { get; set; }
         public DbSet<Bill> Bills { get; set; }
 
+        public OrderManagementDbContext()
+        {
+
+        }
+        
         public OrderManagementDbContext(DbContextOptions options) : base(options)
         {
 
@@ -22,10 +27,7 @@ namespace order_management
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer("Data Source=.; Database=OrderManagement; Trusted_Connection=True");
-
-            //For Debugging
-            //optionsBuilder.LogTo(Console.WriteLine); 
+            optionsBuilder.UseSqlServer("Data Source=.; Database=OrderManagementV2; Trusted_Connection=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -36,16 +38,16 @@ namespace order_management
 
             List<Customer> customers = new List<Customer>
             {
-                new Customer(1000, "Hans", "Müller", "Bahnhofstrasse", "12a", 9400, "Wil", "Schweiz"),
-                new Customer(1001, "Peter", "Haller", "Dorfstrasse", "5", 8452, "Uznach", "Schweiz"),
-                new Customer(1002, "Ueli", "Moser", "Lindenstrasse", "27", 4524, "Zuckenriet", "Schweiz"),
-                new Customer(1003,"Max", "Mustermann", "Bachweg", "1a", 4582, "Schlieren", "Schweiz"),
-                new Customer(1004, "Vreni", "Kuster", "Hinter dem Baum", "12", 4521, "Walden", "Schweiz"),
-                new Customer(1005, "Petra", "Schwarz", "Blumenstrasse", "45b", 1234, "Ederswiler", "Schweiz"),
-                new Customer(1006, "Andreas", "Rot", "Bahnhofplatz", "13", 9452, "Spreitebach", "Schweiz"),
-                new Customer(1007, "Jürgen", "Blyatman", "Huebstrasse", "16", 9152, "Mörschwil", "Schweiz"),
-                new Customer(1008, "Oskar", "Kanban", "Rosenweg", "1b", 8523, "Interlaken", "Schweiz"),
-                new Customer(1009, "Karin", "Blattsalat", "Bachfeldstrasse", "5", 5423, "Flieren", "Schweiz")
+                new Customer(1000, "CU95216", "Hans", "Müller", "hans.mueller@gmail.com", "hanshueller.ch", "SuperSavePW1", "Dorfstrasse", "12a", 5642, "Uznach", "Schweiz"),
+                new Customer(1001, "CU51238", "Ueli", "Moser", "ueli.moser@gmail.com", "uelimoser.ch", "SuperSavePW2", "Lindenstrasse", "12a", 4444, "Wil", "Schweiz"),
+                new Customer(1002, "CU42681", "Max", "Mustermann", "max.mustermann@gmail.com", "maxmustermann.ch", "SuperSavePW3", "Rosenweg", "12a", 5642, "Schlieren", "Schweiz"),
+                new Customer(1003, "CU12384", "Vreni", "Kuster", "vreni.kuster@gmail.com", "vrenikuster.ch", "SuperSavePW4", "Bahnhofplatz", "12a", 8421, "Goldach", "Schweiz"),
+                new Customer(1004, "CU54687", "Petra", "Schwarz", "petra.schwarz@gmail.com", "petraschwarz.ch", "SuperSavePW5", "Lindenstrasse", "12a", 4526, "Zürich", "Schweiz"),
+                new Customer(1005, "CU15468", "Andreas", "Rot", "andreas.rot@gmail.com", "andreasrot.ch", "SuperSavePW6", "Huebstrasse", "12a", 8423, "Au", "Schweiz"),
+                new Customer(1006, "CU56481", "Jürgen", "Blyatman", "juergen@gmail.com", "juergenblyatmann.ch", "SuperSavePW7", "Hinter dem Baum", "12a", 4246, "Hundwil", "Schweiz"),
+                new Customer(1007, "CU94254", "Oskar", "Kanban", "oskar.kanban@gmail.com", "oskarkanban.ch", "SuperSavePW8", "Blumenstrasse", "12a", 8425, "Au", "Schweiz"),
+                new Customer(1008, "CU16481", "Karin", "Blattsalat", "karin@gmail.com", "karinblattsalat.ch", "SuperSavePW9", "Bachfeldstrasse", "12a", 6515, "Wil", "Schweiz"),
+                new Customer(1009, "CU64521", "Peter", "Haller", "peter.haller@gmail.com", "peterhaller.ch", "SuperSavePW10", "Dorfstrasse", "5", 8516, "Zuckenriet", "Schweiz"),
             };
 
             List<ProductCategory> categories = new List<ProductCategory>

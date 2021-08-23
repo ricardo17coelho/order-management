@@ -11,18 +11,26 @@ namespace order_management
     public class Customer
     {
         public int CustomerId { get; set; }
+        public string CustomerNr { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Website { get; set; }
+        public string Password { get; set; }
         public string Street { get; set; }
         public string StreetNr { get; set; }
         public int Zip { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
 
-        public Customer(string firstName, string lastName, string street, string streetNr, int zip, string city, string country)
+        public Customer(string customerNr, string firstName, string lastName, string email, string website, string password, string street, string streetNr, int zip, string city, string country)
         {
+            CustomerNr = customerNr;
             FirstName = firstName;
             LastName = lastName;
+            Email = email;
+            Website = website;
+            Password = password;
             Street = street;
             StreetNr = streetNr;
             Zip = zip;
@@ -30,12 +38,15 @@ namespace order_management
             Country = country;
         }
 
-        // This constructor ist just used in the OnModelCreating() in DBContext
-        public Customer(int id, string firstName, string lastName, string street, string streetNr, int zip, string city, string country)
+        public Customer(int id, string customerNr, string firstName, string lastName, string email, string website, string password, string street, string streetNr, int zip, string city, string country)
         {
             CustomerId = id;
+            CustomerNr = customerNr;
             FirstName = firstName;
             LastName = lastName;
+            Email = email;
+            Website = website;
+            Password = password;
             Street = street;
             StreetNr = streetNr;
             Zip = zip;

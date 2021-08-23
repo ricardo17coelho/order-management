@@ -34,8 +34,12 @@ namespace order_management.View
 
         private void CmdSave_Click(object sender, EventArgs e)
         {
+            string customerNr = TxtCustomerNr.Text;
             string firstName = TxtFirstName.Text;
             string lastName = TxtLastName.Text;
+            string email = TxtEmail.Text;
+            string website = TxtWebsite.Text;
+            string password = TxtPassword.Text;
             string street = TxtStreet.Text;
             string streetNr = TxtStreetNr.Text;
             int zip = Convert.ToInt32(NumZip.Value);
@@ -44,12 +48,16 @@ namespace order_management.View
 
             if(_customerToEdit == null)
             {
-                AddNewCustomer(new Customer(firstName, lastName, street, streetNr, zip, city, country));
+                AddNewCustomer(new Customer(customerNr, firstName, lastName, email, website, password, street, streetNr, zip, city, country));
             }
             else
             {
+                _customerToEdit.CustomerNr = customerNr;
                 _customerToEdit.FirstName = firstName;
                 _customerToEdit.LastName = lastName;
+                _customerToEdit.Email = email;
+                _customerToEdit.Website = website;
+                _customerToEdit.Password = password;
                 _customerToEdit.Street = street;
                 _customerToEdit.StreetNr = streetNr;
                 _customerToEdit.Zip = zip;
@@ -66,8 +74,12 @@ namespace order_management.View
 
         private void LoadCustomerToEditIntoFields()
         {
+            TxtCustomerNr.Text = _customerToEdit.CustomerNr;
             TxtFirstName.Text = _customerToEdit.FirstName;
             TxtLastName.Text = _customerToEdit.LastName;
+            TxtEmail.Text = _customerToEdit.Email;
+            TxtWebsite.Text = _customerToEdit.Website;
+            TxtPassword.Text = _customerToEdit.Password;
             TxtStreet.Text = _customerToEdit.Street;
             TxtStreetNr.Text = _customerToEdit.StreetNr;
             NumZip.Value = _customerToEdit.Zip;

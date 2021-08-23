@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using order_management;
 
 namespace order_management.Migrations
 {
     [DbContext(typeof(OrderManagementDbContext))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20210823070826_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,152 +21,7 @@ namespace order_management.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("order_management.Customer", b =>
-                {
-                    b.Property<int>("CustomerId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Street")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StreetNr")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Zip")
-                        .HasColumnType("int");
-
-                    b.HasKey("CustomerId");
-
-                    b.ToTable("Customers");
-
-                    b.HasData(
-                        new
-                        {
-                            CustomerId = 1000,
-                            City = "Wil",
-                            Country = "Schweiz",
-                            FirstName = "Hans",
-                            LastName = "Müller",
-                            Street = "Bahnhofstrasse",
-                            StreetNr = "12a",
-                            Zip = 9400
-                        },
-                        new
-                        {
-                            CustomerId = 1001,
-                            City = "Uznach",
-                            Country = "Schweiz",
-                            FirstName = "Peter",
-                            LastName = "Haller",
-                            Street = "Dorfstrasse",
-                            StreetNr = "5",
-                            Zip = 8452
-                        },
-                        new
-                        {
-                            CustomerId = 1002,
-                            City = "Zuckenriet",
-                            Country = "Schweiz",
-                            FirstName = "Ueli",
-                            LastName = "Moser",
-                            Street = "Lindenstrasse",
-                            StreetNr = "27",
-                            Zip = 4524
-                        },
-                        new
-                        {
-                            CustomerId = 1003,
-                            City = "Schlieren",
-                            Country = "Schweiz",
-                            FirstName = "Max",
-                            LastName = "Mustermann",
-                            Street = "Bachweg",
-                            StreetNr = "1a",
-                            Zip = 4582
-                        },
-                        new
-                        {
-                            CustomerId = 1004,
-                            City = "Walden",
-                            Country = "Schweiz",
-                            FirstName = "Vreni",
-                            LastName = "Kuster",
-                            Street = "Hinter dem Baum",
-                            StreetNr = "12",
-                            Zip = 4521
-                        },
-                        new
-                        {
-                            CustomerId = 1005,
-                            City = "Ederswiler",
-                            Country = "Schweiz",
-                            FirstName = "Petra",
-                            LastName = "Schwarz",
-                            Street = "Blumenstrasse",
-                            StreetNr = "45b",
-                            Zip = 1234
-                        },
-                        new
-                        {
-                            CustomerId = 1006,
-                            City = "Spreitebach",
-                            Country = "Schweiz",
-                            FirstName = "Andreas",
-                            LastName = "Rot",
-                            Street = "Bahnhofplatz",
-                            StreetNr = "13",
-                            Zip = 9452
-                        },
-                        new
-                        {
-                            CustomerId = 1007,
-                            City = "Mörschwil",
-                            Country = "Schweiz",
-                            FirstName = "Jürgen",
-                            LastName = "Blyatman",
-                            Street = "Huebstrasse",
-                            StreetNr = "16",
-                            Zip = 9152
-                        },
-                        new
-                        {
-                            CustomerId = 1008,
-                            City = "Interlaken",
-                            Country = "Schweiz",
-                            FirstName = "Oskar",
-                            LastName = "Kanban",
-                            Street = "Rosenweg",
-                            StreetNr = "1b",
-                            Zip = 8523
-                        },
-                        new
-                        {
-                            CustomerId = 1009,
-                            City = "Flieren",
-                            Country = "Schweiz",
-                            FirstName = "Karin",
-                            LastName = "Blattsalat",
-                            Street = "Bachfeldstrasse",
-                            StreetNr = "5",
-                            Zip = 5423
-                        });
-                });
-
-            modelBuilder.Entity("order_management.DbModels.Bill", b =>
+            modelBuilder.Entity("order_management.Bill", b =>
                 {
                     b.Property<int>("BillId")
                         .ValueGeneratedOnAdd()
@@ -294,19 +151,201 @@ namespace order_management.Migrations
                         });
                 });
 
-            modelBuilder.Entity("order_management.DbModels.YoyComparison", b =>
+            modelBuilder.Entity("order_management.Customer", b =>
                 {
-                    b.Property<int>("AvgCountProductsPerOrder")
-                        .HasColumnType("int");
+                    b.Property<int>("CustomerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
-                    b.Property<int>("CountOrders")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Quarter")
+                    b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("TotalRevenue")
-                        .HasColumnType("float");
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerNr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StreetNr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Website")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Zip")
+                        .HasColumnType("int");
+
+                    b.HasKey("CustomerId");
+
+                    b.ToTable("Customers");
+
+                    b.HasData(
+                        new
+                        {
+                            CustomerId = 1000,
+                            City = "Uznach",
+                            Country = "Schweiz",
+                            CustomerNr = "CU95216",
+                            Email = "hans.mueller@gmail.com",
+                            FirstName = "Hans",
+                            LastName = "Müller",
+                            Password = "SuperSavePW1",
+                            Street = "Dorfstrasse",
+                            StreetNr = "12a",
+                            Website = "hanshueller.ch",
+                            Zip = 5642
+                        },
+                        new
+                        {
+                            CustomerId = 1001,
+                            City = "Wil",
+                            Country = "Schweiz",
+                            CustomerNr = "CU51238",
+                            Email = "ueli.moser@gmail.com",
+                            FirstName = "Ueli",
+                            LastName = "Moser",
+                            Password = "SuperSavePW2",
+                            Street = "Lindenstrasse",
+                            StreetNr = "12a",
+                            Website = "uelimoser.ch",
+                            Zip = 4444
+                        },
+                        new
+                        {
+                            CustomerId = 1002,
+                            City = "Schlieren",
+                            Country = "Schweiz",
+                            CustomerNr = "CU42681",
+                            Email = "max.mustermann@gmail.com",
+                            FirstName = "Max",
+                            LastName = "Mustermann",
+                            Password = "SuperSavePW3",
+                            Street = "Rosenweg",
+                            StreetNr = "12a",
+                            Website = "maxmustermann.ch",
+                            Zip = 5642
+                        },
+                        new
+                        {
+                            CustomerId = 1003,
+                            City = "Goldach",
+                            Country = "Schweiz",
+                            CustomerNr = "CU12384",
+                            Email = "vreni.kuster@gmail.com",
+                            FirstName = "Vreni",
+                            LastName = "Kuster",
+                            Password = "SuperSavePW4",
+                            Street = "Bahnhofplatz",
+                            StreetNr = "12a",
+                            Website = "vrenikuster.ch",
+                            Zip = 8421
+                        },
+                        new
+                        {
+                            CustomerId = 1004,
+                            City = "Zürich",
+                            Country = "Schweiz",
+                            CustomerNr = "CU54687",
+                            Email = "petra.schwarz@gmail.com",
+                            FirstName = "Petra",
+                            LastName = "Schwarz",
+                            Password = "SuperSavePW5",
+                            Street = "Lindenstrasse",
+                            StreetNr = "12a",
+                            Website = "petraschwarz.ch",
+                            Zip = 4526
+                        },
+                        new
+                        {
+                            CustomerId = 1005,
+                            City = "Au",
+                            Country = "Schweiz",
+                            CustomerNr = "CU15468",
+                            Email = "andreas.rot@gmail.com",
+                            FirstName = "Andreas",
+                            LastName = "Rot",
+                            Password = "SuperSavePW6",
+                            Street = "Huebstrasse",
+                            StreetNr = "12a",
+                            Website = "andreasrot.ch",
+                            Zip = 8423
+                        },
+                        new
+                        {
+                            CustomerId = 1006,
+                            City = "Hundwil",
+                            Country = "Schweiz",
+                            CustomerNr = "CU56481",
+                            Email = "juergen@gmail.com",
+                            FirstName = "Jürgen",
+                            LastName = "Blyatman",
+                            Password = "SuperSavePW7",
+                            Street = "Hinter dem Baum",
+                            StreetNr = "12a",
+                            Website = "juergenblyatmann.ch",
+                            Zip = 4246
+                        },
+                        new
+                        {
+                            CustomerId = 1007,
+                            City = "Au",
+                            Country = "Schweiz",
+                            CustomerNr = "CU94254",
+                            Email = "oskar.kanban@gmail.com",
+                            FirstName = "Oskar",
+                            LastName = "Kanban",
+                            Password = "SuperSavePW8",
+                            Street = "Blumenstrasse",
+                            StreetNr = "12a",
+                            Website = "oskarkanban.ch",
+                            Zip = 8425
+                        },
+                        new
+                        {
+                            CustomerId = 1008,
+                            City = "Wil",
+                            Country = "Schweiz",
+                            CustomerNr = "CU16481",
+                            Email = "karin@gmail.com",
+                            FirstName = "Karin",
+                            LastName = "Blattsalat",
+                            Password = "SuperSavePW9",
+                            Street = "Bachfeldstrasse",
+                            StreetNr = "12a",
+                            Website = "karinblattsalat.ch",
+                            Zip = 6515
+                        },
+                        new
+                        {
+                            CustomerId = 1009,
+                            City = "Zuckenriet",
+                            Country = "Schweiz",
+                            CustomerNr = "CU64521",
+                            Email = "peter.haller@gmail.com",
+                            FirstName = "Peter",
+                            LastName = "Haller",
+                            Password = "SuperSavePW10",
+                            Street = "Dorfstrasse",
+                            StreetNr = "5",
+                            Website = "peterhaller.ch",
+                            Zip = 8516
+                        });
                 });
 
             modelBuilder.Entity("order_management.Order", b =>
@@ -833,6 +872,21 @@ namespace order_management.Migrations
                             ParentId = 1006,
                             ProductCategoryName = "Office Chairs"
                         });
+                });
+
+            modelBuilder.Entity("order_management.YoyComparison", b =>
+                {
+                    b.Property<int>("AvgCountProductsPerOrder")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CountOrders")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Quarter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TotalRevenue")
+                        .HasColumnType("float");
                 });
 
             modelBuilder.Entity("order_management.Order", b =>

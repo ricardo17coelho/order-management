@@ -20,7 +20,6 @@ namespace order_management
             CustomerId = customer.CustomerId;
         }
 
-        // This constructor ist just used in the OnModelCreating() in DBContext
         public Order(int id, int customerId, DateTime date)
         {
             OrderId = id;
@@ -29,7 +28,6 @@ namespace order_management
             CustomerId = customerId;
         }
 
-        //Add-Migration needs this constructor. No Idea Why :-)
         public Order() { }
 
         public override string ToString()

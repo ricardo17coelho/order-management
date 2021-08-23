@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace order_management.Migrations
 {
-    public partial class ordermanagement : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -37,8 +37,12 @@ namespace order_management.Migrations
                 {
                     CustomerId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    CustomerNr = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Website = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Street = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StreetNr = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Zip = table.Column<int>(type: "int", nullable: false),
@@ -146,28 +150,28 @@ namespace order_management.Migrations
                 columns: new[] { "BillId", "Brutto", "City", "Country", "CustomerId", "FirstName", "LastName", "Netto", "OrderDate", "OrderId", "Street", "StreetNr", "Zip" },
                 values: new object[,]
                 {
-                    { 1004, 80.5, "Zuckenriet", "Schweiz", 1002, "Ueli", "Moser", 75.0, new DateTime(2020, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1007, "Lindenstrasse", "27", 4524 },
-                    { 1003, 57.5, "Uznach", "Schweiz", 1001, "Peter", "Haller", 50.0, new DateTime(2020, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1002, "Dorfstrasse", "5", 8452 },
-                    { 1002, 100.0, "Uznach", "Schweiz", 1001, "Peter", "Haller", 75.0, new DateTime(2019, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 1004, "Dorfstrasse", "5", 8452 },
+                    { 1000, 107.7, "Wil", "Schweiz", 1000, "Hans", "Müller", 100.0, new DateTime(2018, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 1000, "Bahnhofstrasse", "12a", 9400 },
                     { 1001, 215.19999999999999, "Wil", "Schweiz", 1000, "Hans", "Müller", 200.0, new DateTime(2020, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 1005, "Bahnhofstrasse", "12a", 9400 },
-                    { 1000, 107.7, "Wil", "Schweiz", 1000, "Hans", "Müller", 100.0, new DateTime(2018, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 1000, "Bahnhofstrasse", "12a", 9400 }
+                    { 1002, 100.0, "Uznach", "Schweiz", 1001, "Peter", "Haller", 75.0, new DateTime(2019, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 1004, "Dorfstrasse", "5", 8452 },
+                    { 1003, 57.5, "Uznach", "Schweiz", 1001, "Peter", "Haller", 50.0, new DateTime(2020, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1002, "Dorfstrasse", "5", 8452 },
+                    { 1004, 80.5, "Zuckenriet", "Schweiz", 1002, "Ueli", "Moser", 75.0, new DateTime(2020, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1007, "Lindenstrasse", "27", 4524 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Customers",
-                columns: new[] { "CustomerId", "City", "Country", "FirstName", "LastName", "Street", "StreetNr", "Zip" },
+                columns: new[] { "CustomerId", "City", "Country", "CustomerNr", "Email", "FirstName", "LastName", "Password", "Street", "StreetNr", "Website", "Zip" },
                 values: new object[,]
                 {
-                    { 1000, "Wil", "Schweiz", "Hans", "Müller", "Bahnhofstrasse", "12a", 9400 },
-                    { 1009, "Flieren", "Schweiz", "Karin", "Blattsalat", "Bachfeldstrasse", "5", 5423 },
-                    { 1008, "Interlaken", "Schweiz", "Oskar", "Kanban", "Rosenweg", "1b", 8523 },
-                    { 1006, "Spreitebach", "Schweiz", "Andreas", "Rot", "Bahnhofplatz", "13", 9452 },
-                    { 1005, "Ederswiler", "Schweiz", "Petra", "Schwarz", "Blumenstrasse", "45b", 1234 },
-                    { 1004, "Walden", "Schweiz", "Vreni", "Kuster", "Hinter dem Baum", "12", 4521 },
-                    { 1003, "Schlieren", "Schweiz", "Max", "Mustermann", "Bachweg", "1a", 4582 },
-                    { 1002, "Zuckenriet", "Schweiz", "Ueli", "Moser", "Lindenstrasse", "27", 4524 },
-                    { 1001, "Uznach", "Schweiz", "Peter", "Haller", "Dorfstrasse", "5", 8452 },
-                    { 1007, "Mörschwil", "Schweiz", "Jürgen", "Blyatman", "Huebstrasse", "16", 9152 }
+                    { 1009, "Zuckenriet", "Schweiz", "CU64521", "peter.haller@gmail.com", "Peter", "Haller", "SuperSavePW10", "Dorfstrasse", "5", "peterhaller.ch", 8516 },
+                    { 1008, "Wil", "Schweiz", "CU16481", "karin@gmail.com", "Karin", "Blattsalat", "SuperSavePW9", "Bachfeldstrasse", "12a", "karinblattsalat.ch", 6515 },
+                    { 1007, "Au", "Schweiz", "CU94254", "oskar.kanban@gmail.com", "Oskar", "Kanban", "SuperSavePW8", "Blumenstrasse", "12a", "oskarkanban.ch", 8425 },
+                    { 1006, "Hundwil", "Schweiz", "CU56481", "juergen@gmail.com", "Jürgen", "Blyatman", "SuperSavePW7", "Hinter dem Baum", "12a", "juergenblyatmann.ch", 4246 },
+                    { 1005, "Au", "Schweiz", "CU15468", "andreas.rot@gmail.com", "Andreas", "Rot", "SuperSavePW6", "Huebstrasse", "12a", "andreasrot.ch", 8423 },
+                    { 1003, "Goldach", "Schweiz", "CU12384", "vreni.kuster@gmail.com", "Vreni", "Kuster", "SuperSavePW4", "Bahnhofplatz", "12a", "vrenikuster.ch", 8421 },
+                    { 1002, "Schlieren", "Schweiz", "CU42681", "max.mustermann@gmail.com", "Max", "Mustermann", "SuperSavePW3", "Rosenweg", "12a", "maxmustermann.ch", 5642 },
+                    { 1001, "Wil", "Schweiz", "CU51238", "ueli.moser@gmail.com", "Ueli", "Moser", "SuperSavePW2", "Lindenstrasse", "12a", "uelimoser.ch", 4444 },
+                    { 1000, "Uznach", "Schweiz", "CU95216", "hans.mueller@gmail.com", "Hans", "Müller", "SuperSavePW1", "Dorfstrasse", "12a", "hanshueller.ch", 5642 },
+                    { 1004, "Zürich", "Schweiz", "CU54687", "petra.schwarz@gmail.com", "Petra", "Schwarz", "SuperSavePW5", "Lindenstrasse", "12a", "petraschwarz.ch", 4526 }
                 });
 
             migrationBuilder.InsertData(

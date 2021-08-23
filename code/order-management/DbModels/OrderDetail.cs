@@ -22,7 +22,6 @@ namespace order_management
             ProductId = product.ProductId;
         }
 
-        // This constructor ist just used in the OnModelCreating() in DBContext
         public OrderDetail(int id, int quantity, int orderId, int productId)
         {
             OrderDetailId = id;
@@ -31,7 +30,6 @@ namespace order_management
             ProductId = productId;
         }
 
-        //Add-Migration needs this constructor. No Idea Why :-)
         public OrderDetail() { }
 
     }

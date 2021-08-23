@@ -24,7 +24,6 @@ namespace order_management
             ProductCategoryId = productCategory.ProductCategoryId;
         }
 
-        // This constructor ist just used in the OnModelCreating() in DBContext
         public Product(int id, string productName, double price, string unit, DateTime date, int productCategoryId)
         {
             ProductId = id;
@@ -35,7 +34,6 @@ namespace order_management
             Date = date;
         }
 
-        //Add-Migration needs this constructor. No Idea Why :-)
         public Product() { }
 
         public override string ToString()

@@ -9,9 +9,7 @@ namespace order_management
     {
         public string Quarter { get; set; }
         public int CountOrders { get; set; }
-        //public int CountProducts { get; set; }
         public int AvgCountProductsPerOrder { get; set; }
-        //public int RevenuePerCustomer { get; set; }
         public double TotalRevenue { get; set; }
     }
 }
