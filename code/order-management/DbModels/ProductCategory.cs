@@ -36,6 +36,10 @@ namespace order_management
             ParentId = parentId;
         }
 
+        public ProductCategory()
+        {
+        }
+
         public override string ToString()
         {
             return ProductCategoryName;

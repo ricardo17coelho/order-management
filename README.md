@@ -114,6 +114,18 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 _For more examples, please refer to the [Documentation](documentation/documentation.docx)_
 
+## Coverage
+
+Command to execude Tests and generate a report.xml:
+```
+dotnet test --no-build --collect:"XPlat Code Coverage" --verbosity normal ./code -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+```
+
+Command to generate a viewable html:
+```
+reportgenerator.exe -reports:"code/order-management.tests/TestResults/GENERATED_ID/coverage.opencover.xml" -targetdir:"CodeCoverageReport" -reporttypes:HtmlSummary
+```
+
 
 
 <!-- ROADMAP -->

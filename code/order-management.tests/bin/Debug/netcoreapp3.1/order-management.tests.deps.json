@@ -10,6 +10,7 @@
         "dependencies": {
           "FakeItEasy": "7.1.0",
           "Microsoft.NET.Test.Sdk": "16.11.0",
+          "coverlet.collector": "3.1.0",
           "order-management": "1.0.0",
           "xunit": "2.4.1",
           "xunit.runner.visualstudio": "2.4.3"
@@ -38,6 +39,7 @@
           }
         }
       },
+      "coverlet.collector/3.1.0": {},
       "FakeItEasy/7.1.0": {
         "dependencies": {
           "Castle.Core": "4.3.1"
@@ -2032,6 +2034,13 @@
       "sha512": "sha512-8Y/eTr6GTElAGV7eAmJuhfLhGdFpNvaNrQ9UQYDScziLmX+/BLGM+9eQr0IcdNDcPN0ADmbtwT6MgecGKy4obw==",
       "path": "castle.core/4.3.1",
       "hashPath": "castle.core.4.3.1.nupkg.sha512"
+    },
+    "coverlet.collector/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YzYqSRrjoP5lULBhTDcTOjuM4IDPPi6PhFsl4w8EI4WdZhE6llt7E38Tg4CHyrS+QKwyu1+9OwkdDgluOdoBTw==",
+      "path": "coverlet.collector/3.1.0",
+      "hashPath": "coverlet.collector.3.1.0.nupkg.sha512"
     },
     "FakeItEasy/7.1.0": {
       "type": "package",

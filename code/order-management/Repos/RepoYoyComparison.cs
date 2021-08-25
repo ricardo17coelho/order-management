@@ -13,7 +13,7 @@ namespace order_management
 
         }
 
-        public List<YoyComparison> GetYoyComparison()
+        public virtual List<YoyComparison> GetYoyComparison()
         {
             List<YoyComparison> objects = new List<YoyComparison>();
 

@@ -18,7 +18,7 @@ namespace order_management
             _orderDetailService = orderDetailService;
         }
 
-        public List<Bill> Search(string searchString)
+        public virtual List<Bill> Search(string searchString)
         {
             searchString = searchString.ToLower();
             return GetAll()
@@ -36,7 +36,7 @@ namespace order_management
                 ).ToList();
         }
 
-        public Bill GenerateBill(Order order)
+        public virtual Bill GenerateBill(Order order)
         {
 
             var customer = _customerService.GetById(order.CustomerId);

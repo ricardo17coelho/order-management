@@ -53,5 +53,9 @@ namespace order_management
             Netto = netto;
             Brutto = brutto;
         }
+
+        public Bill()
+        {
+        }
     }
 }

@@ -6532,11 +6532,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Raphi\\order-management\\code\\order-management\\order-management.csproj",
+      "projectUniqueName": "C:\\Users\\Raphi\\Desktop\\order-management\\code\\order-management\\order-management.csproj",
       "projectName": "order-management",
-      "projectPath": "C:\\Users\\Raphi\\order-management\\code\\order-management\\order-management.csproj",
+      "projectPath": "C:\\Users\\Raphi\\Desktop\\order-management\\code\\order-management\\order-management.csproj",
       "packagesPath": "C:\\Users\\Raphi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Raphi\\order-management\\code\\order-management\\obj\\",
+      "outputPath": "C:\\Users\\Raphi\\Desktop\\order-management\\code\\order-management\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

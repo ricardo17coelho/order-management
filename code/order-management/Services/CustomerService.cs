@@ -43,6 +43,16 @@ namespace order_management.Services
             return _repository.Update(entity);
         }
 
+        public List<Customer> Search(string searchString)
+        {
+            return _repository.Search(searchString);
+        }
+
+        public Customer GetByName(string firstName, string lastName)
+        {
+            return _repository.GetByName(firstName, lastName);
+        }
+
         public Boolean IsUnique(Customer entity)
         {
             return _repository.IsUnique(entity);
@@ -76,16 +86,6 @@ namespace order_management.Services
         public Boolean IsValidPassword(string password)
         {
             return Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$");
-        }
-
-        public List<Customer> Search(string searchString)
-        {
-            return _repository.Search(searchString);
-        }
-
-        public Customer GetByName(string firstName, string lastName)
-        {
-            return _repository.GetByName(firstName, lastName);
         }
     }
 }

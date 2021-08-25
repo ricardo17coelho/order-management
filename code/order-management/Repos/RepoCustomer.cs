@@ -12,14 +12,14 @@ namespace order_management
             
         }
 
-        public Customer GetByName(string firstName, string lastName)
+        public virtual Customer GetByName(string firstName, string lastName)
         {
                 return _orderManagementDbContext.Customers
                 .Where(c => (c.FirstName == firstName && c.LastName == lastName))
                 .FirstOrDefault<Customer>();
         }
 
-        public List<Customer> Search(string searchString)
+        public virtual List<Customer> Search(string searchString)
         {
             searchString = searchString.ToLower();
 

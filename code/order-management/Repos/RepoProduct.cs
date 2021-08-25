@@ -17,14 +17,14 @@ namespace order_management
             return _orderManagementDbContext.Products.Include(p => p.ProductCategory).ToList();
         }
 
-        public Product GetByName(string name)
+        public virtual Product GetByName(string name)
         {
             return _orderManagementDbContext.Products
             .Where(p => p.ProductName == name)
             .FirstOrDefault<Product>();
         }
 
-        public List<Product> Search(string searchString)
+        public virtual List<Product> Search(string searchString)
         {
             searchString = searchString.ToLower();
 
@@ -35,14 +35,14 @@ namespace order_management
             ).ToList();
         }
 
-        public Boolean IsUnique(Product product)
+        public virtual Boolean IsUnique(Product product)
         {
             var table = _orderManagementDbContext.Set<Product>();
             return !_orderManagementDbContext.Products
                 .Any(c => (c.ProductName == product.ProductName));
         }
 
-        public Boolean IsValid(Product product)
+        public virtual Boolean IsValid(Product product)
         {
             return product.ProductName != "";
         }

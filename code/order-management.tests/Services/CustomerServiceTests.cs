@@ -88,6 +88,34 @@ namespace order_management.tests.Services
         }
 
         [Fact]
+        public void Search_Invokes_RepoSearch()
+        {
+            var fakeRepo = A.Fake<RepoCustomer>();
+            var service = new CustomerService(fakeRepo);
+            var customer = new Customer() { FirstName = "Hans" };
+
+            A.CallTo(() => fakeRepo.Search(customer.FirstName)).Returns(new List<Customer>(){ customer });
+
+            var retrieved = service.Search(customer.FirstName);
+
+            Assert.Equal(customer.FirstName, retrieved[0].FirstName);
+        }
+
+        [Fact]
+        public void GetByName_Invokes_RepoGetByName()
+        {
+            var fakeRepo = A.Fake<RepoCustomer>();
+            var service = new CustomerService(fakeRepo);
+            var customer = new Customer() { FirstName = "Hans", LastName = "Im Glück" };
+
+            A.CallTo(() => fakeRepo.GetByName(customer.FirstName, customer.LastName)).Returns(customer);
+
+            var retrieved = service.GetByName(customer.FirstName, customer.LastName);
+
+            Assert.Equal(customer.FirstName, retrieved.FirstName);
+        }
+
+        [Fact]
         public void IsUnique_Invokes_RepoIsUnique()
         {
             var fakeRepo = A.Fake<RepoCustomer>();

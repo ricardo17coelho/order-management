@@ -17,14 +17,14 @@ namespace order_management
             return _orderManagementDbContext.OrderDetails.Include(od => od.Order).Include(od => od.Product).ToList();   
         }
 
-        public List<OrderDetail> GetByOrder(Order order)
+        public virtual List<OrderDetail> GetByOrder(Order order)
         {
             return GetAll()
             .Where(o => (o.OrderId == order.OrderId))
             .ToList();
         }
 
-        public List<OrderDetail> Search(string searchString)
+        public virtual List<OrderDetail> Search(string searchString)
         {
             searchString = searchString.ToLower();
 
@@ -35,7 +35,7 @@ namespace order_management
 
         }
 
-        public Boolean IsValid(OrderDetail orderDetail)
+        public virtual Boolean IsValid(OrderDetail orderDetail)
         {
             return orderDetail.Quantity > 0 &&
               orderDetail.Product != null;

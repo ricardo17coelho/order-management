@@ -12,7 +12,7 @@ namespace order_management
         {
         }
 
-        public ProductCategory GetByName(string name)
+        public virtual ProductCategory GetByName(string name)
         {
             var table = _orderManagementDbContext.Set<ProductCategory>();
             return table
@@ -20,7 +20,7 @@ namespace order_management
             .FirstOrDefault<ProductCategory>();
         }
 
-        public List<ProductCategory> Search(string searchString)
+        public virtual List<ProductCategory> Search(string searchString)
         {
             searchString = searchString.ToLower();
 
@@ -31,26 +31,26 @@ namespace order_management
             ).ToList();
         }
 
-        public List<ProductCategory> GetChildrenByParentId(int categoryId)
+        public virtual List<ProductCategory> GetChildrenByParentId(int categoryId)
         {
             var table = _orderManagementDbContext.Set<ProductCategory>();
             return table
             .Where(pc => pc.ParentId == categoryId).ToList();
         }
 
-        public Boolean IsUnique(ProductCategory category)
+        public virtual Boolean IsUnique(ProductCategory category)
         {
             var table = _orderManagementDbContext.Set<ProductCategory>();
             return !table
                 .Any(c => (c.ProductCategoryName == category.ProductCategoryName));
         }
 
-        public Boolean IsValid(ProductCategory category)
+        public virtual Boolean IsValid(ProductCategory category)
         {
             return category.ProductCategoryName != "";
         }
 
-        public List<ProductCategory> GetCteDataForTreeView()
+        public virtual List<ProductCategory> GetCteDataForTreeView()
         {
             var productCategories = new List<ProductCategory>();
             var query = @";WITH RecurseTable " +

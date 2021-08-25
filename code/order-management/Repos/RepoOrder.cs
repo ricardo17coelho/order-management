@@ -17,7 +17,7 @@ namespace order_management
             return _orderManagementDbContext.Orders.Include(o => o.Customer).ToList();
         }
 
-        public List<Order> Search(string searchString)
+        public virtual List<Order> Search(string searchString)
         {
             searchString = searchString.ToLower();
 
@@ -28,14 +28,14 @@ namespace order_management
                 ).ToList();
         }
 
-        public Boolean IsUnique(Order order)
+        public virtual Boolean IsUnique(Order order)
         {
             return !_orderManagementDbContext.Orders
             .Any(o => (o.Customer == order.Customer) &&
                 (o.OrderDate == order.OrderDate));
         }
 
-        public Boolean IsValid(Order order)
+        public virtual Boolean IsValid(Order order)
         {
             return order.OrderDate != null && order.Customer != null;
         }
