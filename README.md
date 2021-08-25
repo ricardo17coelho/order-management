@@ -116,6 +116,8 @@ _For more examples, please refer to the [Documentation](documentation/documentat
 
 ## Coverage
 
+https://htmlpreview.github.io/?https://github.com/ricardo17coelho/order-management/blob/main/CodeCoverageReport/summary.html
+
 Command to execude Tests and generate a report.xml:
 ```
 dotnet test --no-build --collect:"XPlat Code Coverage" --verbosity normal ./code -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
