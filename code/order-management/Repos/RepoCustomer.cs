@@ -12,9 +12,16 @@ namespace order_management
             
         }
 
+        public override IEnumerable<Customer> GetAll()
+        {
+            var table = _orderManagementDbContext.Set<Customer>();
+            return table.ToList();
+        }
+
         public virtual Customer GetByName(string firstName, string lastName)
         {
-                return _orderManagementDbContext.Customers
+            var table = _orderManagementDbContext.Set<Customer>();
+                return table
                 .Where(c => (c.FirstName == firstName && c.LastName == lastName))
                 .FirstOrDefault<Customer>();
         }
@@ -43,7 +50,6 @@ namespace order_management
             return !table
             .Any(c => (c.FirstName == customer.FirstName) &&
                 (c.LastName == customer.LastName));
-
         }
     }
 }

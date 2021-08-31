@@ -2,11 +2,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using order_management.Services;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows.Forms;
 
 namespace order_management
 {
 
+    [ExcludeFromCodeCoverage]
     static class Program
     {
         public static IServiceProvider ServiceProvider { get; set; }

@@ -13,11 +13,11 @@ namespace order_management
         public RepoBase(OrderManagementDbContext orderManagementDbContext)
         {
             _orderManagementDbContext = orderManagementDbContext;
+            _orderManagementDbContext.Database.EnsureCreated();
         }
 
         public virtual IEnumerable<T> GetAll()
         {
-            _orderManagementDbContext.Database.EnsureCreated();
             var table = _orderManagementDbContext.Set<T>();
             return table.ToList();
         }
