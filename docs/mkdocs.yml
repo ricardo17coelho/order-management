@@ -1,2 +1,17 @@
-site_name: My Docs
-site_url: https://example.com/
+site_name: order-management
+site_url: https://github.com/ricardo17coelho/order-management
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: deep-orange
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep-orange
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  features:
+    - navigation.instant
