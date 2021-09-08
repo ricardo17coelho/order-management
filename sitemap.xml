@@ -2,12 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://github.com/ricardo17coelho/order-management/</loc>
-         <lastmod>2021-09-05</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/ricardo17coelho/order-management/old-documentation/</loc>
-         <lastmod>2021-09-05</lastmod>
+         <loc>https://github.com/ricardo17coelho/order-management/Applikation_Inbetriebnahme/</loc>
+         <lastmod>2021-09-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/ricardo17coelho/order-management/Architektur/</loc>
+         <lastmod>2021-09-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/ricardo17coelho/order-management/Bills/</loc>
+         <lastmod>2021-09-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/ricardo17coelho/order-management/CTE/</loc>
+         <lastmod>2021-09-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/ricardo17coelho/order-management/Einfuehrung/</loc>
+         <lastmod>2021-09-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/ricardo17coelho/order-management/EmailValidation/</loc>
+         <lastmod>2021-09-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/ricardo17coelho/order-management/Erm/</loc>
+         <lastmod>2021-09-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/ricardo17coelho/order-management/UI/</loc>
+         <lastmod>2021-09-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/ricardo17coelho/order-management/Unser_Vorgehen/</loc>
+         <lastmod>2021-09-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/ricardo17coelho/order-management/YOY/</loc>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
