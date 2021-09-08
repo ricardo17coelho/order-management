@@ -1,4 +1,4 @@
-# CTE – Categories View
+# 06 CTE – Categories View
 ```
 var query = @";WITH RecurseTable " +
     "(ProductCategoryId, ProductCategoryName, ParentId, Level) " +

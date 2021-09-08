@@ -1,4 +1,4 @@
-# YOY Comparison
+# 07 YOY Comparison
 ##	Query
 Der Jahresvergleich wurde mit SqlRaw umgesetzt. Es wäre zwar eleganter die Abfrage mit Linq umzusetzen, da wir jetzt diverse «Magic Strings» haben, aber es war im Auftrag nicht vorgegeben und wir wussten nicht genau, wie man so eine Komplexe Abfrage mit Linq nachbilden kann.
 
