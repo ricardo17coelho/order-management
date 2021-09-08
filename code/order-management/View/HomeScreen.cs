@@ -56,5 +56,17 @@ namespace order_management.View
             var viewBills = (ViewBills)Program.ServiceProvider.GetService((typeof(ViewBills)));
             viewBills.ShowDialog();
         }
-    }
+
+		private void CmdExport_Click(object sender, EventArgs e)
+		{
+			var viewExport = (ViewExport)Program.ServiceProvider.GetService((typeof(ViewExport)));
+			viewExport.ShowDialog();
+		}
+
+		private void CmdImport_Click(object sender, EventArgs e)
+		{
+			var viewImport = (ViewImport)Program.ServiceProvider.GetService((typeof(ViewImport)));
+			viewImport.ShowDialog();
+		}
+	}
 }

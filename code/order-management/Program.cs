@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using order_management.Data.Export;
 using order_management.Services;
+using order_management.Services.Data.Import;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows.Forms;
@@ -51,9 +53,14 @@ namespace order_management
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IProductCategoryService, ProductCategoryService>();
             services.AddScoped<IYoyComparisonService, YoyComparisonService>();
+            services.AddScoped<ICustomerExportService, CustomerExportXml>();
+            services.AddScoped<ICustomerExportService, CustomerExportJson>();
+			services.AddScoped<ICustomerImportService, CustomerImportXml>();
+            services.AddScoped<ICustomerImportService, CustomerImportJson>();
 
-            //Repo Registration
-            services.AddScoped<RepoCustomer>();
+
+			//Repo Registration
+			services.AddScoped<RepoCustomer>();
             services.AddScoped<RepoOrder>();
             services.AddScoped<RepoOrderDetail>();
             services.AddScoped<RepoBill>();
@@ -84,6 +91,10 @@ namespace order_management
             services.AddTransient(typeof(View.ViewBills));
             //YoyComparison Views
             services.AddTransient(typeof(View.ViewYoyComparison));
-        }
+			//Import
+            services.AddTransient(typeof(View.ViewImport));
+			//Export
+            services.AddTransient(typeof(View.ViewExport));
+		}
     }
 }
