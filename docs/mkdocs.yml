@@ -1,5 +1,6 @@
 site_name: order-management
-site_url: https://github.com/ricardo17coelho/order-management
+site_url: https://ricardo17coelho.github.io/order-management
+repo_url: https://github.com/ricardo17coelho/order-management
 theme:
   name: material
   palette:
