@@ -27,7 +27,7 @@ namespace order_management
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.; Database=OrderManagementV2; Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Data Source=.; Database=OrderManagementV4; Trusted_Connection=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,16 +38,16 @@ namespace order_management
 
             List<Customer> customers = new List<Customer>
             {
-                new Customer(1000, "CU95216", "Hans", "Müller", "hans.mueller@gmail.com", "hanshueller.ch", "SuperSavePW1", "Dorfstrasse", "12a", 5642, "Uznach", "Schweiz"),
-                new Customer(1001, "CU51238", "Ueli", "Moser", "ueli.moser@gmail.com", "uelimoser.ch", "SuperSavePW2", "Lindenstrasse", "12a", 4444, "Wil", "Schweiz"),
-                new Customer(1002, "CU42681", "Max", "Mustermann", "max.mustermann@gmail.com", "maxmustermann.ch", "SuperSavePW3", "Rosenweg", "12a", 5642, "Schlieren", "Schweiz"),
-                new Customer(1003, "CU12384", "Vreni", "Kuster", "vreni.kuster@gmail.com", "vrenikuster.ch", "SuperSavePW4", "Bahnhofplatz", "12a", 8421, "Goldach", "Schweiz"),
-                new Customer(1004, "CU54687", "Petra", "Schwarz", "petra.schwarz@gmail.com", "petraschwarz.ch", "SuperSavePW5", "Lindenstrasse", "12a", 4526, "Zürich", "Schweiz"),
-                new Customer(1005, "CU15468", "Andreas", "Rot", "andreas.rot@gmail.com", "andreasrot.ch", "SuperSavePW6", "Huebstrasse", "12a", 8423, "Au", "Schweiz"),
-                new Customer(1006, "CU56481", "Jürgen", "Blyatman", "juergen@gmail.com", "juergenblyatmann.ch", "SuperSavePW7", "Hinter dem Baum", "12a", 4246, "Hundwil", "Schweiz"),
-                new Customer(1007, "CU94254", "Oskar", "Kanban", "oskar.kanban@gmail.com", "oskarkanban.ch", "SuperSavePW8", "Blumenstrasse", "12a", 8425, "Au", "Schweiz"),
-                new Customer(1008, "CU16481", "Karin", "Blattsalat", "karin@gmail.com", "karinblattsalat.ch", "SuperSavePW9", "Bachfeldstrasse", "12a", 6515, "Wil", "Schweiz"),
-                new Customer(1009, "CU64521", "Peter", "Haller", "peter.haller@gmail.com", "peterhaller.ch", "SuperSavePW10", "Dorfstrasse", "5", 8516, "Zuckenriet", "Schweiz"),
+                new Customer(1000, "CU95216", "Hans", "Müller", "hans.mueller@gmail.com", "hanshueller.ch", "SuperSavePW&1", "Dorfstrasse", "12a", 5642, "Uznach", "Schweiz"),
+                new Customer(1001, "CU51238", "Ueli", "Moser", "ueli.moser@gmail.com", "uelimoser.ch", "SuperSavePW&2", "Lindenstrasse", "12a", 4444, "Wil", "Schweiz"),
+                new Customer(1002, "CU42681", "Max", "Mustermann", "max.mustermann@gmail.com", "maxmustermann.ch", "SuperSavePW&3", "Rosenweg", "12a", 5642, "Schlieren", "Schweiz"),
+                new Customer(1003, "CU12384", "Vreni", "Kuster", "vreni.kuster@gmail.com", "vrenikuster.ch", "SuperSavePW&4", "Bahnhofplatz", "12a", 8421, "Goldach", "Schweiz"),
+                new Customer(1004, "CU54687", "Petra", "Schwarz", "petra.schwarz@gmail.com", "petraschwarz.ch", "SuperSavePW&5", "Lindenstrasse", "12a", 4526, "Zürich", "Schweiz"),
+                new Customer(1005, "CU15468", "Andreas", "Rot", "andreas.rot@gmail.com", "andreasrot.ch", "SuperSavePW&6", "Huebstrasse", "12a", 8423, "Au", "Schweiz"),
+                new Customer(1006, "CU56481", "Jürgen", "Blyatman", "juergen@gmail.com", "juergenblyatmann.ch", "SuperSavePW&7", "Hinter dem Baum", "12a", 4246, "Hundwil", "Schweiz"),
+                new Customer(1007, "CU94254", "Oskar", "Kanban", "oskar.kanban@gmail.com", "oskarkanban.ch", "SuperSavePW&8", "Blumenstrasse", "12a", 8425, "Au", "Schweiz"),
+                new Customer(1008, "CU16481", "Karin", "Blattsalat", "karin@gmail.com", "karinblattsalat.ch", "SuperSavePW&9", "Bachfeldstrasse", "12a", 6515, "Wil", "Schweiz"),
+                new Customer(1009, "CU64521", "Peter", "Haller", "peter.haller@gmail.com", "peterhaller.ch", "SuperSavePW&10", "Dorfstrasse", "5", 8516, "Zuckenriet", "Schweiz"),
             };
 
             List<ProductCategory> categories = new List<ProductCategory>

@@ -10,8 +10,8 @@ using order_management;
 namespace order_management.Migrations
 {
     [DbContext(typeof(OrderManagementDbContext))]
-    [Migration("20210823070826_initial")]
-    partial class initial
+    [Migration("20210908155509_initialmigration")]
+    partial class initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -205,7 +205,7 @@ namespace order_management.Migrations
                             Email = "hans.mueller@gmail.com",
                             FirstName = "Hans",
                             LastName = "Müller",
-                            Password = "SuperSavePW1",
+                            Password = "SuperSavePW&1",
                             Street = "Dorfstrasse",
                             StreetNr = "12a",
                             Website = "hanshueller.ch",
@@ -220,7 +220,7 @@ namespace order_management.Migrations
                             Email = "ueli.moser@gmail.com",
                             FirstName = "Ueli",
                             LastName = "Moser",
-                            Password = "SuperSavePW2",
+                            Password = "SuperSavePW&2",
                             Street = "Lindenstrasse",
                             StreetNr = "12a",
                             Website = "uelimoser.ch",
@@ -235,7 +235,7 @@ namespace order_management.Migrations
                             Email = "max.mustermann@gmail.com",
                             FirstName = "Max",
                             LastName = "Mustermann",
-                            Password = "SuperSavePW3",
+                            Password = "SuperSavePW&3",
                             Street = "Rosenweg",
                             StreetNr = "12a",
                             Website = "maxmustermann.ch",
@@ -250,7 +250,7 @@ namespace order_management.Migrations
                             Email = "vreni.kuster@gmail.com",
                             FirstName = "Vreni",
                             LastName = "Kuster",
-                            Password = "SuperSavePW4",
+                            Password = "SuperSavePW&4",
                             Street = "Bahnhofplatz",
                             StreetNr = "12a",
                             Website = "vrenikuster.ch",
@@ -265,7 +265,7 @@ namespace order_management.Migrations
                             Email = "petra.schwarz@gmail.com",
                             FirstName = "Petra",
                             LastName = "Schwarz",
-                            Password = "SuperSavePW5",
+                            Password = "SuperSavePW&5",
                             Street = "Lindenstrasse",
                             StreetNr = "12a",
                             Website = "petraschwarz.ch",
@@ -280,7 +280,7 @@ namespace order_management.Migrations
                             Email = "andreas.rot@gmail.com",
                             FirstName = "Andreas",
                             LastName = "Rot",
-                            Password = "SuperSavePW6",
+                            Password = "SuperSavePW&6",
                             Street = "Huebstrasse",
                             StreetNr = "12a",
                             Website = "andreasrot.ch",
@@ -295,7 +295,7 @@ namespace order_management.Migrations
                             Email = "juergen@gmail.com",
                             FirstName = "Jürgen",
                             LastName = "Blyatman",
-                            Password = "SuperSavePW7",
+                            Password = "SuperSavePW&7",
                             Street = "Hinter dem Baum",
                             StreetNr = "12a",
                             Website = "juergenblyatmann.ch",
@@ -310,7 +310,7 @@ namespace order_management.Migrations
                             Email = "oskar.kanban@gmail.com",
                             FirstName = "Oskar",
                             LastName = "Kanban",
-                            Password = "SuperSavePW8",
+                            Password = "SuperSavePW&8",
                             Street = "Blumenstrasse",
                             StreetNr = "12a",
                             Website = "oskarkanban.ch",
@@ -325,7 +325,7 @@ namespace order_management.Migrations
                             Email = "karin@gmail.com",
                             FirstName = "Karin",
                             LastName = "Blattsalat",
-                            Password = "SuperSavePW9",
+                            Password = "SuperSavePW&9",
                             Street = "Bachfeldstrasse",
                             StreetNr = "12a",
                             Website = "karinblattsalat.ch",
@@ -340,7 +340,7 @@ namespace order_management.Migrations
                             Email = "peter.haller@gmail.com",
                             FirstName = "Peter",
                             LastName = "Haller",
-                            Password = "SuperSavePW10",
+                            Password = "SuperSavePW&10",
                             Street = "Dorfstrasse",
                             StreetNr = "5",
                             Website = "peterhaller.ch",

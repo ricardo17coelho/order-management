@@ -25,7 +25,7 @@ namespace order_management
             var services = new ServiceCollection();
 
             //db connStr
-            var connStr = "Data Source =.; Database = OrderManagementV1; Trusted_Connection = True";
+            var connStr = "Data Source =.; Database = OrderManagementV4; Trusted_Connection = True";
 
             //Add service registration
             ConfigureServices(services, connStr); 

@@ -1,236 +1,354 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="order_management.Context" Collapsed="true">
-    <Position X="8.25" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAEAAAAAAQAAAAAAABAABAAAEAAAAAAAAAAAABAAAAQ=</HashCode>
-      <FileName>DbContext\Context.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="order_management.Customer" Collapsed="true">
-    <Position X="10.5" Y="3.5" Width="1.5" />
+    <Position X="20" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAgAAAMAAAACAAAAAIAABAAAAIAAAAAAAg=</HashCode>
+      <HashCode>AAAAAEAAACAggAAMAAAACAAAAAJAABACAAIAAAAAAAg=</HashCode>
       <FileName>DbModels\Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="order_management.Order" Collapsed="true">
-    <Position X="10.5" Y="6.5" Width="1.5" />
+    <Position X="25.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>GAEAAAAAAAAgAAAEAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>DbModels\Order.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="order_management.OrderDetail" Collapsed="true">
-    <Position X="10.5" Y="5.75" Width="1.5" />
+    <Position X="16.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAA=</HashCode>
       <FileName>DbModels\OrderDetail.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="order_management.Product" Collapsed="true">
-    <Position X="10.5" Y="4.25" Width="1.5" />
+    <Position X="25.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAQAAAAAEIAAAAAAAAAAAAAABAAACAAAIEAA=</HashCode>
       <FileName>DbModels\Product.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="order_management.ProductCategory" Collapsed="true">
-    <Position X="10.5" Y="5" Width="1.5" />
+    <Position X="16.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAEAQAAAAAAAAAAAAgACAAAAAAA=</HashCode>
       <FileName>DbModels\ProductCategory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="order_management.BillService" Collapsed="true">
-    <Position X="6" Y="10.25" Width="1.5" />
+  <Class Name="order_management.Bill" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Services\BillService.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="order_management.CustomerService" Collapsed="true">
-    <Position X="6" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAAAAgEgAAAAAAAEAAAAAAgAAAAAgAAg=</HashCode>
-      <FileName>Services\CustomerService.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="order_management.OrderDetailService" Collapsed="true">
-    <Position X="6" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAgAAAAAgAAAAAAAEAAAAAAgAAAAAgAIA=</HashCode>
-      <FileName>Services\OrderDetailService.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="order_management.OrderService" Collapsed="true">
-    <Position X="6" Y="7.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAAAAgAgAAAAAAAEAAAAAAgAAAAAgAIA=</HashCode>
-      <FileName>Services\OrderService.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="order_management.ProductCategoryService" Collapsed="true">
-    <Position X="6" Y="5.5" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAAAAgAgAAAgAAAEAAAgAAgAAAAAgAAg=</HashCode>
-      <FileName>Services\ProductCategoryService.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="order_management.ProductService" Collapsed="true">
-    <Position X="6" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAAAAgAgAAAAAAAEAAAAAAgAAAAAgAAg=</HashCode>
-      <FileName>Services\ProductService.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="order_management.DbModels.Bill" Collapsed="true">
-    <Position X="10" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>GAAAAEAAAAAgAAAIAAAACAAAAAIEAFAAAAIAAAAAAAg=</HashCode>
+      <HashCode>GAAAAEAAAAAgAAAYAAAACAAAAAIEAFAAAAIAAAAAAAg=</HashCode>
       <FileName>DbModels\Bill.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="order_management.DbModels.YoyComparison" Collapsed="true">
-    <Position X="10" Y="7.25" Width="1.5" />
+  <Class Name="order_management.YoyComparison" Collapsed="true">
+    <Position X="16.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAYAIEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DbModels\YoyComparison.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="order_management.Services.YoyService" Collapsed="true">
-    <Position X="6" Y="9.5" Width="1.5" />
+  <Class Name="order_management.OrderManagementDbContext" Collapsed="true">
+    <Position X="20" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAQAAAAAAABAABAAAEAAAAAAAAAAAABAAAAQ=</HashCode>
+      <FileName>DbContext\OrderManagementDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="order_management.RepoBase&lt;T&gt;" Collapsed="true">
+    <Position X="7.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAAAAAAAAEAAAQAAgAAAAAAAIA=</HashCode>
+      <FileName>Repos\RepoBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="order_management.RepoBill" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIIAAQAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Repos\RepoBill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="order_management.RepoCustomer" Collapsed="true">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAgAAAAAgAAg=</HashCode>
+      <FileName>Repos\RepoCustomer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="order_management.RepoOrder" Collapsed="true">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAgAAAAAAAAAAAAAAgAAAAAgAAA=</HashCode>
+      <FileName>Repos\RepoOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="order_management.RepoOrderDetail" Collapsed="true">
+    <Position X="14" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAgAAAAAAAAAAAAAAgAAAAAgAAA=</HashCode>
+      <FileName>Repos\RepoOrderDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="order_management.RepoProduct" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAgAAAAAAAAAAAAAAgAAAAAgAAg=</HashCode>
+      <FileName>Repos\RepoProduct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="order_management.RepoProductCategory" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAgAAAgAAAAAAAgAAAAAAAAgAAg=</HashCode>
+      <FileName>Repos\RepoProductCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="order_management.RepoYoyComparison" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Services\YoyService.cs</FileName>
+      <FileName>Repos\RepoYoyComparison.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="order_management.Program" Collapsed="true">
+    <Position X="21.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAADAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="order_management.View.FormCategories" Collapsed="true">
-    <Position X="2.5" Y="5.5" Width="1.5" />
+    <Position X="23.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAAAAAACAgABQAgAiEAAADIAAYAABAABAQAAAAAhg=</HashCode>
+      <HashCode>AIAAAAAAACQgABQEgAiEAAADIAAYQABAABAAAAAAAhg=</HashCode>
       <FileName>View\FormCategories.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="categoryService" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="order_management.View.FormCustomers" Collapsed="true">
-    <Position X="2.5" Y="1.75" Width="1.5" />
+    <Position X="25.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CEAAAIAAE2BgABQAgAiggAACAKAIAIAAABAAAAgAAAA=</HashCode>
+      <HashCode>GEIAAAIAE3RgAJQAgAiggABKACAACIAAABAAAAgAAAg=</HashCode>
       <FileName>View\FormCustomers.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="customerService" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="order_management.View.FormOrderDetail" Collapsed="true">
-    <Position X="2.5" Y="8.75" Width="1.5" />
+    <Position X="16.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABACAAABRCABmAAQACJIAYAAAAABAAAQAAAAA=</HashCode>
+      <HashCode>GAAAEAwCACAAABQAABmAAQACBAQ4AAAAABQAAQAAAAA=</HashCode>
       <FileName>View\FormOrderDetail.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="orderDetailService" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="order_management.View.FormOrders" Collapsed="true">
-    <Position X="2.5" Y="8" Width="1.5" />
+    <Position X="18.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAIAMAIACAAAFwAgCiEAAASMCIYAAAAEJIAIABAEAA=</HashCode>
+      <HashCode>AQAIAEAIACAgAFwAgAiEAAAeECQYAAIAEDIAYABAEAA=</HashCode>
       <FileName>View\FormOrders.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="orderService" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="order_management.View.FormProducts" Collapsed="true">
-    <Position X="2.5" Y="2.75" Width="1.5" />
+    <Position X="20" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAgAAAiAAABVIgAiAABACAAAYAAAAAFASAAAgAAg=</HashCode>
+      <HashCode>IAAABgQAAiAAABUIgAiAAAASAAAYQAAAABASAAAgCAg=</HashCode>
       <FileName>View\FormProducts.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="productService" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="order_management.View.HomeScreen" Collapsed="true">
-    <Position X="0.5" Y="5.5" Width="1.5" />
+    <Position X="21.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEQAAQAACAAAAAAAACMAIATAJgIAAJAAAAAAAQAAAA=</HashCode>
       <FileName>View\HomeScreen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="order_management.View.ViewBills" Collapsed="true">
-    <Position X="2.5" Y="10.5" Width="1.5" />
+    <Position X="25.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAQAAAAgASAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAAAAAAgAiAAABAAgACEAAACAAAAAAAAEAAAAAAAAAA=</HashCode>
       <FileName>View\ViewBills.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="billService" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="order_management.View.ViewCategories" Collapsed="true">
-    <Position X="2.5" Y="4.75" Width="1.5" />
+    <Position X="16.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAgACABAFAAAACEAIACEIAAAAAAEAAQAQBAACA=</HashCode>
+      <HashCode>AAAIAAAgACABAFAAAACEAIACEIAAQAAAEAAAAQBAACA=</HashCode>
       <FileName>View\ViewCategories.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="categoryService" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="order_management.View.ViewCategoryTreeView" Collapsed="true">
-    <Position X="2.5" Y="6.25" Width="1.5" />
+    <Position X="18.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAGAAACAAAACAAAAQAAAAAAQAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAGAAACAAAACAAAAQAAAAAAAAAAAAAA=</HashCode>
       <FileName>View\ViewCategoryTreeView.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="categoryService" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="order_management.View.ViewCustomers" Collapsed="true">
-    <Position X="2.5" Y="1" Width="1.5" />
+    <Position X="20" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAIAIAgAKAAAFgAAICEAAACEAAAAABAEAAAAABAAAA=</HashCode>
+      <HashCode>IAAIAAAgAKAAAFgAAICEAAAKEAAAAABAEAAAAABAAAA=</HashCode>
       <FileName>View\ViewCustomers.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="customerService" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="order_management.View.ViewOrders" Collapsed="true">
-    <Position X="2.5" Y="7.25" Width="1.5" />
+    <Position X="21.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAgICAAAFAAAACEAAACEAIAAAAAEAAAAADAAAA=</HashCode>
+      <HashCode>EAAIIAAgICAAAFAAAADEAAADEAIAAAAAECAAAADAAAA=</HashCode>
       <FileName>View\ViewOrders.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="orderService" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="order_management.View.ViewProducts" Collapsed="true">
-    <Position X="2.5" Y="3.5" Width="1.5" />
+    <Position X="23.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAACgACAAAFBAAACEAAACEgAAAAAAEAAAAABAAAA=</HashCode>
+      <HashCode>AAAIAASgACAAAFAAAACEAAACEgAAAAAAEAAAAABAAAA=</HashCode>
       <FileName>View\ViewProducts.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="productService" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="order_management.View.ViewYoyComparison" Collapsed="true">
-    <Position X="2.5" Y="9.75" Width="1.5" />
+    <Position X="25.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAQAAACAACAAAACAAAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAQAAACAACAABACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>View\ViewYoyComparison.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="yoyService" />
-    </ShowAsAssociation>
   </Class>
+  <Class Name="order_management.Services.ProductCategoryService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAABAAAAAgAgAAAgAACEAAAgAAgAAAAAgAIg=</HashCode>
+      <FileName>Services\ProductCategoryService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="order_management.Services.OrderService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAABAAAAAgAgAAAAAACEAAAAAAgAAAAAgAIA=</HashCode>
+      <FileName>Services\OrderService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="order_management.Services.ProductService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAABAAAAAgAgAAAAAACEAAAAAAgAAAAAgAIg=</HashCode>
+      <FileName>Services\ProductService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="order_management.Services.OrderDetailService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAABAgAAAAAgAAAAAACEAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Services\OrderDetailService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="order_management.Services.BillService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAABAAAAAAAAAAAIAACEAAAAAAgAAAAAgAIA=</HashCode>
+      <FileName>Services\BillService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="order_management.Services.CustomerService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAYAAAAAAABgAAAAoAAQBAAAACEAAAAAAgAAAAAgAIg=</HashCode>
+      <FileName>Services\CustomerService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="order_management.Services.YoyComparisonService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAABAAIAAAAAAAAAAACEAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Services\YoyComparisonService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="order_management.Properties.Resources" Collapsed="true">
+    <Position X="23.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="order_management.Migrations.initial" Collapsed="true">
+    <Position X="23.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20210823070826_initial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="order_management.Migrations.OrderManagementDbContextModelSnapshot" Collapsed="true">
+    <Position X="21.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Migrations\OrderManagementDbContextModelSnapshot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="order_management.IRepoBase&lt;T&gt;" Collapsed="true">
+    <Position X="16.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Repos\IRepoBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="order_management.Services.IYoyComparisonService" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IYoyComparisonService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="order_management.Services.IBillService" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Services\IBillService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="order_management.Services.ICustomerService" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAgAAAAoAAQBAAAAAAAAAAAAAAAAAAgAAg=</HashCode>
+      <FileName>Services\ICustomerService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="order_management.Services.IOrderDetailService" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IOrderDetailService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="order_management.Services.IOrderService" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Services\IOrderService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="order_management.Services.IProductCategoryService" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAgAAAgAAAAAAAgAAAAAAAAgAAg=</HashCode>
+      <FileName>Services\IProductCategoryService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="order_management.Services.IProductService" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAAgAAg=</HashCode>
+      <FileName>Services\IProductService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="order_management.Services.IService&lt;T&gt;" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAAAAAAACEAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Services\IService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

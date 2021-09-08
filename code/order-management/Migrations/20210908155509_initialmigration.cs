@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace order_management.Migrations
 {
-    [ExcludeFromCodeCoverage]
-    public partial class initial : Migration
+    public partial class initialmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -164,16 +162,16 @@ namespace order_management.Migrations
                 columns: new[] { "CustomerId", "City", "Country", "CustomerNr", "Email", "FirstName", "LastName", "Password", "Street", "StreetNr", "Website", "Zip" },
                 values: new object[,]
                 {
-                    { 1009, "Zuckenriet", "Schweiz", "CU64521", "peter.haller@gmail.com", "Peter", "Haller", "SuperSavePW10", "Dorfstrasse", "5", "peterhaller.ch", 8516 },
-                    { 1008, "Wil", "Schweiz", "CU16481", "karin@gmail.com", "Karin", "Blattsalat", "SuperSavePW9", "Bachfeldstrasse", "12a", "karinblattsalat.ch", 6515 },
-                    { 1007, "Au", "Schweiz", "CU94254", "oskar.kanban@gmail.com", "Oskar", "Kanban", "SuperSavePW8", "Blumenstrasse", "12a", "oskarkanban.ch", 8425 },
-                    { 1006, "Hundwil", "Schweiz", "CU56481", "juergen@gmail.com", "Jürgen", "Blyatman", "SuperSavePW7", "Hinter dem Baum", "12a", "juergenblyatmann.ch", 4246 },
-                    { 1005, "Au", "Schweiz", "CU15468", "andreas.rot@gmail.com", "Andreas", "Rot", "SuperSavePW6", "Huebstrasse", "12a", "andreasrot.ch", 8423 },
-                    { 1003, "Goldach", "Schweiz", "CU12384", "vreni.kuster@gmail.com", "Vreni", "Kuster", "SuperSavePW4", "Bahnhofplatz", "12a", "vrenikuster.ch", 8421 },
-                    { 1002, "Schlieren", "Schweiz", "CU42681", "max.mustermann@gmail.com", "Max", "Mustermann", "SuperSavePW3", "Rosenweg", "12a", "maxmustermann.ch", 5642 },
-                    { 1001, "Wil", "Schweiz", "CU51238", "ueli.moser@gmail.com", "Ueli", "Moser", "SuperSavePW2", "Lindenstrasse", "12a", "uelimoser.ch", 4444 },
-                    { 1000, "Uznach", "Schweiz", "CU95216", "hans.mueller@gmail.com", "Hans", "Müller", "SuperSavePW1", "Dorfstrasse", "12a", "hanshueller.ch", 5642 },
-                    { 1004, "Zürich", "Schweiz", "CU54687", "petra.schwarz@gmail.com", "Petra", "Schwarz", "SuperSavePW5", "Lindenstrasse", "12a", "petraschwarz.ch", 4526 }
+                    { 1009, "Zuckenriet", "Schweiz", "CU64521", "peter.haller@gmail.com", "Peter", "Haller", "SuperSavePW&10", "Dorfstrasse", "5", "peterhaller.ch", 8516 },
+                    { 1008, "Wil", "Schweiz", "CU16481", "karin@gmail.com", "Karin", "Blattsalat", "SuperSavePW&9", "Bachfeldstrasse", "12a", "karinblattsalat.ch", 6515 },
+                    { 1007, "Au", "Schweiz", "CU94254", "oskar.kanban@gmail.com", "Oskar", "Kanban", "SuperSavePW&8", "Blumenstrasse", "12a", "oskarkanban.ch", 8425 },
+                    { 1006, "Hundwil", "Schweiz", "CU56481", "juergen@gmail.com", "Jürgen", "Blyatman", "SuperSavePW&7", "Hinter dem Baum", "12a", "juergenblyatmann.ch", 4246 },
+                    { 1005, "Au", "Schweiz", "CU15468", "andreas.rot@gmail.com", "Andreas", "Rot", "SuperSavePW&6", "Huebstrasse", "12a", "andreasrot.ch", 8423 },
+                    { 1003, "Goldach", "Schweiz", "CU12384", "vreni.kuster@gmail.com", "Vreni", "Kuster", "SuperSavePW&4", "Bahnhofplatz", "12a", "vrenikuster.ch", 8421 },
+                    { 1002, "Schlieren", "Schweiz", "CU42681", "max.mustermann@gmail.com", "Max", "Mustermann", "SuperSavePW&3", "Rosenweg", "12a", "maxmustermann.ch", 5642 },
+                    { 1001, "Wil", "Schweiz", "CU51238", "ueli.moser@gmail.com", "Ueli", "Moser", "SuperSavePW&2", "Lindenstrasse", "12a", "uelimoser.ch", 4444 },
+                    { 1000, "Uznach", "Schweiz", "CU95216", "hans.mueller@gmail.com", "Hans", "Müller", "SuperSavePW&1", "Dorfstrasse", "12a", "hanshueller.ch", 5642 },
+                    { 1004, "Zürich", "Schweiz", "CU54687", "petra.schwarz@gmail.com", "Petra", "Schwarz", "SuperSavePW&5", "Lindenstrasse", "12a", "petraschwarz.ch", 4526 }
                 });
 
             migrationBuilder.InsertData(
