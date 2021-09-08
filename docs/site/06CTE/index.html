@@ -16,7 +16,7 @@
     
     
       
-        <title>ERM - order-management</title>
+        <title>CTE – Categories View - order-management</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#erm" class="md-skip">
+        <a href="#cte-categories-view" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ERM
+              CTE – Categories View
             
           </span>
         </div>
@@ -299,7 +299,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        ERM
+        CTE – Categories View
       </a>
       
     </li>
@@ -315,7 +315,7 @@
   
     <li class="md-nav__item">
       <a href="../07YOY/" class="md-nav__link">
-        ERM
+        YOY Comparison
       </a>
     </li>
   
@@ -345,7 +345,7 @@
   
     <li class="md-nav__item">
       <a href="../09EmailValidation/" class="md-nav__link">
-        Bills
+        Email Validation
       </a>
     </li>
   
@@ -381,9 +381,35 @@
               
                 
                 
-                <h1 id="erm">ERM</h1>
-<p>Aufgrund der Vorgaben, wurde folgendes ERM entworfen und im EF Code-First Ansatz entwickelt.</p>
-<p><img alt="erm" src="../images/erm.png" /></p>
+                <h1 id="cte-categories-view">CTE – Categories View</h1>
+<p><code>var query = @";WITH RecurseTable " +
+    "(ProductCategoryId, ProductCategoryName, ParentId, Level) " +
+    "AS (SELECT " +
+                "ProductCategoryId," +
+                "ProductCategoryName," +
+                "ISNULL(ParentId, 0)," +
+                "0 AS Level " +
+    "FROM ProductCategories " +
+    "WHERE ParentId IS NULL " +
+    "UNION ALL " +
+    "SELECT " +
+                "pcat.ProductCategoryId," +
+                "pcat.ProductCategoryName," +
+                "pcat.ParentId," +
+                "Level + 1 " +
+    "FROM ProductCategories AS pcat " +
+    "INNER JOIN RecurseTable AS rec " +
+        "ON rec.ProductCategoryId = pcat.ParentId " +
+    ") " +
+    "SELECT " +
+            "ProductCategoryId," +
+            "ProductCategoryName," +
+            "ParentId," +
+            "Level " +
+    "FROM RecurseTable";</code>
+Die Aufruft von C# code erfolgt mit als Query string mit Hilfe von EntityFrameworkCore.
+Danach erhalten wir als Ergebnis eine Tabelle mit ID der Kategory, Beschreibung, ParentID, welche Identifiziert zu welche übergeordnet Kategorie diese Kategorie gehört und als letzten mit «Level» wird angezeigt zu welchem Level sich diese Kategorie gehört.
+Danach wird diese Liste iteriert. Als erstes nimmt man ein Node vom Level 0 und dann werden alle items mit dem gleichen ParentID zu diesen Node hinzugefügt bis alle items in der TreeView hinzugefügt wurden.</p>
                 
               
               
@@ -419,13 +445,13 @@
       
       
         
-        <a href="../07YOY/" class="md-footer__link md-footer__link--next" aria-label="Next: ERM" rel="next">
+        <a href="../07YOY/" class="md-footer__link md-footer__link--next" aria-label="Next: YOY Comparison" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              ERM
+              YOY Comparison
             </div>
           </div>
           <div class="md-footer__button md-icon">

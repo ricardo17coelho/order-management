@@ -16,7 +16,7 @@
     
     
       
-        <title>Bills - order-management</title>
+        <title>Email Validation - order-management</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bills" class="md-skip">
+        <a href="#email-validation" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bills
+              Email Validation
             
           </span>
         </div>
@@ -290,7 +290,7 @@
   
     <li class="md-nav__item">
       <a href="../06CTE/" class="md-nav__link">
-        ERM
+        CTE – Categories View
       </a>
     </li>
   
@@ -305,7 +305,7 @@
   
     <li class="md-nav__item">
       <a href="../07YOY/" class="md-nav__link">
-        ERM
+        YOY Comparison
       </a>
     </li>
   
@@ -343,39 +343,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Bills
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Bills
+        Email Validation
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#netto-brutto-berechnung" class="md-nav__link">
-    Netto Brutto Berechnung
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -400,21 +370,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#netto-brutto-berechnung" class="md-nav__link">
-    Netto Brutto Berechnung
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -426,23 +381,22 @@
               
                 
                 
-                <h1 id="bills">Bills</h1>
-<p>Zuerst haben wir das DataGridView für die Bills nur an ein Tabellen-Übergreifendes Query gebunden. Dann haben wir allerdings bemerkt, dass die Anforderung der nachvollziehbaren Adressänderung nicht erfüllt wird. 
-Weil wenn man die Adresse eines Kunden geändert hat, hat sich auch die Adresse in den Bills geändert, da es ja nur eine Tabellenübergreifende Abfrage war.
-Aufgrund dessen haben wir, wie man im ERM sehen kann, eine Tabelle für die Bills erstellt. Somit werden jetzt auch Rechnungen persistiert und man kann Adressänderungen nachvollziehen.</p>
-<h2 id="netto-brutto-berechnung">Netto Brutto Berechnung</h2>
-<p>Damit wir den Netto und Brutto Preis berechnen können, haben wir bei jedem Order-Objekt eine «Tax» definiert. </p>
-<pre><code>double netto = 0;
-
-foreach (var orderDetail in orderDetails)
+                <h1 id="email-validation">Email Validation</h1>
+<p>Für die Email Validierung wird System.Net.Mail.MailAddress verwendet.</p>
+<pre><code>public bool IsValidEmailAddress(string email)
 {
-netto += orderDetail.Quantity * orderDetail.Product.Price;
+    try
+    {
+        var addr = new System.Net.Mail.MailAddress(email);
+        return addr.Address == email;
+    }
+    catch
+    {
+        return false;
+    }
 }
-
-var brutto = netto * (order.Tax / 100) + netto;
-
-Add(new Bill(customerId, firstName, lastName, street, streetNr, zip, city, country, orderDate, orderId, netto, brutto)) 
 </code></pre>
+<p>Dokumentation: https://docs.microsoft.com/en-us/dotnet/api/system.net.mail.mailaddress?view=net-5.0</p>
                 
               
               

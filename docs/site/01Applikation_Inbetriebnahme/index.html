@@ -251,6 +251,54 @@
     Beispiel Customer
   </a>
   
+    <nav class="md-nav" aria-label="Beispiel Customer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forms" class="md-nav__link">
+    Forms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    Views
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    Services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repos" class="md-nav__link">
+    Repos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db-entities" class="md-nav__link">
+    DB-Entities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ausnahme" class="md-nav__link">
+    Ausnahme
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -330,7 +378,7 @@
   
     <li class="md-nav__item">
       <a href="../06CTE/" class="md-nav__link">
-        ERM
+        CTE – Categories View
       </a>
     </li>
   
@@ -345,7 +393,7 @@
   
     <li class="md-nav__item">
       <a href="../07YOY/" class="md-nav__link">
-        ERM
+        YOY Comparison
       </a>
     </li>
   
@@ -375,7 +423,7 @@
   
     <li class="md-nav__item">
       <a href="../09EmailValidation/" class="md-nav__link">
-        Bills
+        Email Validation
       </a>
     </li>
   
@@ -411,6 +459,54 @@
     Beispiel Customer
   </a>
   
+    <nav class="md-nav" aria-label="Beispiel Customer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forms" class="md-nav__link">
+    Forms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    Views
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    Services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repos" class="md-nav__link">
+    Repos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db-entities" class="md-nav__link">
+    DB-Entities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ausnahme" class="md-nav__link">
+    Ausnahme
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -431,6 +527,28 @@
 <p><img alt="Class Diagram 2" src="../images/class-diagram-02.png" /></p>
 <h2 id="beispiel-customer">Beispiel Customer</h2>
 <p><img alt="Customer Architektur" src="../images/customer.png" /></p>
+<h3 id="forms">Forms</h3>
+<p>Forms sind Formulare, welche Textfelder enthalten, wo der User Daten eingeben kann. Diese Daten werden dann schlussendlich auf der Datenbank abgespeichert.</p>
+<h3 id="views">Views</h3>
+<p>Auf den Views befindet sich jeweils lediglich ein Data-Grid-View welches Daten veranschaulicht.  </p>
+<h3 id="services">Services</h3>
+<p>Für jedes Entity gibt es einen dazugehörigen Service. Diese bilden jeweils die Verbindung zum Repo ab. Dort drin gibt es jeweils Methoden wie z.B.: 
+•   GetAll()
+•   GetByName(string name)
+•   Add(Entity entity)
+•   Delete(Entity entity)
+•   Etc.</p>
+<h3 id="repos">Repos</h3>
+<p>Die Repos stellen die Verbindung zur DB bzw. zum Context dar.</p>
+<h3 id="db-entities">DB-Entities</h3>
+<p>Zuletzt findet man die DB-Entities, welche so auch im ERM wiederzufinden sind.</p>
+<h3 id="ausnahme">Ausnahme</h3>
+<p>Folgende Klasse ist eine Ausnahme und die findet man so nicht in der Datenbank.
+•   YoyComparison
+In der Methode OnModelCreating() im DbContext wurde definiert, dass für diese Klasse keine Tabelle erzeugt werden soll:</p>
+<pre><code>modelBuilder.Entity&lt;YoyComparison&gt;().HasNoKey().ToView(null);
+</code></pre>
+<p>Diese Klasse wird lediglich als «Query-Objekt» verwendet. D.h. Diese Objekte werden nicht in der Datenbank gespeichert, aber wir benötigen sie als Objektstruktur für gewisse Queries und für die Darstellung im ViewYoyComparison.</p>
                 
               
               
