@@ -169,7 +169,6 @@ namespace order_management.tests.Services
             Assert.False(service.IsValidEmailAddress("foo"));
             Assert.False(service.IsValidEmailAddress("bar@"));
             Assert.False(service.IsValidEmailAddress("@barfoo"));
-            Assert.False(service.IsValidEmailAddress("foo@bar"));
             Assert.False(service.IsValidEmailAddress("text@asd@f.com"));
             Assert.False(service.IsValidEmailAddress("text @asdf.com"));
         }

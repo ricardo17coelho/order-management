@@ -68,12 +68,25 @@ namespace order_management.Services
                 entity.Password != "";
         }
 
-        public Boolean IsValidEmailAddress(string email)
-        {
-            return Regex.IsMatch(email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
-        }
+        //public Boolean IsValidEmailAddress(string email)
+        //{
+        //    return Regex.IsMatch(email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+        //}
 
-        public Boolean IsValidCustomerNr(string nr)
+		public bool IsValidEmailAddress(string email)
+		{
+			try
+			{
+				var addr = new System.Net.Mail.MailAddress(email);
+				return addr.Address == email;
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		public Boolean IsValidCustomerNr(string nr)
         {
             return Regex.IsMatch(nr, @"CU([0-9]{5})$");
         }
