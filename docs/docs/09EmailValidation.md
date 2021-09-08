@@ -14,4 +14,4 @@ public bool IsValidEmailAddress(string email)
 	}
 }
 ```
-Dokumentation: https://docs.microsoft.com/en-us/dotnet/api/system.net.mail.mailaddress?view=net-5.0
+[Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.net.mail.mailaddress?view=net-5.0)

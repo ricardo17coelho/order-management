@@ -1,5 +1,5 @@
 # 06 CTE – Categories View
-```
+```sql
 var query = @";WITH RecurseTable " +
     "(ProductCategoryId, ProductCategoryName, ParentId, Level) " +
     "AS (SELECT " +
