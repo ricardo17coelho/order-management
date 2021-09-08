@@ -16,7 +16,7 @@
     
     
       
-        <title>05 ERM - order-management</title>
+        <title>05 Architektur - order-management</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#05-erm" class="md-skip">
+        <a href="#05-architektur" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              05 ERM
+              05 Architektur
             
           </span>
         </div>
@@ -200,7 +200,7 @@
   
     <li class="md-nav__item">
       <a href=".." class="md-nav__link">
-        Welcome to our super awesome documentaion!
+        Welcome to MkDocs
       </a>
     </li>
   
@@ -215,7 +215,7 @@
   
     <li class="md-nav__item">
       <a href="../01Applikation_Inbetriebnahme/" class="md-nav__link">
-        01 Applikation Inbetriebnahme
+        Architektur
       </a>
     </li>
   
@@ -230,7 +230,7 @@
   
     <li class="md-nav__item">
       <a href="../02Unser_Vorgehen/" class="md-nav__link">
-        02 Unser Vorgehen
+        Unser Vorgehen
       </a>
     </li>
   
@@ -245,7 +245,7 @@
   
     <li class="md-nav__item">
       <a href="../03UI/" class="md-nav__link">
-        03 UI
+        UI
       </a>
     </li>
   
@@ -260,7 +260,7 @@
   
     <li class="md-nav__item">
       <a href="../04Erm/" class="md-nav__link">
-        04 ERM
+        ERM
       </a>
     </li>
   
@@ -283,9 +283,67 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          05 Architektur
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        05 ERM
+        05 Architektur
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beispiel-customer" class="md-nav__link">
+    Beispiel Customer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forms" class="md-nav__link">
+    Forms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repos" class="md-nav__link">
+    Repos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db-entities" class="md-nav__link">
+    DB-Entities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ausnahme" class="md-nav__link">
+    Ausnahme
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -300,7 +358,7 @@
   
     <li class="md-nav__item">
       <a href="../06CTE/" class="md-nav__link">
-        06 CTE – Categories View
+        CTE – Categories View
       </a>
     </li>
   
@@ -315,7 +373,7 @@
   
     <li class="md-nav__item">
       <a href="../07YOY/" class="md-nav__link">
-        07 YOY Comparison
+        YOY Comparison
       </a>
     </li>
   
@@ -330,7 +388,7 @@
   
     <li class="md-nav__item">
       <a href="../08Bills/" class="md-nav__link">
-        08 Bills
+        Bills
       </a>
     </li>
   
@@ -345,7 +403,7 @@
   
     <li class="md-nav__item">
       <a href="../09EmailValidation/" class="md-nav__link">
-        09 Email Validation
+        Email Validation
       </a>
     </li>
   
@@ -370,6 +428,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beispiel-customer" class="md-nav__link">
+    Beispiel Customer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forms" class="md-nav__link">
+    Forms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repos" class="md-nav__link">
+    Repos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db-entities" class="md-nav__link">
+    DB-Entities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ausnahme" class="md-nav__link">
+    Ausnahme
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -381,9 +482,33 @@
               
                 
                 
-                <h1 id="05-erm">05 ERM</h1>
-<p>Aufgrund der Vorgaben, wurde folgendes ERM entworfen und im EF Code-First Ansatz entwickelt.</p>
-<p><img alt="erm" src="../images/erm.png" /></p>
+                <h1 id="05-architektur">05 Architektur</h1>
+<p><img alt="class diagram" src="../images/class-diagram-01.png" /></p>
+<p><img alt="class diagram 2" src="../images/class-diagram-02.png" /></p>
+<h2 id="beispiel-customer">Beispiel Customer</h2>
+<p><img alt="customer" src="../images/customer.png" /></p>
+<h2 id="forms">Forms</h2>
+<p>Forms sind Formulare, welche Textfelder enthalten, wo der User Daten eingeben kann. Diese Daten werden dann schlussendlich auf der Datenbank abgespeichert.
+5.1.2   Views
+Auf den Views befindet sich jeweils lediglich ein Data-Grid-View welches Daten veranschaulicht.<br />
+5.1.3   Services
+Für jedes Entity gibt es einen dazugehörigen Service. Diese bilden jeweils die Verbindung zum Repo ab. Dort drin gibt es jeweils Methoden wie z.B.: 
+•   GetAll()
+•   GetByName(string name)
+•   Add(Entity entity)
+•   Delete(Entity entity)
+•   Etc.</p>
+<h2 id="repos">Repos</h2>
+<p>Die Repos stellen die Verbindung zur DB bzw. zum Context dar.</p>
+<h2 id="db-entities">DB-Entities</h2>
+<p>Zuletzt findet man die DB-Entities, welche so auch im ERM wiederzufinden sind.</p>
+<h2 id="ausnahme">Ausnahme</h2>
+<p>Folgende Klasse ist eine Ausnahme und die findet man so nicht in der Datenbank.
+•   YoyComparison
+In der Methode OnModelCreating() im DbContext wurde definiert, dass für diese Klasse keine Tabelle erzeugt werden soll:</p>
+<pre><code>modelBuilder.Entity&lt;YoyComparison&gt;().HasNoKey().ToView(null);
+</code></pre>
+<p>Diese Klasse wird lediglich als «Query-Objekt» verwendet. D.h. Diese Objekte werden nicht in der Datenbank gespeichert, aber wir benötigen sie als Objektstruktur für gewisse Queries und für die Darstellung im ViewYoyComparison.</p>
                 
               
               
@@ -403,7 +528,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../04Erm/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 04 ERM" rel="prev">
+        <a href="../04Erm/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ERM" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -412,20 +537,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              04 ERM
+              ERM
             </div>
           </div>
         </a>
       
       
         
-        <a href="../06CTE/" class="md-footer__link md-footer__link--next" aria-label="Next: 06 CTE – Categories View" rel="next">
+        <a href="../06CTE/" class="md-footer__link md-footer__link--next" aria-label="Next: CTE – Categories View" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              06 CTE – Categories View
+              CTE – Categories View
             </div>
           </div>
           <div class="md-footer__button md-icon">
